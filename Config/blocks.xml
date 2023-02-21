@@ -1,0 +1,1255 @@
+<configs>
+
+<!-- Double Drawbridge -->
+
+
+	<append xpath="/blocks">
+		<block name="metalReinforcedWoodDrawBridgeDouble">
+			<property name="CustomIcon" value="metalReinforcedWoodDrawBridge"/>
+			<property name="CustomIconTint" value="255,255,0" />
+			<property name="Group" value="Building"/>
+			<property name="Class" value="DrawBridge"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="LightOpacity" value="1"/>
+			<property name="MaxDamage" value="10000"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Texture" value="241"/>
+			<property name="Model" value="Entities/Doors/bridge_wood_doublePrefab"/>
+			<property name="MultiBlockDim" value="4,1,12"/>
+			<property name="BlockTag" value="Door"/>
+			<property name="OpenSound" value="open_bridge"/>
+			<property name="CloseSound" value="close_bridge"/>
+			<property name="Place" value="DrawBridge"/>
+			<property name="PlaceEverywhere" value="true"/>
+			<property name="OnlySimpleRotations" value="false"/>
+			<property name="AllowAllRotations" value="true"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="100"/>
+				<property name="resourceWood" value="2000"/></property>
+			<drop event="Harvest" name="resourceScrapIron" count="400" prob="1" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceWood" count="800" prob="1" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Destroy" name="resourceSpring" count="4,12" prob="1" tag="salvageHarvest"/>
+			<drop event="Destroy" name="resourceMechanicalParts" count="4,20" prob="1" tag="salvageHarvest"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="DescriptionKey" value="drawBridgeGroupDesc"/>
+			<property name="ActivationDistance" value="14"/>
+			<property name="FilterTags" value="fdecor,fdoors"/>
+			<property name="SortOrder1" value="7060"/>
+			<property name="UnlockedBy" value="perkAdvancedEngineering,poweredDoorsSchematic"/>
+		</block>
+		<block name="metalReinforcedWoodDrawBridgeDoublePowered">
+			<property name="CustomIcon" value="metalReinforcedWoodDrawBridge"/>
+			<property name="CustomIconTint" value="255,255,0" />
+			<property name="Extends" value="metalReinforcedWoodDrawBridgeDouble" />
+			<property name="Class" value="PoweredDoor"/>
+			<property name="UnlockedBy" value="perkAdvancedEngineering,poweredDoorsSchematic"/>
+		</block>
+	</append>
+
+<!-- Change Movement speed based on terrain -->
+<!--Sand -->
+	<append xpath="/blocks/block[@name='terrSand']">
+		<property name="MovementFactor" value=".8"/>
+	</append>
+<!--Snow -->
+	<append xpath="/blocks/block[@name='terrSnow']">
+		<property name="MovementFactor" value=".8"/>
+	</append>
+<!--Bedrock -->
+	<append xpath="/blocks/block[@name='terrBedrock']">
+		<property name="MovementFactor" value="1.5"/>
+	</append>
+<!--Desert .9-->
+	<append xpath="/blocks/block[@name='terrDesertGround']">
+		<property name="MovementFactor" value=".9"/>
+	</append>
+<!--Asphalt 1.35-->
+	<append xpath="/blocks/block[@name='terrAsphalt']">
+		<property name="MovementFactor" value="1.35"/>
+	</append>
+<!--Gravel -->
+	<append xpath="/blocks/block[@name='terrGravel']">
+		<property name="MovementFactor" value="1.15"/>
+	</append>
+<!--Ice-->
+	<append xpath="/blocks/block[@name='terrIce']"><!--Ice-->
+		<property name="MovementFactor" value=".75"/>
+	</append>
+<!--Burnt Forest -->
+	<append xpath="/blocks/block[@name='terrBurntForestGround']">
+		<property name="MovementFactor" value=".95"/>
+	</append>
+<!--Destroyed Stone -->
+	<append xpath="/blocks/block[@name='terrDestroyedStone']">
+		<property name="MovementFactor" value=".92"/>
+	</append>
+<!--Concrete -->
+	<append xpath="/blocks/block[@name='terrConcrete']">
+		<property name="MovementFactor" value="1.25"/>
+	</append>
+
+
+<!-- Starter Crate -->
+	<append xpath="/blocks">
+
+	<block name="MStarterCrate">
+		<property name="CustomIcon" value="cntShippingCrateHero"/>
+		<property name="DescriptionKey" value="MStarterCrateDesc"/>
+		<property name="MaxDamage" value="6"/>
+		<property name="Shape" value="ModelEntity"/>
+		<property name="Path" value="solid"/>
+		<property name="Model" value="#Entities/LootContainers?crate_storePrefab.prefab"/>
+		<property name="DisplayInfo" value="Name"/>
+		<property name="Material" value="Mwood_regular"/>
+		<drop event="Destroy" count="0"/>
+		<property name="DowngradeBlock" value="MStarterCrateOpen"/>
+		<property name="FilterTags" value="floot"/>
+	</block>
+
+	<block name="MStarterCrateOpen">
+		<property name="CustomIcon" value="cntGarageStorage"/>
+		<property name="DescriptionKey" value="MStarterCrateDesc"/>
+		<property name="Class" value="Loot"/>
+		<property name="Material" value="MCardboardLoot"/>
+		<property name="Path" value="solid"/>
+		<property name="Shape" value="New"/>
+		<property name="Model" value="cube_no_cull"/>
+		<property name="AllowAllRotations" value="true"/>
+		<property name="Texture" value="276,276,270,270,270,270"/>
+		<property name="LootList" value="MStarterCrateLoot"/>
+		<property class="RepairItems"> 
+			<property name="resourcePaper" value="10"/> 
+			<property name="resourceWood" value="4"/> 
+		</property>
+		<drop event="Destroy" name="resourcePaper" count="2,8"/>
+		<property name="FilterTags" value="floot"/>
+	</block>
+
+	</append>
+
+<!-- Better Blade Trap damage -->
+
+	<set xpath="/blocks/block[@name='bladeTrap']/property[@name='Damage']/@value">100</set>	
+	<set xpath="/blocks/block[@name='bladeTrap']/property[@name='BreakingPercentage']/@value">0.1</set>
+	<set xpath="/blocks/block[@name='bladeTrap']/property[@name='BrokenPercentage']/@value">0.1</set>
+
+<!-- Better Electric Fence -->
+
+	<set xpath="/blocks/block[@name='electricfencepost']/property[@name='MaxDamage']/@value">500</set>
+
+<!-- Better Spike Trap health -->
+
+	<set xpath="/blocks/block[@name='trapSpikesWoodMaster']/property[@name='MaxDamage']/@value">400</set>
+	<set xpath="/blocks/block[@name='trapSpikesScrapIronMaster']/property[@name='MaxDamage']/@value">600</set>
+
+<!-- Land Mines break legs -->
+    <append xpath="/blocks/block[contains(@name, 'mine')]">
+        <property name="Explosion.Buff" value="triggerBrokenLeg"/>
+    </append>
+
+<!--  
+	<append xpath="/blocks/block[@name='mineCandyTin']">
+        <property name="Explosion.Buff" value="triggerBrokenLeg"/>
+    </append>
+    <append xpath="/blocks/block[@name='mineCookingPot']">
+        <property name="Explosion.Buff" value="triggerBrokenLeg"/>
+    </append>
+    <append xpath="/blocks/block[@name='mineHubcap']">
+        <property name="Explosion.Buff" value="triggerBrokenLeg"/>
+    </append>
+    <append xpath="/blocks/block[@name='mineAirFilter']">
+        <property name="Explosion.Buff" value="triggerBrokenLeg"/>
+    </append>
+    <append xpath="/blocks/block[@name='rScrapIronPlateMine']">
+        <property name="Explosion.Buff" value="triggerBrokenLeg"/>
+    </append>
+ -->
+ 
+ 
+<!-- Don't let your fire burn too long, this will punish players with screamers and hordes -->
+	<set xpath="/blocks/block[@name='campfire']/property[@name='HeatMapStrength']/@value">6</set>        <!-- original: 5    -->
+	<set xpath="/blocks/block[@name='campfire']/property[@name='HeatMapTime']/@value">6000</set>         <!-- original: 5000 -->
+	<set xpath="/blocks/block[@name='campfire']/property[@name='HeatMapFrequency']/@value">1500</set>    <!-- original: 1000 -->
+	<set xpath="/blocks/block[@name='forge']/property[@name='HeatMapStrength']/@value">7</set>           <!-- original: 6    -->
+	<set xpath="/blocks/block[@name='forge']/property[@name='HeatMapTime']/@value">6000</set>            <!-- original: 5000 -->
+	<set xpath="/blocks/block[@name='forge']/property[@name='HeatMapFrequency']/@value">1500</set>       <!-- original: 1000 -->
+	<set xpath="/blocks/block[@name='workbench']/property[@name='HeatMapStrength']/@value">3</set>       <!-- original: 2    -->
+	<set xpath="/blocks/block[@name='workbench']/property[@name='HeatMapTime']/@value">6000</set>        <!-- original: 5000 -->
+	<set xpath="/blocks/block[@name='workbench']/property[@name='HeatMapFrequency']/@value">1500</set>   <!-- original: 1000 -->
+	<set xpath="/blocks/block[@name='cementMixer']/property[@name='HeatMapStrength']/@value">3</set>     <!-- original: 2    -->
+	<set xpath="/blocks/block[@name='cementMixer']/property[@name='HeatMapTime']/@value">6000</set>      <!-- original: 5000 -->
+	<set xpath="/blocks/block[@name='cementMixer']/property[@name='HeatMapFrequency']/@value">1500</set> <!-- original: 1000 -->
+	<set xpath="/blocks/block[@name='chemistryStation']/property[@name='HeatMapStrength']/@value">6</set><!-- original: 5    -->
+	<set xpath="/blocks/block[@name='chemistryStation']/property[@name='HeatMapTime']/@value">6000</set> <!-- original: 5000 -->
+	<set xpath="/blocks/block[@name='chemistryStation']/property[@name='HeatMapFrequency']/@value">1500</set> <!-- original: 1000 -->	
+	
+<!-- Pick up Appliances -->
+	
+	<append xpath="/blocks/block[@name='cntMicrowaveOvenVer1Open']" >
+			<property name="CanPickup" value="true" param1="cntMicrowaveOvenVer1Closed"/>
+			<property name="Weight" value="60"/>
+	</append>
+	<append xpath="/blocks/block[@name='cntToaster']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="40"/>
+	</append>
+	<append xpath="/blocks/block[@name='candelabraLight']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="40"/>
+	</append>	
+	<append xpath="/blocks/block[@name='wallClock']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="40"/>
+	</append>		
+	<append xpath="/blocks/block[@name='tableLampLightCentered']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="40"/>
+	</append>		
+	<append xpath="/blocks/block[@name='cntDryerOpen']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="40"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntWasherIndustrialOpen']">
+			<property name="CanPickup" value="true" param1="cntWasherIndustrialClosed"/>
+			<property name="Weight" value="40"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntWasherOpen']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="40"/>
+	</append>
+		
+<!-- Pick up workstations -->
+
+	<append xpath="/blocks/block[@name='workbench']">
+		<property name="CanPickup" value="true"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntWorkbenchBustedRandomLootHelper']">
+		<property name="CanPickup" value="true"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cementMixer']">
+		<property name="CanPickup" value="true"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='cntCementMixerBustedRandomLootHelper']">
+		<property name="CanPickup" value="true"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='chemistryStation']">
+		<property name="CanPickup" value="true"/>
+	</append>	
+	
+	<append xpath="/blocks/block[@name='cntChemistryStationBustedRandomLootHelper']">
+		<property name="CanPickup" value="true"/>
+	</append>
+
+
+<!-- Pick up Various Items -->
+
+
+<!--  BLINDS & CURTAINS -->
+		<append xpath="/blocks/block[@name='commercialBlindsTop']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="10"/>
+			<property name="Material" value="MresourceScrapPolymers"/>
+		</append> 
+		<append xpath="/blocks/block[@name='curtain_top1Sheet3']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="10"/>
+		</append> 
+		<append xpath="/blocks/block[@name='miniblindTopSheet']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="10"/>
+			<property name="Material" value="MresourceScrapPolymers"/>
+		</append>
+<!-- CASH REGISTER EMPTY -->
+		<append xpath="/blocks/block[@name='cntCashRegisterEmpty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/> 
+		</append>
+<!-- COOLER -->
+		<append xpath="/blocks/block[@name='cntCoolerOpen']" >
+			<property name="CanPickup" value="true" param1="cntCoolerClosed"/>
+			<property name="Weight" value="60"/> 
+		</append>
+<!-- EXERCISE EQUIPMENT -->
+		<append xpath="/blocks/block[@name='decoBenchPress']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoStationaryBike']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoTreadmill']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoWeightBar']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoBasketBallHoop']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoMetalSlide']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="50"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoSwingSet']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="50"/>
+		</append>
+<!-- ELECTRONICS -->
+		<append xpath="/blocks/block[@name='decoComputerDeskTopPC']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="50"/>
+		</append>
+		<append xpath="/blocks/block[contains(@name, 'decoComputer')]">	
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="20"/> 
+		</append>
+		<append xpath="/blocks/block[@name='tv']" >
+			<property name="CanPickup" value="true"/>
+		</append>
+<!--  FURNITURE -->
+		<append xpath="/blocks/block[contains(@name,'Bed') and not(contains(@name,'terr'))]">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntWoodFurnitureBlockVariantHelper']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='barStool']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntBookcaseEmpty']">
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[contains(@name,'cntFileCabinet') and not(contains(@name,'Open'))]">
+			<property name="CanPickup" value="true" param1="metalFurnitureBlockVariantHelper"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[contains(@name,'cntLockers') and not(contains(@name,'Closed'))]">
+			<property name="CanPickup" value="true" param1="metalFurnitureBlockVariantHelper"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntMetalDesk02Open']">
+			<property name="CanPickup" value="true" param1="metalFurnitureBlockVariantHelper"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntNightstandOpen']">
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntWoodDesk01Open']">
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoClassicDogHouse']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoClawFootBathTub']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoLargePetCage']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoPicnicTable']">
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoPoolTable']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="150"/>
+		</append>
+		<append xpath="/blocks/block[@name='decoReptileTerrarium']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='endTable']">
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='parkBenchA']" >
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='pew_segment01']" >
+			<property name="CanPickup" value="true" param1="woodFurnitureBlockVariantHelper"/>
+		</append>
+		<append xpath="/blocks/block[contains(@name, 'Sofa')]">	
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="20"/> 
+		</append>
+		<append xpath="/blocks/block[@name='rustyIronTable']">
+			<property name="CanPickup" value="true" param1="metalFurnitureBlockVariantHelper"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='schoolDesk']">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+<!-- LAUNDRY BASKET -->
+		<append xpath="/blocks/block[@name='cntLaundryBasketVer1Empty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="30"/>
+		</append>
+<!-- LUGGAGE -->
+		<append xpath="/blocks/block[@name='cntLuggageMediumOpen']" >
+			<property name="CanPickup" value="true" param1="cntLuggageMediumClosed"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntLuggageBigOpen']" >
+			<property name="CanPickup" value="true" param1="cntLuggageBigClosed"/>
+			<property name="Weight" value="80"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntLuggagePileBOpen']" >
+			<property name="CanPickup" value="true" param1="cntLuggagePileBClosed"/>
+			<property name="Weight" value="160"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntLuggagePileAOpen']" >
+			<property name="CanPickup" value="true" param1="cntLuggagePileAClosed"/>
+			<property name="Weight" value="160"/>
+		</append>
+<!-- PAINTINGS -->
+		<append xpath="/blocks/block[contains(@name, 'painting')]">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="10"/>
+		</append>
+<!-- SHOPPING CART -->
+		<append xpath="/blocks/block[@name='cntShoppingCartEmpty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="20"/> 
+		</append>
+		<append xpath="/blocks/block[@name='cntShoppingBasketEmpty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="20"/> 
+		</append>	
+<!-- SIGNS -->
+		<append xpath="/blocks/block[starts-with(@name,'sign')]">
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+<!-- TOOL BOXES -->
+		<append xpath="/blocks/block[@name='cntToolBoxOpen']" >
+			<property name="CanPickup" value="true" param1="cntToolBoxClosed"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntRollingToolBoxOpen']" >
+			<property name="CanPickup" value="true" param1="cntRollingToolBoxClosed"/>
+			<property name="Weight" value="120"/>
+		</append>
+<!-- TRASH CAN-->
+		<append xpath="/blocks/block[@name='cntDomedTrashCanEmpty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+		<append xpath="/blocks/block[@name='cntBruteStyleTrashCanEmpty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+<!-- UTILITY CART -->
+		<append xpath="/blocks/block[@name='cntUtilityCartEmpty']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+<!-- WINE BARREL -->
+		<append xpath="/blocks/block[@name='wineBarrel']" >
+			<property name="CanPickup" value="true"/>
+			<property name="Weight" value="60"/>
+		</append>
+			
+	
+<!-- Set Stack number counts -->
+	
+		<append xpath="/blocks/block[@name='trapSpikesWoodMaster']">
+		<property name="Stacknumber" value="2500"/>
+		</append>
+		<append xpath="/blocks/block[@name='trapSpikesScrapIronMaster']">
+		<property name="Stacknumber" value="2500"/>
+		</append>
+		<append xpath="/blocks/block[@name='trapSpikesNew']">
+		<property name="Stacknumber" value="2500"/>
+		</append>
+		<append xpath="/blocks/block[@name='mineCandyTin']">	
+		<property name="Stacknumber" value="2500"/>
+		</append>		
+		<append xpath="/blocks/block[@name='mineHubcap']">	
+		<property name="Stacknumber" value="250"/>
+		</append>
+		<append xpath="/blocks/block[@name='mineAirFilter']">
+		<property name="Stacknumber" value="250"/>
+		</append>
+		<append xpath="/blocks/block[@name='mineCookingPot']">
+		<property name="Stacknumber" value="250"/>
+		</append>		
+		<append xpath="/blocks/block[@name='rScrapIronPlateMine']">	
+		<property name="Stacknumber" value="250"/>
+		</append>	
+		<append xpath="/blocks/block[@name='officeChair01']">	
+		<property name="Stacknumber" value="250"/>
+		</append>		
+		<append xpath="/blocks/block[@name='woodChair1']">	
+		<property name="Stacknumber" value="250"/>
+		</append>		
+		<append xpath="/blocks/block[@name='barracksChair']">	
+		<property name="Stacknumber" value="250"/>
+		</append>		
+		<append xpath="/blocks/block[@name='oldChair1']">	
+		<property name="Stacknumber" value="250"/>
+		</append>		
+		<append xpath="/blocks/block[@name='tv']">	
+		<property name="Stacknumber" value="250"/>	
+		</append>		
+		<append xpath="/blocks/block[@name='wallTorchLightPlayer']">	
+		<property name="Stacknumber" value="50"/>
+		</append>		
+		<append xpath="/blocks/block[@name='candleWallLightPlayer']">	
+		<property name="Stacknumber" value="50"/>	
+		</append>		
+		<append xpath="/blocks/block[@name='burningBarrelPlayer']">	
+		<property name="Stacknumber" value="50"/>
+		</append>
+		<append xpath="/blocks/block[@name='dartTrap']">	
+		<property name="Stacknumber" value="250"/>
+		</append>		
+		<append xpath="/blocks/block[@name='bladeTrap']">	
+		<property name="Stacknumber" value="250"/>	
+		</append>		
+		<append xpath="/blocks/block[@name='burningBarrelPlayer']">	
+		<property name="Stacknumber" value="250"/>			
+		</append>			
+
+<!--no need for Farm Plots -->
+
+   	<set xpath="/blocks/block[@name='cropsGrowingMaster']/property[@name='PlantGrowing.FertileLevel']/@value">0</set> 
+
+<!-- Better Electricity -->
+
+	<set xpath="/blocks/block[@name='solarbank']/property[@name='MaxPower']/@value">3000</set>
+	<set xpath="/blocks/block[@name='batterybank']/property[@name='MaxPower']/@value">3000</set>
+	<set xpath="/blocks/block[@name='solarbank']/property[@name='OutputPerStack']/@value">500</set>
+	<set xpath="/blocks/block[@name='batterybank']/property[@name='OutputPerStack']/@value">250</set>
+	<set xpath="/blocks/block[@name='batterybank']/property[@name='ChargePerInput']/@value">5</set>
+
+	<set xpath="/blocks/block[@name='generatorbank']/property[@name='OutputPerStack']/@value">1000</set>
+	<set xpath="/blocks/block[@name='generatorbank']/property[@name='MaxFuel']/@value">10000</set>
+	
+<!-- More Eggs -->
+
+	<append xpath="/blocks/block[@name='treeMaster']">
+		<drop event="Harvest" name="foodEgg" tag="allToolsHarvest" prob="0.1" count="1,2"/>
+	</append>
+
+<!-- A19 Farming -->
+
+	<append xpath="/blocks/block[@name='plantedMushroom3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedMushroom1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='foodCropMushrooms']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedYucca3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedYucca1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='foodCropYuccaFruit']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0</set>
+
+	<append xpath="/blocks/block[@name='plantedCotton3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedCotton1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='resourceCropCottonPlant']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedCoffee3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedCoffee1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='resourceCropCoffeeBeans']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='plantedCoffee1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedGoldenrod3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedGoldenrod1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='resourceCropGoldenrodPlant']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='plantedGoldenrod1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedAloe3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedAloe1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='resourceCropAloeLeaf']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='plantedAloe1']/@prob">0</set>
+	
+	
+	<append xpath="/blocks/block[@name='plantedBlueberry3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedBlueberry1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='foodCropBlueberries']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='plantedBlueberry1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedPotato3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedPotato1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='foodCropPotato']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='plantedPotato1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedChrysanthemum3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedChrysanthemum1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='resourceCropChrysanthemumPlant']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='plantedChrysanthemum1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedCorn3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedCorn1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='foodCropCorn']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='plantedCorn1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedGraceCorn3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedGraceCorn1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='foodCropGraceCorn']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='plantedGraceCorn1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedHop3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedHop1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='resourceCropHopsFlower']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0</set>
+	
+	<append xpath="/blocks/block[@name='plantedSnowberry3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedSnowberry1"/>
+	</append>
+	
+	<append xpath="/blocks/block[@name='plantedPumpkin3HarvestPlayer']">
+	<property name="DowngradeBlock" value="plantedPumpkin1"/>
+	</append>
+	
+	<set xpath="/blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='foodCropPumpkin']/@count">1</set>
+	<set xpath="/blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0</set>
+
+
+<!-- Chance to get Brass when harvesting iron -->
+	<append xpath="/blocks/block [@name='terrOreIron']">
+		<drop event="Harvest" name="resourceScrapBrass" prob=".10" count="25" tag="artOfMiningLuckyStrikeHarvest" />
+	</append>
+	
+
+<!-- Healing Beds -->
+	<append xpath="/blocks/block[contains(@name,'Bed') and not(contains(@name,'terr'))]">
+		<property name="BuffsWhenWalkedOn" value="Resting"/>
+	</append>
+	<append xpath="/blocks/block[contains(@name,'bed') and not(contains(@name,'terr'))]">
+		<property name="BuffsWhenWalkedOn" value="Resting"/>
+	</append>
+	<append xpath="/blocks/block[contains(@name,'bedroll') and not(contains(@name,'terr'))]">
+		<property name="BuffsWhenWalkedOn" value="Resting"/>
+	</append>
+
+<!-- Safes should NOT be easy to force open -->
+	<append xpath="/blocks/block[@name='cntWallSafe']" >
+	<property name="MaxDamage" value="9000"/> <!-- original: 2500  -->
+	</append>
+	<append xpath="/blocks/block[@name='cntGunSafe']" >
+	<property name="MaxDamage" value="18000"/><!-- original: 5000  -->
+	</append>
+	<append xpath="/blocks/block[@name='cntHardenedChestSecure']" >
+	<property name="MaxDamage" value="25000"/><!-- original: 10000  -->
+	</append>
+
+
+<!-- Salvage More From Workstations -->
+
+	<!-- Solar Bank -->		<!-- No Schematic Normally Only Sold -->
+	<append xpath="/blocks/block[@name='cntCollapsedSolarbank']" >
+		<drop event="Destroy" name="solarbank" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="solarCell" prob=".25" count="1,3" tag="salvageHarvest"/>
+		</append>
+		
+<!-- Battery Bank -->
+	<append xpath="/blocks/block[@name='cntCollapsedBatterybank']" >
+		<drop event="Destroy" name="batterybank" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="batterybankSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="carBattery" prob=".25" count="1" tag="salvageHarvest"/>
+		</append>
+		
+<!-- Generators -->
+	<append xpath="/blocks/block[@name='questGeneratorSmall']" >
+		<drop event="Destroy" name="generatorbank" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="generatorbankSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="smallEngine" prob=".25" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="ammoGasCan" prob=".25" count="50" tag="salvageHarvest"/>	
+		</append>
+
+	<append xpath="/blocks/block[@name='questGeneratorLarge']" >
+		<drop event="Destroy" name="generatorbank" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="generatorbankSchematic" prob=".25" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="smallEngine" prob=".25" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="ammoGasCan" prob=".25" count="100" tag="salvageHarvest"/>
+		</append>
+		
+	<append xpath="/blocks/block[@name='cntCollapsedGeneratorbank']" >
+		<drop event="Destroy" name="generatorbank" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="generatorbankSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Harvest" name="smallEngine" prob=".25" count="1" tag="salvageHarvest"/>
+		</append>
+
+<!-- Cement Mixer -->
+	<append xpath="/blocks/block[@name='cntCollapsedCementMixer']" >
+		<drop event="Destroy" name="cementMixer" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="cementMixerSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="smallEngine" prob=".25" count="1" tag="salvageHarvest"/>
+		</append>
+
+<!-- Workbench -->
+	<append xpath="/blocks/block[@name='cntCollapsedWorkbench']" >
+		<drop event="Destroy" name="workbench" prob=".10" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="workbenchSchematic" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="meleeToolIronSetSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="meleeToolRepairT1ClawHammer" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="meleeToolSalvageT1WrenchSchematic" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="meleeToolSalvageT1Wrench" prob=".15" count="1" tag="salvageHarvest"/>
+		</append>
+		
+<!-- Forge -->
+	<append xpath="/blocks/block[@name='cntCollapsedForge']" >
+		<drop event="Destroy" name="forge" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="forgeSchematic" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolBellows" prob=".10" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolBellowsSchematic" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolForgeCrucible" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolForgeCrucibleSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolAnvil" prob=".10" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolAnvilSchematic" prob=".15" count="1" tag="salvageHarvest"/>
+		</append>
+
+<!-- Chem Station -->
+	<append xpath="/blocks/block[@name='cntCollapsedChemistryStation']" >
+		<drop event="Destroy" name="chemistryStation" prob=".15" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="chemistryStationSchematic" prob=".05" count="1" tag="salvageHarvest"/>
+		<drop event="Destroy" name="toolBeaker" prob=".05" count="1" tag="salvageHarvest"/>
+		</append>
+
+<!-- Add UnlockedBy to Solar Banks -->
+		<insertAfter xpath="/blocks/block[@name='solarbank']/property[@name='DescriptionKey']">
+			<property name="UnlockedBy" value="perkAdvancedEngineering,solarbankSchematic"/>
+		</insertAfter>
+
+<!-- Adds additional doors from default assets with larger health and higher resist values -->
+		<append xpath="/blocks">
+
+<!-- Reinforced Entry Doors -->
+		<block name="reinforcedHouseEntryDoor1">
+			<property name="Class" value="DoorSecure"/>
+			<property name="Material" value="Msteel"/>
+			<property name="PassThroughDamage" value="true"/>
+			<property name="LightOpacity" value="1"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Tags" value="door"/>
+			<property name="BlockTag" value="Door"/>
+			<property name="Place" value="Door"/> <!-- build restriction -->
+			<property name="PlaceEverywhere" value="true"/>
+			<property name="AllowAllRotations" value="true"/> <!-- enables the 45 degree rotations -->
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="CustomIcon" value="houseFrontDoor1_v1"/>
+			<property name="Model" value="Entities/Doors/house_frontDoor1_v1Prefab"/><property name="ModelOffset" value="0,0,0"/>
+			<property name="DisplayType" value="blockHardenedMulti"/>
+			<property name="MultiBlockDim" value="1,2,1"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="77"/>
+			<property name="Mesh-Damage-1" value="Door/Door_DMG0"/>
+			<property name="Mesh-Damage-2" value="Door/Door_DMG1"/>
+			<property name="Mesh-Damage-3" value="Door/Door_DMG2"/>
+			<property name="Mesh-Damage-4" value="Door/Door_DMG3"/>
+			<property name="Mesh-Damage-5" value="Door/Door_DMG4"/>
+			<property name="OpenSound" value="open_door_wood"/>
+			<property name="CloseSound" value="close_door_wood"/>
+			<property class="RepairItems"> <property name="resourceForgedIron" value="5"/> </property>
+			<drop event="Harvest" name="resourceScrapIron" count="96" prob="1" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="Group" value="Building,advBuilding"/>
+			<property name="EconomicValue" value="432"/>
+			<property name="FilterTags" value="fdecor,fdoors"/>
+			<property name="SortOrder1" value="7060"/>
+			<property name="SortOrder2" value="0340"/> <!-- SortDoors -->
+		</block>
+
+		<block name="reinforcedHouseEntryDoor2">
+			<property name="Extends" value="reinforcedHouseEntryDoor1"/>
+			<property name="CustomIcon" value="houseFrontDoor2_v1"/>
+			<property name="Model" value="Entities/Doors/house_frontDoor2_v1Prefab"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="70"/>
+			<property name="SortOrder2" value="0160"/> <!-- SortDoors -->
+		</block>
+
+		<block name="reinforcedCommercialEntryDoor1">
+			<property name="Extends" value="reinforcedHouseEntryDoor1"/>
+			<property name="CustomIcon" value="commercialDoor1_v1"/>
+			<property name="Model" value="Entities/Doors/commercial_door_1_v1Prefab"/>
+			<property name="OpenSound" value="open_door_metal"/>
+			<property name="CloseSound" value="close_door_metal"/>
+			<property name="SortOrder2" value="0200"/> <!-- SortDoors -->
+		</block>
+
+		<block name="reinforcedCommercialEntryDoor2">
+			<property name="Extends" value="reinforcedCommercialEntryDoor1"/>
+			<property name="CustomIcon" value="commercialDoor2_v1"/>
+			<property name="Model" value="Entities/Doors/commercial_door_2_v1Prefab"/>
+			<property name="SortOrder2" value="0200"/> <!-- SortDoors -->
+		</block>
+
+		<block name="reinforcedCommercialEntryDoor4">
+			<property name="Extends" value="reinforcedCommercialEntryDoor1"/>
+			<property name="CustomIcon" value="commercialDoor4_v1"/>
+			<property name="Model" value="Entities/Doors/commercial_door_4_v1Prefab"/>
+			<property name="SortOrder2" value="0200"/> <!-- SortDoors -->
+		</block>
+		
+		<block name="reinforcedEntryDoorHelper">
+			<property name="Extends" value="reinforcedHouseEntryDoor1"/>
+			<property name="CustomIcon" value="houseFrontDoor1_v1"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true" />
+			<property name="PlaceAltBlockValue" value="reinforcedHouseEntryDoor1,reinforcedHouseEntryDoor2,reinforcedCommercialEntryDoor1,reinforcedCommercialEntryDoor2,reinforcedCommercialEntryDoor4,jailDoorDynamic"/>
+		</block>
+	
+<!-- Brown Rolling Garage Door -->
+		<block name="rollingGarageDoorBrown">
+			<property name="Extends" value="garageDoorHousePlayer"/>
+			<property name="CustomIcon" value="garageDoorHouseBrown"/>
+			<property name="Model" value="Entities/Doors/garage_house_brownPrefab"/><property name="ModelOffset" value="0,0,0"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="43"/>
+			<property name="DescriptionKey" value="rollingGarageDoorBrownDesc"/>
+			<property name="SortOrder2" value="0400"/> <!-- SortDoors -->
+		</block>
+
+	
+<!-- Reinforced Garage Doors (Powered) -->
+		<!-- White Door -->
+		<block name="reinforcedGarageDoor">
+			<property name="Extends" value="garageDoorIndustrial_Powered"/>
+			<property name="CustomIcon" value="garageDoorHouse"/>
+			<property name="Model" value="Entities/Doors/garage_housePrefab"/><property name="ModelOffset" value="0,0,0"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="43"/>
+			<property name="DescriptionKey" value="reinforcedGarageDoorDesc"/>
+			<property name="SortOrder2" value="0400"/> <!-- SortDoors -->
+		</block>
+<!-- Brown Door -->
+		<block name="reinforcedGarageDoorBrown">
+			<property name="Extends" value="reinforcedGarageDoor"/>
+			<property name="CustomIcon" value="garageDoorHouseBrown"/>
+			<property name="Model" value="Entities/Doors/garage_house_brownPrefab"/><property name="ModelOffset" value="0,0,0"/>
+			<property name="SortOrder2" value="0400"/> <!-- SortDoors -->
+		</block>
+
+	
+<!-- Sliding Jail Door -->
+		<block name="jailDoorDynamic">
+			<property name="Class" value="DoorSecure"/>
+			<property name="Material" value="Msteel"/>
+			<property name="CustomIcon" value="jailDoorStatic" />
+			<property name="PassThroughDamage" value="true"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Collide" value="movement,melee,rocket"/> <!-- -rocket -->
+			<property name="Tag" value="door"/>
+			<property name="Place" value="Door"/>
+			<property name="PlaceEverywhere" value="true"/>
+			<property name="AllowAllRotations" value="true"/> <!-- enables the 45 degree rotations -->
+			<property name="Model" value="Entities/Doors/jail_doorPrefab"/> <property name="ModelOffset" value="0,.5,0"/>
+			<property name="ImposterExclude" value="true"/>
+			<property name="OpenSound" value="open_door_jail"/>
+			<property name="CloseSound" value="close_door_jail"/>
+			<property class="RepairItems"> <property name="resourceForgedIron" value="12"/> </property>
+			<drop event="Harvest" name="" count="0" tool_category="Disassemble"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Destroy" name="resourceSpring" count="0,2" prob="1" tool_category="Disassemble"/>
+			<drop event="Destroy" name="resourceMechanicalParts" count="0,2" prob="1" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceScrapIron" count="20,60"/>
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+			<property name="Group" value="Building,advBuilding"/>
+			<property name="FilterTags" value="fdecor,fdoors"/>
+			<property name="DescriptionKey" value="jailDoorDynamicDesc"/>
+		</block>	
+
+<!-- Add Reinforced Windows -->
+		<block name="windowStoreCornerReinforced">
+			<property name="Group" value="Building,advBuilding"/>
+			<property name="DescriptionKey" value="windowReinforcedGroupDesc"/>
+			<property name="CustomIcon" value="windowStoreCornerFull" />
+			<property name="Material" value="MglassBulletproof"/>
+			<property name="MaxDamage" value="6000"/>
+			<property name="LightOpacity" value="1"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Mesh" value="models"/>
+			<property name="Model" value="Entities/Buildings/window_store_corner_fullPrefab" param1="main_mesh"/> <property name="Place" value="TowardsPlacer"/>
+			<property name="ImposterExcludeAndStop" value="true"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property class="RepairItems">
+				<property name="resourceBrokenGlass" value="20"/>
+				<property name="resourceScrapIron" value="5"/>
+			</property>
+			<drop event="Harvest" name="resourceBrokenGlass" count="21" tag="allHarvest"/>
+			<property name="DowngradeBlock" value="windowStoreTwoSidedCorner"/>
+			<drop event="Destroy" count="0"/>
+			<property name="EconomicValue" value="150"/>
+			<property name="FilterTags" value="fdecor,fwindows"/>
+			<property name="SortOrder1" value="7080"/>
+			<property name="SortOrder2" value="0002"/>
+		</block>
+
+		<block name="windowStoreOneSidedReinforced">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="windowStoreOneSidedFull" />
+			<property name="Model" value="Entities/Buildings/window_store_one_sided_fullPrefab"/>
+			<property name="DowngradeBlock" value="windowStoreOneSided"/>
+		</block>
+
+		<block name="windowStoreTwoSidedReinforced">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="windowStoreTwoSidedFull" />
+			<property name="Model" value="Entities/Buildings/window_store_two_sided_fullPrefab"/>
+			<property name="DowngradeBlock" value="windowStoreTwoSided"/>
+		</block>
+
+		<block name="windowStoreThreeSidedReinforced">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="windowStoreThreeSidedFull" />
+			<property name="Model" value="Entities/Buildings/window_store_three_sided_fullPrefab"/>
+			<property name="DowngradeBlock" value="windowStoreThreeSided"/>
+		</block>
+
+		<block name="windowStoreFourSidedReinforced">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="windowStoreFourSidedFull" />
+			<property name="Model" value="Entities/Buildings/window_store_four_sided_fullPrefab"/>
+			<property name="DowngradeBlock" value="windowStoreFourSided"/>
+		</block>
+
+		<block name="windowBorderlessReinforced">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="glassBusinessSheet" />
+			<property name="Shape" value="New"/>
+			<property name="Model" value="billboard"/>
+			<property name="LightOpacity" value="1"/>
+			<property name="Mesh" value="transparent"/>
+			<property name="Texture" value="285"/>
+			<property name="Weight" value="10"/>
+			<property name="DowngradeBlock" value="windowStoreFourSided"/>
+		</block>
+
+		<block name="window03WoodReinforced">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="window03Wood" />
+			<property name="Model" value="Entities/Buildings/window03WoodPrefab"/>
+			<property name="DowngradeBlock" value="window03WoodBroke1"/>
+		</block>
+
+<!-- Adds Reinforced Windows Helper Block -->
+		<block name="windowReinforcedHelper">
+			<property name="Extends" value="windowStoreCornerReinforced"/>
+			<property name="CustomIcon" value="windowStoreCornerFull"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true" />
+			<property name="PlaceAltBlockValue" value="windowStoreCornerReinforced,windowStoreOneSidedReinforced,windowStoreTwoSidedReinforced,windowStoreThreeSidedReinforced,windowStoreFourSidedReinforced,windowBorderlessReinforced,window03WoodReinforced"/>
+		</block>
+
+<!-- Adds Powered Roll Up Doors -->
+<!-- 3x3 Doors -->
+		<block name="rollUpDoor3x3WhitePowered">
+			<property name="Extends" value="rollUpDoor3x3White"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+			<property name="CustomIcon" value="rollUpDoor3x3White"/>
+		</block>
+
+<!-- Brown -->
+		<block name="rollUpDoor3x3BrownPowered">
+			<property name="Extends" value="rollUpDoor3x3Brown"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Red -->
+		<block name="rollUpDoor3x3RedPowered">
+			<property name="Extends" value="rollUpDoor3x3Red"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Orange -->
+		<block name="rollUpDoor3x3OrangePowered">
+			<property name="Extends" value="rollUpDoor3x3Orange"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Yellow -->
+		<block name="rollUpDoor3x3YellowPowered">
+			<property name="Extends" value="rollUpDoor3x3Yellow"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Green -->
+		<block name="rollUpDoor3x3GreenPowered">
+			<property name="Extends" value="rollUpDoor3x3Green"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Blue -->
+		<block name="rollUpDoor3x3BluePowered">
+			<property name="Extends" value="rollUpDoor3x3Blue"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Purple -->
+		<block name="rollUpDoor3x3PurplePowered">
+			<property name="Extends" value="rollUpDoor3x3Purple"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Grey -->
+		<block name="rollUpDoor3x3GreyPowered">
+			<property name="Extends" value="rollUpDoor3x3Grey"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Black -->
+		<block name="rollUpDoor3x3BlackPowered">
+			<property name="Extends" value="rollUpDoor3x3Black"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Pink -->
+		<block name="rollUpDoor3x3PinkPowered">
+			<property name="Extends" value="rollUpDoor3x3Pink"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+		
+<!-- 5x4 Doors -->
+		<block name="rollUpDoor5x4WhitePowered">
+			<property name="Extends" value="rollUpDoor5x4White"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+			<property name="CustomIcon" value="rollUpDoor5x4White"/>
+		</block>
+
+<!-- Brown -->
+		<block name="rollUpDoor5x4BrownPowered">
+			<property name="Extends" value="rollUpDoor5x4Brown"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Red -->
+		<block name="rollUpDoor5x4RedPowered">
+			<property name="Extends" value="rollUpDoor5x4Red"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Orange -->
+		<block name="rollUpDoor5x4OrangePowered">
+			<property name="Extends" value="rollUpDoor5x4Orange"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Yellow -->
+		<block name="rollUpDoor5x4YellowPowered">
+			<property name="Extends" value="rollUpDoor5x4Yellow"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Green -->
+		<block name="rollUpDoor5x4GreenPowered">
+			<property name="Extends" value="rollUpDoor5x4Green"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Blue -->
+		<block name="rollUpDoor5x4BluePowered">
+			<property name="Extends" value="rollUpDoor5x4Blue"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Purple -->
+		<block name="rollUpDoor5x4PurplePowered">
+			<property name="Extends" value="rollUpDoor5x4Purple"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Grey -->
+		<block name="rollUpDoor5x4GreyPowered">
+			<property name="Extends" value="rollUpDoor5x4Grey"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Black -->
+		<block name="rollUpDoor5x4BlackPowered">
+			<property name="Extends" value="rollUpDoor5x4Black"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Pink -->
+		<block name="rollUpDoor5x4PinkPowered">
+			<property name="Extends" value="rollUpDoor5x4Pink"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- 7x4 Doors -->
+		<block name="rollUpDoor7x4WhitePowered">
+			<property name="Extends" value="rollUpDoor7x4White"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+			<property name="CustomIcon" value="rollUpDoor7x4White"/>
+		</block>
+
+<!-- Brown -->
+		<block name="rollUpDoor7x4BrownPowered">
+			<property name="Extends" value="rollUpDoor7x4Brown"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Red -->
+		<block name="rollUpDoor7x4RedPowered">
+			<property name="Extends" value="rollUpDoor7x4Red"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Orange -->
+		<block name="rollUpDoor7x4OrangePowered">
+			<property name="Extends" value="rollUpDoor7x4Orange"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Yellow -->
+		<block name="rollUpDoor7x4YellowPowered">
+			<property name="Extends" value="rollUpDoor7x4Yellow"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Green -->
+		<block name="rollUpDoor7x4GreenPowered">
+			<property name="Extends" value="rollUpDoor7x4Green"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Blue -->
+		<block name="rollUpDoor7x4BluePowered">
+			<property name="Extends" value="rollUpDoor7x4Blue"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Purple -->
+		<block name="rollUpDoor7x4PurplePowered">
+			<property name="Extends" value="rollUpDoor7x4Purple"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Grey -->
+		<block name="rollUpDoor7x4GreyPowered">
+			<property name="Extends" value="rollUpDoor7x4Grey"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Black -->
+		<block name="rollUpDoor7x4BlackPowered">
+			<property name="Extends" value="rollUpDoor7x4Black"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+<!-- Pink -->
+		<block name="rollUpDoor7x4PinkPowered">
+			<property name="Extends" value="rollUpDoor7x4Pink"/>
+			<property name="Class" value="PoweredDoor"/>
+			<property name="DescriptionKey" value="RollUpDoorPoweredDesc"/>
+		</block>
+
+
+<!-- NOT_A_SHAPE -->
+		<block name="rollUpDoor3x3PoweredVariantHelper">
+			<property name="Extends" value="rollUpDoor3x3WhitePowered"/>
+			<property name="CustomIcon" value="rollUpDoor3x3White"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="rollUpDoor3x3BrownPowered,rollUpDoor3x3RedPowered,rollUpDoor3x3OrangePowered,rollUpDoor3x3YellowPowered,rollUpDoor3x3GreenPowered,rollUpDoor3x3BluePowered,rollUpDoor3x3PurplePowered,rollUpDoor3x3GreyPowered,rollUpDoor3x3WhitePowered,rollUpDoor3x3BlackPowered,rollUpDoor3x3PinkPowered"/>
+			<property name="FilterTags" value="MC_playerBlocks,SC_playerHelpers"/>
+		</block>
+		
+<!-- NOT_A_SHAPE -->
+		<block name="rollUpDoor5x4PoweredVariantHelper">
+			<property name="Extends" value="rollUpDoor5x4WhitePowered"/>
+			<property name="CustomIcon" value="rollUpDoor5x4White"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="rollUpDoor5x4BrownPowered,rollUpDoor5x4RedPowered,rollUpDoor5x4OrangePowered,rollUpDoor5x4YellowPowered,rollUpDoor5x4GreenPowered,rollUpDoor5x4BluePowered,rollUpDoor5x4PurplePowered,rollUpDoor5x4GreyPowered,rollUpDoor5x4WhitePowered,rollUpDoor5x4BlackPowered,rollUpDoor5x4PinkPowered"/>
+			<property name="FilterTags" value="MC_playerBlocks,SC_playerHelpers"/>
+		</block>
+
+<!-- NOT_A_SHAPE -->
+		<block name="rollUpDoor7x4PoweredVariantHelper">
+			<property name="Extends" value="rollUpDoor7x4WhitePowered"/>
+			<property name="CustomIcon" value="rollUpDoor7x4White"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="rollUpDoor7x4BrownPowered,rollUpDoor7x4RedPowered,rollUpDoor7x4OrangePowered,rollUpDoor7x4YellowPowered,rollUpDoor7x4GreenPowered,rollUpDoor7x4BluePowered,rollUpDoor7x4PurplePowered,rollUpDoor7x4GreyPowered,rollUpDoor7x4WhitePowered,rollUpDoor7x4BlackPowered,rollUpDoor7x4PinkPowered"/>
+			<property name="FilterTags" value="MC_playerBlocks,SC_playerHelpers"/>
+		</block>
+<!-- Closing Append tag for all Added Blocks -->
+	</append>
+	
+<!-- Pick up tires on the ground -->
+	<append xpath="/blocks/block[@name='decoCarTireSmallFlat']" >
+		<property name="CanPickup" value="true"/>
+	</append>
+
+
+</configs>

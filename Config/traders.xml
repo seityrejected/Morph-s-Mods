@@ -1,0 +1,35 @@
+<configs>
+
+		<removeattribute xpath="/traders/trader_info[@id='1']/@open_time" />
+		<removeattribute xpath="/traders/trader_info[@id='1']/@close_time" />
+
+		<removeattribute xpath="/traders/trader_info[@id='6']/@open_time" />
+		<removeattribute xpath="/traders/trader_info[@id='6']/@close_time" />
+		
+		<removeattribute xpath="/traders/trader_info[@id='2']/@open_time" />
+		<removeattribute xpath="/traders/trader_info[@id='2']/@close_time" />
+		
+		<removeattribute xpath="/traders/trader_info[@id='7']/@open_time" />
+		<removeattribute xpath="/traders/trader_info[@id='7']/@close_time" />
+		
+		<removeattribute xpath="/traders/trader_info[@id='8']/@open_time" />
+		<removeattribute xpath="/traders/trader_info[@id='8']/@close_time" />
+		
+		
+		
+		<set xpath="/traders/trader_item_groups/trader_item_group[@name='rareMedicine']">
+			<item name="medicalFirstAidKit"/>
+			<item name="toolBeaker"/>
+			<item name="drugAntibiotics"/>
+			<item name="drugFortBites"/>
+			<item name="drugRecog"/>
+			<item name="drugSteroids"/>
+			<item name="drinkJarGrandpasMoonshine"/>
+			<item name="drinkJarGrandpasAwesomeSauce"/>
+			<item name="drinkJarGrandpasLearningElixir"/>
+			<item name="apparelCigar"/>
+			<item name="drugAdrenaline"/>
+			<item name="medicalAdvancedFirstAidBandage"/>
+			<item name="medicalAdvancedFirstAidKit"/>
+		</set>
+</configs>

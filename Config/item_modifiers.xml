@@ -1,0 +1,161 @@
+<configs>
+
+
+<!-- Armor pocket mods -->
+
+
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorStoragePocket']"/>
+<insertAfter xpath="/item_modifiers/item_modifier[@name='modArmorPlatingReinforced']">
+	<item_modifier name="modArmorStoragePocket" installable_tags="armor" modifier_tags="carryweight" blocked_tags="noMods" type="attachment">
+		<property name="Extends" value="modGeneralMaster"/>
+		<property name="UnlockedBy" value="modArmorStoragePocketSchematic"/>
+		<property name="DisplayType" value="modCarryCapacity"/>
+		<property name="Material" value="Mleather"/>
+
+		<effect_group tiered="false">
+			<passive_effect name="CarryCapacity" operation="base_add" value="4"/>
+			<display_value name="dCarryCapacity" value="4"/>
+		</effect_group>
+	</item_modifier>
+ </insertAfter>
+
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorDoubleStoragePocket']"/>
+<insertAfter xpath="/item_modifiers/item_modifier[@name='modArmorStoragePocket']">
+	<item_modifier name="modArmorDoubleStoragePocket" installable_tags="armor" modifier_tags="carryweight" blocked_tags="noMods" type="attachment">
+		<property name="Extends" value="modGeneralMaster"/>
+		<property name="UnlockedBy" value="modArmorDoubleStoragePocketSchematic"/>
+		<property name="DisplayType" value="modCarryCapacity"/>
+		<property name="Material" value="Mleather"/>
+
+		<effect_group tiered="false">
+			<passive_effect name="CarryCapacity" operation="base_add" value="8"/>
+			<display_value name="dCarryCapacity" value="8"/>
+		</effect_group>
+	</item_modifier>
+ </insertAfter>
+
+<remove xpath="/item_modifiers/item_modifier[@name='modArmorTripleStoragePocket']"/>
+<insertAfter xpath="/item_modifiers/item_modifier[@name='modArmorDoubleStoragePocket']">
+	<item_modifier name="modArmorTripleStoragePocket" installable_tags="armor" modifier_tags="carryweight" blocked_tags="noMods" type="attachment">
+		<property name="Extends" value="modGeneralMaster"/>
+		<property name="UnlockedBy" value="modArmorTripleStoragePocketSchematic"/>
+		<property name="DisplayType" value="modCarryCapacity"/>
+		<property name="Material" value="Mleather"/>
+
+		<effect_group tiered="false">
+			<passive_effect name="CarryCapacity" operation="base_add" value="12"/>
+			<display_value name="dCarryCapacity" value="12"/>
+		</effect_group>
+	</item_modifier>
+ </insertAfter>
+ 
+ 
+ <!-- Clothing pocket mods -->
+ 
+ <remove xpath="/item_modifiers/item_modifier[@name='modClothingStoragePocket']"/>
+<insertAfter xpath="/item_modifiers/item_modifier[@name='modArmorHelmetLight']">
+	<item_modifier name="modClothingStoragePocket" installable_tags="pocketMod" modifier_tags="carryweight" blocked_tags="noMods" type="attachment">
+		<property name="Extends" value="modGeneralMaster"/>
+		<property name="DisplayType" value="modCarryCapacity"/>
+		<property name="Material" value="Mleather"/>
+		<property name="Group" value="Mods,Tool/Weapon Mods,clothing"/>
+
+		<effect_group tiered="false">
+			<passive_effect name="CarryCapacity" operation="base_add" value="3"/>
+			<display_value name="dCarryCapacity" value="3"/>
+		</effect_group>
+	</item_modifier>
+ </insertAfter>
+
+
+<remove xpath="/item_modifiers/item_modifier[@name='modClothingCargoStoragePocket']"/>
+<insertAfter xpath="/item_modifiers/item_modifier[@name='modClothingStoragePocket']">
+	<item_modifier name="modClothingCargoStoragePocket" installable_tags="pocketMod" modifier_tags="carryweight" blocked_tags="noMods" type="attachment">
+		<property name="Extends" value="modGeneralMaster"/>
+		<property name="UnlockedBy" value="perkNeedleAndThreadPockets"/>
+		<property name="DisplayType" value="modCarryCapacity"/>
+		<property name="Material" value="Mleather"/>
+		<property name="Group" value="Mods,Tool/Weapon Mods,clothing"/>
+
+		<effect_group tiered="false">
+			<passive_effect name="CarryCapacity" operation="base_add" value="6"/>
+			<display_value name="dCarryCapacity" value="6"/>
+		</effect_group>
+	</item_modifier>
+ </insertAfter>
+
+<!-- Custom Weapon Mods -->
+
+
+	<append xpath="/item_modifiers">
+
+		<item_modifier name="modGunMeleeFeelTheHeat" installable_tags="pistol,revolver,smg" modifier_tags="damage" blocked_tags="noMods" type="attachment" rarity="0.5">
+			<property name="UnlockedBy" value="perkGunslingerRank3"/>
+			<property name="DescriptionKey" value="modGunMeleeFeelTheHeatDesc"/>
+			<property name="CustomIcon" value="gunHandgunT1Pistol"/> 
+			<property name="CustomIconTint" value="227, 38, 54"/>
+			<property name="Group" value="Mods"/>
+			<property name="Stacknumber" value="1"/>
+
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="self" buff="buffPerkGunslinger"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$GunslingerCombo" operation="add" value="1"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="EntityTagCompare" target="other" tags="zombie,player,animal"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.117"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+		
+		<item_modifier name="modGunShotgunBoomstick" installable_tags="shotgun,turretRanged,shotgunTurret" modifier_tags="damage" blocked_tags="noMods" type="attachment" rarity="0.5">
+			<property name="UnlockedBy" value="perkBoomstickRank3"/>
+			<property name="DescriptionKey" value="modGunShotgunBoomstick"/>
+			<property name="CustomIcon" value="gunShotgunT2PumpShotgun"/> 
+			<property name="CustomIconTint" value="227, 38, 54"/>
+			<property name="Group" value="Mods"/>
+			<property name="Stacknumber" value="1"/>
+
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="self" buff="buffPerkGunslinger"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" cvar="$GunslingerCombo" operation="add" value="1"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="EntityTagCompare" target="other" tags="zombie,player,animal"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.117"/>
+			</effect_group>
+			<property name="PickupJournalEntry" value="augmentGunsTip"/>
+		</item_modifier>
+			
+		<item_modifier name="modGunHeadShot" installable_tags="weapon" modifier_tags="specialDamage" blocked_tags="noMods" type="attachment">
+			<property name="UnlockedBy" value="modGunHeadShotSchematic"/>
+			<property name="CustomIcon" value="modGunScopeLarge"/>
+			<property name="CustomIconTint" value="227, 38, 54"/>
+			<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<effect_group tiered="false">
+				<passive_effect name="DamageModifier" operation="perc_add" value="500" tags="head"/>
+				<passive_effect name="DamageModifier" operation="perc_subtract" value="100" tags="lowerbody,upperbody"/> 
+			</effect_group>
+			<property name="PickupJournalEntry" value="HeadShot-ModTip"/>
+		</item_modifier>
+			
+		
+<!-- Jump Boots -->
+		<item_modifier name="modJumpBoots" installable_tags="armorFeet" modifier_tags="jump" blocked_tags="noMods" type="attachment" rarity="0.5">
+			<property name="DescriptionKey" value="modJumpBoots"/>
+			<property name="CustomIcon" value="armorLeatherBoots"/> 
+			<property name="CustomIconTint" value="227, 38, 54"/>
+			<property name="Group" value="Mods"/>
+			<property name="Stacknumber" value="1"/>
+		<effect_group tiered="false" name="Jump Double">
+			<passive_effect name="JumpStrength" operation="base_set" value="0.16"/>
+			<passive_effect name="JumpStrength" operation="base_set" value="0.08" tags="crouching"/>
+			<passive_effect name="JumpStrength" operation="base_set" value="0.32" tags="running"/>
+			<passive_effect name="StaminaLoss" operation="base_set" value="10" tags="jumping"/>
+		</effect_group> 
+		</item_modifier>
+	
+	</append>
+
+</configs>

@@ -1,0 +1,53 @@
+<!-- Possible weapon effect -->
+
+		<append xpath="/buffs">
+		<!-- Credits: by Killerbunny264 -->
+				<buff name="RaDeeRadiationByKillerbunny264" hidden="true" remove_on_death="true">
+			<stack_type value="ignore"/>
+			<duration value=".1"/>
+			<effect_group>
+			<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="selfAOE" range="150" buff="RadiationByKillerbunny264">
+					<requirement name="!EntityTagCompare" target="other" tags="player"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="RadiationByKillerbunny264"/>
+				
+			</effect_group>
+		</buff>
+
+    <buff name="RadiationByKillerbunny264" name_key="buffRadiation03Name" description_key="FuriousRamsayRadiationDamageDesc" tooltip_key="buffRadiation03Tooltip" icon="ui_game_symbol_radiation" icon_color="255,0,0" icon_blink="true">
+				<damage_type value="Radiation"/>			
+			<stack_type value="ignore"/>
+			<duration value="1"/>
+			<effect_group>
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffRadiationCatch"/>			
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyStats" stat="Health" operation="subtract" value="5">
+					</triggered_effect>
+					
+					<triggered_effect trigger="onSelfBuffStart" action="PlaySound" target="self" sound="Player_Male/player1painlg">
+						<requirement name="IsMale"/>
+					</triggered_effect>
+
+					<triggered_effect trigger="onSelfBuffStart" action="PlaySound" target="self" sound="Player_Female/player2painlg">
+						<requirement name="!IsMale"/>
+					</triggered_effect>
+
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="RadiationSignal" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="RadiationSignal" operation="set" value="0">
+						<requirement name="CVarCompare" cvar="RadiationSignal" operation="Equals" value="2"/>
+					</triggered_effect>
+
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="1" fade=".7" effect_name="Hot">
+						<requirement name="CVarCompare" cvar="RadiationSignal" operation="Equals" value="1"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyScreenEffect" intensity="0" fade=".7" effect_name="Hot">
+						<requirement name="CVarCompare" cvar="RadiationSignal" operation="Equals" value="0"/>
+					</triggered_effect>
+
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Hot"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" effect_name="Radiation" intensity=".6" fade="2"/>
+					<triggered_effect trigger="onSelfDied" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="0"/>
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" effect_name="Radiation" intensity="0" fade="2"/>
+		</effect_group>
+	</buff>
+
+</append>	

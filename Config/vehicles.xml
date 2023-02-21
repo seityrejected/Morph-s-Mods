@@ -1,0 +1,85 @@
+<config>
+
+<!-- Begin Vehicle Speed -->
+	<set xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@class='fuelTank']/property[@name='capacity']/@value">160</set> <!-- Gyrocopter Default 80 -->
+	<set xpath="/vehicles/vehicle[@name='vehicleMinibike']/property[@name='velocityMax']/@value">10, 16</set> <!-- Minibike Default 7, 10 -->
+	<set xpath="/vehicles/vehicle[@name='vehicleMinibike']/property[@class='fuelTank']/property[@name='capacity']/@value">80</set> <!-- Minibike Default 40 -->
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='velocityMax']/@value">20, 28</set> <!-- Motorcycle Default 9, 14 -->
+	<set xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@class='fuelTank']/property[@name='capacity']/@value">240</set> <!-- Motorcycle Default 120 -->
+	<set xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@name='velocityMax']/@value">12, 24</set> <!-- 4x4 Truck Default 9, 13 -->
+	<set xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@class='fuelTank']/property[@name='capacity']/@value">800</set> <!-- 4x4 Truck Default 400 -->
+	<set xpath="/vehicles/vehicle[@name='vehicleBicycle']/property[@name='velocityMax']/@value">8, 12</set>
+<!-- End Vehicle Speed -->
+
+<!-- begin motorcycle smoothing -->
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='motorTorqueMinQ']/@value">6100</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='motorTorqueMaxQ']/@value">9700</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='brakeTorque']/@value">5600</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='upAngleMax']/@value">90</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='steerRate']/@value">600</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='steerCenteringRate']/@value">40</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='tiltAngleMax']/@value">50</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='tiltThreshold']/@value">0.01</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='tiltDampening']/@value">.92</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='tiltDampenThreshold']/@value">40</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='tiltUpForce']/@value">1</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='motorTorqueMaxQ']/@value">1, .06</set>
+<set xpath="//vehicle[@name='vehicleMotorcycle']/property[@name='velocityMax']/@value">16,22</set>
+<!-- End motorcycle smoothing -->
+
+	
+<insertAfter xpath="/vehicles/vehicle[@name='vehicleGyrocopter']/property[@class='seat0']">
+	<property class="seat1">
+		<property value="0, .05, 0.77" name="position"/>
+		<property value="-25, 0, 0" name="rotation"/>
+		<property value="-1.3,0,.9 ~ 1.3,0,.9 ~ 0,0,-2.4 ~ 0,0,2.4 ~ 0,2,0" name="exit"/>
+	</property>
+</insertAfter>
+
+<insertAfter xpath="/vehicles/vehicle[@name='vehicleMotorcycle']/property[@class='seat0']">
+	<property class="seat1">
+		<property value="0, 0.14, -.498" name="position"/>
+		<property value="0, 0, 0" name="rotation"/>
+		<property value="-.9,0,0 ~ .9,0,0 ~ 0,0,-1.5 ~ 0,0,1.6 ~ 0,1.5,0" name="exit"/>
+	</property>
+</insertAfter>
+
+<insertAfter xpath="/vehicles/vehicle[@name='vehicleBicycle']/property[@class='seat0']">
+	<property class="seat1">
+		<property value="0, .1, -.6" name="position"/>
+		<property value="0, -190, 0" name="rotation"/>
+		<property value="-.8,0,0 ~ .8,0,0 ~ 0,0,-1.4 ~ 0,0,1.4 ~ 0,1.5,0" name="exit"/>
+	</property>
+</insertAfter>
+
+<insertAfter xpath="/vehicles/vehicle[@name='vehicleMinibike']/property[@class='seat0']">
+	<property class="seat1">
+		<property value="0, 0, -.55" name="position"/>
+		<property value="0, 0, 0" name="rotation"/>
+		<property value="-.8,0,0 ~ .8,0,0 ~ 0,0,-1.2 ~ 0,0,1.2 ~ 0,1.3,0" name="exit"/>
+	</property>
+</insertAfter>
+
+<insertAfter xpath="/vehicles/vehicle[@name='vehicle4x4Truck']/property[@class='seat1']">
+	<property class="seat2">
+		<property value="-.2, .5, -1.6" name="position"/>
+		<property value="-25, 90, 0" name="rotation"/>
+		<property value="1.6,0,0 ~ -1.6,0,-1 ~ .4,0,-2.8 ~ .4,0,2.6 ~ .4,2.1,0" name="exit"/>
+	</property>
+<property class="seat3">
+	<property value=".2, .5, -1.6" name="position"/>
+	<property value="-25, -90, 0" name="rotation"/>
+	<property value="1.6,0,0 ~ -1.6,0,-1 ~ .4,0,-2.8 ~ .4,0,2.6 ~ .4,2.1,0" name="exit"/>
+</property>
+<property class="seat4">
+	<property value="-.34, .7, -2.5" name="position"/>
+	<property value="-25, 180, 0" name="rotation"/>
+	<property value="1.6,0,0 ~ -1.6,0,-1 ~ .4,0,-2.8 ~ .4,0,2.6 ~ .4,2.1,0" name="exit"/>
+</property>
+<property class="seat5">
+	<property value=".34, .7, -2.5" name="position"/>
+	<property value="-25, 180, 0" name="rotation"/>
+	<property value="1.6,0,0 ~ -1.6,0,-1 ~ .4,0,-2.8 ~ .4,0,2.6 ~ .4,2.1,0" name="exit"/>
+</property>
+</insertAfter>
+</config>

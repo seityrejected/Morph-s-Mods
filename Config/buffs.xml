@@ -1,0 +1,168 @@
+<configs>
+
+	<append xpath="/buffs">
+		
+<!-- Incendiary Round -->	
+		
+		<buff name="buffIncendiaryRound" >
+			<damage_type value="disease"/>
+			<stack_type value="replace"/>
+			<duration value="10"/>
+			<effect_group>
+			<requirement name="EntityTagCompare" target="self" tags="zombie,animal,player"/>
+				<passive_effect name="HealthChangeOT" operation="base_subtract" duration="1,5,10" value="35,10,20"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffBurningElement"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" target="self" buff="buffIsOnFire"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="other" range="1" buff="buffBurning">
+					<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="80"/>
+				</triggered_effect>
+			</effect_group>
+		</buff>
+
+<!-- Juggernaut -->
+	
+		<buff name="JuggernautDeco" hidden="true">
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Other/Items?Weapons/Ranged/RocketLauncher/rocketlauncherPrefab.prefab" local_offset="-.2,.13,0" local_rotation="180,0,0" parent_transform="LeftShoulder"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="#Other/Items?Tools/augerPrefab.prefab" local_offset="-.1,0,0" local_rotation="0,-90,0" parent_transform="RightHand"/>
+<!-- 				<triggered_effect trigger="onSelfRangedBurstShot" action="AddBuff" target="self" buff="JuggernautMuzzle"/>
+ -->			
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffInjuryKnockdown01Cooldown"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="PlaySound" sound="Auger_Idle" />
+			</effect_group>
+		</buff>
+		<buff name="JuggernautMuzzle" hidden="true">
+			<duration value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" target="self" particle="p_rocketLauncherFire" local_offset="-.2,.13,0" local_rotation="180,0,0" parent_transform="LeftShoulder"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" target="self"  particle="p_nozzlesmoke_m136" local_offset="-.2,.13,0" local_rotation="180,0,0" parent_transform="LeftShoulder"/>
+				<triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" target="self"  particle="p_nozzlesmoke_m136" />
+				<triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" target="self"  particle="p_rocketLauncherFire" />
+			</effect_group>
+		</buff>
+</append>
+
+<!-- Iron Gut Perk -->
+<!--reduce chance of dysentery and increase food buff time for Iron Gut perk-->
+	<append xpath="/buffs/buff[@name='buffPerkAbilityUpdate']/effect_group">
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$MetabolismResist" operation="set" value="-6">
+			<requirement name="ProgressionLevel" progression_name="perkSlowMetabolism" operation="Equals" value="6"/></triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$MetabolismResist" operation="set" value="-8">
+			<requirement name="ProgressionLevel" progression_name="perkSlowMetabolism" operation="Equals" value="7"/></triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$MetabolismResist" operation="set" value="-10">
+			<requirement name="ProgressionLevel" progression_name="perkSlowMetabolism" operation="Equals" value="8"/></triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$MetabolismDuration" operation="set" value=".625">
+			<requirement name="ProgressionLevel" progression_name="perkSlowMetabolism" operation="Equals" value="6"/></triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$MetabolismDuration" operation="set" value=".571">
+			<requirement name="ProgressionLevel" progression_name="perkSlowMetabolism" operation="Equals" value="7"/></triggered_effect>
+		<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$MetabolismDuration" operation="set" value=".500">
+			<requirement name="ProgressionLevel" progression_name="perkSlowMetabolism" operation="Equals" value="8"/></triggered_effect>
+	</append>
+	
+	
+	
+	
+<!-- Healing beds -->
+		
+	<append xpath="buffs">
+		<buff icon="ui_game_symbol_map_bed" tooltip_key="You are resting in your bed" description_key="Sleeping in bed slowly regenerates health and keeps you warm" name_key="Sleeping" name="Resting">
+			<stack_type value="ignore"/>
+			<duration value="1"/>
+			<effect_group>
+				<passive_effect name="HypothermalResist" value="30" operation="base_add"/>
+				<passive_effect name="HyperthermalResist" value="30" operation="base_add"/>
+				<passive_effect name="HealthChangeOT" value="0.5" operation="base_add"/>
+				<passive_effect name="HealthMax" value="@maxHealthIncrease" operation="base_add"/>
+				<requirement name="CVarCompare" value="0" operation="LTE" cvar="maxHealthAmount" target="self"/>
+				<triggered_effect value="0.010" operation="set" cvar="maxHealthIncrease" action="ModifyCVar" trigger="onSelfBuffFinish"/>
+			</effect_group>
+		</buff>
+	</append>
+
+	
+	<set xpath="/buffs/buff[@name='buffNearDeathTrauma']/duration/@value">5</set>
+	
+	
+<!-- Whisperer Buffs -->
+	
+	<append xpath="/buffs">
+		
+		<buff name="buffWhisperer" icon="ui_game_symbol_skull" icon_color="87,87,87" hidden="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+
+			<passive_effect name="NoiseMultiplier" operation="perc_subtract" value="120"><requirement name="CVarCompare" target="self" cvar="whispererSet" operation="GTE" value="5"/></passive_effect>
+			<passive_effect name="LightMultiplier" operation="perc_subtract" value="300"><requirement name="CVarCompare" target="self" cvar="whispererSet" operation="GTE" value="5"/></passive_effect>
+
+			<display_value name="dNoiseMultiplier" value="120"/>
+			<display_value name="dLightMultiplier" value="300"/>
+
+			<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" target="self" buff="buffWhisperer"><requirement name="CVarCompare" target="self" cvar="whispererSet" operation="LTE" value="0"/></triggered_effect>
+			</effect_group>
+		</buff>
+
+		<buff name="buffAntiWhisperer" icon="ui_game_symbol_oxygen" icon_color="180,0,25" hidden="false">
+			<stack_type value="replace"/>
+			<duration value="60"/>
+		<effect_group>
+			<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" target="self" buff="buffWhisperer"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" target="self" buff="buffWhisperer"/>
+		</effect_group>
+		</buff>
+	</append>
+		
+<!-- stun Baton -->	
+
+
+	<append xpath="/buffs">
+      <buff name="buffStunAoE" hidden="true">
+      <stack_type value="replace"/>
+      <duration value="1.5"/>
+         <effect_group>
+            <passive_effect name="HealthChangeOT" operation="base_add" value="-150"/>
+         </effect_group>
+      </buff>
+   </append>	
+	
+<!-- Perk Buff Charismatic Nature -->
+	
+		
+	<remove xpath="/buffs/buff[@name='buffPerkCharismaticNature']"/>
+	<insertAfter xpath="/buffs/buff[@name='buffDeadEye']">
+		<buff name="buffPerkCharismaticNature" name_key="perkCharismaticNatureName" description_key="buffPerkCharismaticNatureDesc" icon="ui_game_symbol_charismaticnature" icon_color="0,255,0" icon_blink="false" hidden="false">
+			<stack_type value="replace"/>
+			<duration value="300"/>
+
+			<effect_group>
+				<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="1"/>
+					<passive_effect name="HealthMax" operation="base_add" value="20"/>
+					<passive_effect name="StaminaMax" operation="base_add" value="20"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="2"/>
+					<passive_effect name="EntityDamage" operation="perc_add" value=".2"/>
+					<passive_effect name="BlockDamage" operation="perc_add" value=".2" tags="melee"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="3"/>
+					<passive_effect name="HealthLoss" operation="perc_add" value="-.1"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="CVarCompare" cvar="CharismaticNatureLevel" operation="GTE" value="4"/>
+					<passive_effect name="WalkSpeed" operation="perc_add" value=".1"/>
+					<passive_effect name="RunSpeed" operation="perc_add" value=".1"/>
+					<passive_effect name="PlayerExpGain" operation="perc_add" value=".1"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffPerkAbilityUpdate"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffPerkAbilityUpdate"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="AddBuff" buff="buffPerkAbilityUpdate"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="CharismaticNatureLevel" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+	</insertAfter>
+
+		
+</configs>

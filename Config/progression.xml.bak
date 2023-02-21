@@ -1,0 +1,163 @@
+<configs>
+
+
+<!-- Medical First Aid Bandage -->
+
+	<insertAfter xpath="/progression/perks/perk[@name='perkPhysician']/effect_group/passive_effect[@name='RecipeTagUnlocked']">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,4" value="1" tags="medicalAdvancedFirstAidBandage"/>
+	</insertAfter>	
+	
+	<append xpath="/progression/perks/perk[@name='perkPhysician']/effect_group/passive_effect[@level='3,4']/@tags">,medicalAdvancedFirstAidKit</append>
+	
+
+<!-- battery craft bug fix-->
+	<set xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='CraftingTier']/@operation">base_add</set>
+	<set xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='CraftingTier']/@level">1,2,3,4,5</set>
+	<set xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='CraftingTier']/@value">0,1,2,3,4</set>
+
+
+
+<!-- New Perks -->
+
+<!-- Juggernaut -->
+
+	<perk name="perkJuggernaut" parent="skillStrengthGeneral" name_key="perkJuggernautName" desc_key="perkJuggernautDesc" icon="BuffJuggernaut">
+			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="3" /></level_requirements>
+			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="5" /></level_requirements>
+			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="7" /></level_requirements>
+			<level_requirements level="4"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="8" /></level_requirements>
+			<level_requirements level="5"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="10" /></level_requirements>
+
+			<effect_group>
+				<passive_effect name="HealthChangeOT" operation="base_set" level="1,3,5" value=".17,.34,.68"/>
+				<passive_effect name="BuffResistance" operation="base_add" level="4" value=".90" tags="buffInjuryAbrasion,buffLegSprained,buffLegBroken,buffArmSprained,buffArmBroken,buffFatigued,buffInjuryConcussion,buffInjuryCrippled01"/>
+				<passive_effect name="BuffResistance" operation="base_add" level="4" value="1" tags="buffInjuryConcussion"/>
+				<passive_effect name="BuffResistance" operation="base_add" level="2" value=".70" tags="buffInjuryBleedingOne,buffInjuryBleedingTwo,buffInjuryBleeding,buffLaceration,buffInfectionCatch"/>
+			</effect_group>
+
+			<effect_group>
+				<requirement name="ItemHasTags" tags="perkPummelPete,perkSkullCrusher"/>
+				<requirement name="ProgressionLevel" progression_name="perkJuggernaut" operation="GTE" value="5"/>
+					<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="buffJuggernaut"/>
+			</effect_group>
+			
+			<effect_group>
+				<effect_description level="1" desc_key="perkJuggernautRank1Desc" long_desc_key="perkJuggernautRank1LongDesc"/>
+				<effect_description level="2" desc_key="perkJuggernautRank2Desc" long_desc_key="perkJuggernautRank2LongDesc"/>
+				<effect_description level="3" desc_key="perkJuggernautRank3Desc" long_desc_key="perkJuggernautRank3LongDesc"/>
+				<effect_description level="4" desc_key="perkJuggernautRank4Desc" long_desc_key="perkJuggernautRank4LongDesc"/>
+				<effect_description level="5" desc_key="perkJuggernautRank5Desc" long_desc_key="perkJuggernautRank5LongDesc"/>
+			</effect_group>
+	</perk>
+
+<!-- Pack Mule -->
+
+
+	<set xpath="progression/perks/perk[@name='perkPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">14,28,42,56,71</set>
+
+<!-- Perception -->
+
+	<!--increase lockpicking speed for Lock Picking perk-->
+	<set xpath="/progression/perks/perk[@name='perkLockPicking']/effect_group/passive_effect[@name='LockPickTime']/@level">1,5</set>
+	<set xpath="/progression/perks/perk[@name='perkLockPicking']/effect_group/passive_effect[@name='LockPickTime']/@value">.2,.6</set>
+	<!--reduce chance to break lockpick for Lock Picking perk-->
+	<set xpath="/progression/perks/perk[@name='perkLockPicking']/effect_group/passive_effect[@name='LockPickBreakChance']/@level">1,2,3,4,5</set>
+	<set xpath="/progression/perks/perk[@name='perkLockPicking']/effect_group/passive_effect[@name='LockPickBreakChance']/@value">.2,.3,.4,.6,.8</set>
+	
+
+<!-- Intelligence -->
+
+	<append xpath="//perks">
+		<perk name="perkFastLearner" parent="skillIntellectCraftsmanship" name_key="perkFastLearner" desc_key="perkFastLearnerDesc" icon="ui_game_symbol_computer">
+		<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="1" desc_key="reqIntellectLevel01"/></level_requirements>
+		<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="2" desc_key="reqIntellectLevel02"/></level_requirements>
+		<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="3" desc_key="reqIntellectLevel03"/></level_requirements>
+		<level_requirements level="4"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="5" desc_key="reqIntellectLevel05"/></level_requirements>
+		<level_requirements level="5"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="7" desc_key="reqIntellectLevel07"/></level_requirements>
+
+			<effect_group>
+			<passive_effect name="PlayerExpGain" tags="Crafting, Selling, Quest" operation="perc_add" level="1,5" value=".1,.375"/>
+
+			<effect_description level="1" desc_key="perkFastLearnerRank1Desc" long_desc_key="perkFastLearnerRank1LongDesc"/>
+			<effect_description level="2" desc_key="perkFastLearnerRank2Desc" long_desc_key="perkFastLearnerRank2LongDesc"/>
+			<effect_description level="3" desc_key="perkFastLearnerRank3Desc" long_desc_key="perkFastLearnerRank3LongDesc"/>
+			<effect_description level="4" desc_key="perkFastLearnerRank4Desc" long_desc_key="perkFastLearnerRank4LongDesc"/>
+			<effect_description level="5" desc_key="perkFastLearnerRank5Desc" long_desc_key="perkFastLearnerRank5LongDesc"/>
+			</effect_group>
+		</perk>
+		
+		
+<!-- Strength -->	
+	
+		<perk name="perkBringItOn" parent="skillStrengthGeneral" name_key="perkBringItOn" desc_key="perkBringItOnDesc" icon="ui_game_symbol_bull">
+			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="1" desc_key="reqStrengthLevel01"/></level_requirements>
+			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="2" desc_key="reqStrengthLevel02"/></level_requirements>
+			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="3" desc_key="reqStrengthLevel03"/></level_requirements>
+			<level_requirements level="4"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="5" desc_key="reqStrengthLevel05"/></level_requirements>
+			<level_requirements level="5"><requirement name="ProgressionLevel" progression_name="attStrength" operation="GTE" value="7" desc_key="reqStrengthLevel07"/></level_requirements>
+
+				<effect_group>
+				<passive_effect name="Gamestage" operation="base_add" level="1" value="10"/>
+				<passive_effect name="Gamestage" operation="base_add" level="2" value="25"/>
+				<passive_effect name="Gamestage" operation="base_add" level="3" value="50"/>
+				<passive_effect name="Gamestage" operation="base_add" level="4" value="75"/>
+				<passive_effect name="Gamestage" operation="base_add" level="5" value="100"/>
+
+				<effect_description level="1" desc_key="perkBringItOnRank1Desc" long_desc_key="perkBringItOnRank1LongDesc"/>
+				<effect_description level="2" desc_key="perkBringItOnRank2Desc" long_desc_key="perkBringItOnRank2LongDesc"/>
+				<effect_description level="3" desc_key="perkBringItOnRank3Desc" long_desc_key="perkBringItOnRank3LongDesc"/>
+				<effect_description level="4" desc_key="perkBringItOnRank4Desc" long_desc_key="perkBringItOnRank4LongDesc"/>
+				<effect_description level="5" desc_key="perkBringItOnRank5Desc" long_desc_key="perkBringItOnRank5LongDesc"/>
+				</effect_group>
+		</perk>
+		
+	</append>
+
+
+
+<!-- Cooking Perks -->
+
+	<append xpath="/progression/perks/perk[@name='perkMasterChef']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,5" value="1" 
+			tags="foodCanSoup,foodCanMiso,foodCanStock"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,5" value="1"
+			tags="foodCanPears,foodCanPeas"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,5" value="1" 
+			tags="foodCanPasta,foodCanChili,foodCanLamb,foodCanChicken,foodCanBeef"/>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" 
+			tags="foodCanSalmon,foodCanTuna,foodCanCatfood"/>	
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="5,5" value="1" 
+			tags="foodCanDogfood"/>
+	</append>
+
+
+<!-- Better SKILLS -->
+	
+	<append xpath="/progression/perks/perk[@name='perkSexualTrex']/effect_group">
+		<passive_effect name="StaminaLoss" operation="perc_add" level="1,2,3,4" value="-.1,-.15,-.2,-.25"/>
+		<passive_effect name="StaminaLoss" operation="perc_add" level="1,2,3,4" value="-.08,-.15,-.2,-.25" tags="secondary"/>
+	</append>
+	<append xpath="/progression/perks/perk[@name='perkSlowMetabolism']/effect_group">
+		<passive_effect name="WaterLossPerHealthPointGained" operation="perc_add" level="1,5" value="-.15,-.5"/>
+		<passive_effect name="WaterLossPerStaminaPointGained" operation="perc_add" level="1,5" value="-.15,-.5"/>
+		<passive_effect name="FoodLossPerStaminaPointGained" operation="perc_add" level="1,5" value="-.15,-.5"/>
+	</append>	
+	<append xpath="/progression/perks/perk[@name='perkLuckyLooter']/effect_group">
+		<passive_effect name="LootDropProb" operation="perc_add" level="1,5" value="6.67,33.33"/>
+		<passive_effect name="LootQuantity" operation="perc_add" level="2,5" value="1,4"/>
+	</append>
+	<append xpath="/progression/perks/perk[@name='perkSkullCrusher']/effect_group">
+		<passive_effect name="StaminaLoss" operation="perc_add" level="1,2,3,4" value="-.03,-.08,-.1,-.15"/>
+		<passive_effect name="StaminaLoss" operation="perc_add" level="1,2,3,4" value="-.02,-.06,-.08,-.12" tags="secondary"/>
+	</append>
+
+	
+<!-- Double Drawbridge -->
+
+	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']">
+		<effect_group>
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="metalReinforcedWoodDrawBridgeDoublePowered"/>
+		</effect_group>
+	</append>	
+
+</configs>

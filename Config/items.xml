@@ -1,0 +1,2211 @@
+<configs>
+
+	<!-- Remove Quality of non-tier tools in recipes -->
+	<set xpath="/items/item[@name='meleeToolRepairT3Nailgun']/property[@name='ShowQuality']/@value">
+		false</set>
+
+
+	<!-- Limit zombie reach -->
+
+
+	<insertAfter xpath="/items/item[@name='meleeHandMaster']">
+
+		<item name="meleeHandMasterPlayer"> <!-- T1 brawling -->
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="Tags"
+				value="blunt,melee,grunting,light,perkFlurryOfBlows,attFortitude,perkBrawler" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="0" />
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee" />
+				<property name="Sphere" value=".15" />
+				<property name="Damage_type" value="Bashing" />
+
+				<property name="GrazeStart" value=".3" />
+				<property name="GrazeEnd" value=".5" />
+				<property name="SwingDegrees" value="5" />
+				<property name="UseGrazingHits" value="true" />
+				<property name="SwingAngle" value="-90" />
+
+			</property>
+			<property class="Action1"> <!-- UseAction -->
+				<property name="Class" value="DynamicMelee" />
+				<property name="Sphere" value=".15" />   <!-- limit to 0.15, else the sphere cast can
+				overlap the target already -->
+				<property name="UsePowerAttackAnimation" value="true" />
+
+				<property name="GrazeStart" value=".3" />
+				<property name="GrazeEnd" value=".4" />
+				<property name="SwingDegrees" value="65" />
+				<property name="UseGrazingHits" value="true" />
+				<property name="SwingAngle" value="90" />
+			</property>
+			<effect_group name="meleeHandPlayer" tiered="false">
+				<passive_effect name="EntityDamage" operation="base_set" value="5" />
+				<passive_effect name="BlockDamage" operation="base_set" value="2.2" />
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="earth" />
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="stone" />
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.5" tags="metal" />
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="80" />
+				<passive_effect name="StaminaLoss" operation="base_set" value="10.5" tags="primary" />
+
+				<passive_effect name="MaxRange" operation="base_set" value="2.0" />
+				<passive_effect name="BlockRange" operation="base_set" value="2.6" />
+			</effect_group>
+			<effect_group name="Power Attack" tiered="false">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary" />
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary" />
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.3"
+					tags="secondary" />
+				<passive_effect name="StaminaLoss" operation="base_set" value="15.8"
+					tags="secondary" />
+			</effect_group>
+			<!--use_action
+			class="LiftUpTerrain" delay="1" use_time="..." gain_health="-5"gain_stamina="-20"
+			gain_food="0" gain_water="10" gain_sickness="15" condition_raycast_block="77,78,79,80"
+			sound_start="player_drinking" /-->
+		</item>
+
+
+	</insertAfter>
+
+	<set xpath="/items/item[@name='meleeHandPlayer']/property[@name='Extends']/@value">
+		meleeHandMasterPlayer</set>
+
+	<set
+		xpath="/items/item[@name='meleeHandMaster']/property[@class='Action0']/property[@name='Range']/@value">
+		1.00</set>
+	<set
+		xpath="/items/item[@name='meleeHandMaster']/effect_group[@name='meleeHandMaster']/passive_effect[@name='DamageFalloffRange']/@value">
+		1.05</set>
+
+	<set
+		xpath="/items/item[@name='meleeHandZombieCop']/property[@class='Action0']/property[@name='Range']/@value">
+		1.35</set>
+
+	<append xpath="/items">
+
+
+		<!-- Incendiary 7.62 -->
+		<item name="ammo762Incendiary">
+			<property name="Extends" value="ammo762mmBulletAP" />
+			<property name="DisplayType" value="ammoLauncher" />
+			<property name="DescriptionKey" value="40mmIncDesc" />
+			<property name="CustomIcon" value="ammo762mmBulletAP" />
+			<property name="CustomIconTint" value="ff001e" />
+			<property name="HandMeshfile" value="Items/Misc/sackPrefab" />
+			<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+			<property name="Weight" value="5" />
+			<property name="Stacknumber" value="50" />
+			<property name="UnlockedBy" value="ammo762IncendiarySchematic" />
+			<property name="EconomicValue" value="50" />
+			<property name="EconomicBundleSize" value="1" />
+			<property class="Action1">
+				<property name="Explosion.RadiusBlocks" value="1" /> <!-- damage radius for blocks -->
+				<property name="Explosion.RadiusEntities" value="2" /> <!-- damage radius for
+				entities -->
+				<property name="Explosion.DamageBonus.stone" value=".1" />
+				<property name="Explosion.DamageBonus.metal" value=".5" />
+				<property name="Explosion.DamageBonus.earth" value="0" />
+				<property name="Explosion.DamageBonus.wood" value="5" />
+				<property name="Explosion.DamageBonus.water" value="0" />
+
+				<property name="Explosion.BlockDamage" value="10" /> <!-- workaround, not affected by
+				perks at all -->
+				<property name="Explosion.EntityDamage" value="50" /> <!-- workaround, not affected
+				by perks at all -->
+				<property name="Gravity" value="-6" />
+			</property>
+			<effect_group name="Base Effects" tiered="false">
+				<passive_effect name="EntityDamage" operation="base_set" value="50" />
+				<display_value name="dExDamageEntity" value="50" />
+				<passive_effect name="BlockDamage" operation="base_set" value="10" />
+				<display_value name="dExDamageBlock" value="10" />
+				<passive_effect name="ProjectileVelocity" operation="base_set" value="30" />
+				<display_value name="dExRadius" value="2" />
+				<display_value name="dExDamageFire" value="250" />
+				<triggered_effect trigger="onProjectileImpact" action="RemoveBuff"
+					target="positionAOE" range="2" buff="buffIncendiaryRound" />
+				<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="positionAOE"
+					range="2" buff="buffIncendiaryRound" />
+			</effect_group>
+		</item>
+
+
+		<item name="ammo762IncendiarySchematic">
+			<property name="Extends" value="schematicMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="ammo762mmBulletAP" />
+			<property name="CustomIconTint" value="ff001e" />
+			<property name="Unlocks" value="ammo762Incendiary" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="ammoBundle762Incendiary" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="ammo762Incendiary" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+
+		<item name="ammoBundle762Incendiary">
+			<property name="Extends" value="ammoBundleMaster" />
+			<property name="CustomIcon" value="ammo762mmBulletAP" />
+			<property name="Stacknumber" value="10" /> <!-- STK ammobundle high -->
+			<property name="EconomicValue" value="2500" />
+			<property name="UnlockedBy" value="ammo762IncendiarySchematic" />
+			<property class="Action0">
+				<property name="Create_item" value="ammoBundle762Incendiary" />
+				<property name="Create_item_count" value="50" />
+			</property>
+		</item>
+
+
+		<!-- Super Fuel -->
+		<item name="ammoSuperFuel">
+			<property name="Tags" value="gasoline" />
+			<property name="HoldType" value="45" />
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab" />
+			<property name="CustomIcon" value="ammoGasCan" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" value="MFuelBarrelMetal" />
+			<property name="DescriptionKey" value="ammosuperFuelDesc" />
+			<property name="Stacknumber" value="10000" /> <!-- STK resource -->
+			<property name="FuelValue" value="4" />
+			<property name="EconomicValue" value="10" /> <!-- oil barrel 500 -->
+			<property name="EconomicBundleSize" value="100" />
+			<property name="Group" value="Resources,Chemicals,CFChemicals,Ammo" />
+			<property name="UnlockedBy" value="ammoSuperFuelSchematic" />
+			<property name="CraftingIngredientTime" value=".05" />
+		</item>
+
+
+		<item name="ammoSuperFuelSchematic">
+			<property name="Extends" value="schematicNoQualityRecipeMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="ammoGasCan" />
+			<property name="Unlocks" value="ammoSuperFuel" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="ammoSuperFuel" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+		<set xpath="/items/item[@name='smallEngine']/property[@name='VehicleFuelItem']/@value">
+			ammoGasCan,ammoSuperFuel</set>
+
+
+		<!-- Zombie Cowhead -->
+
+		<item name="meleeHandCowhead">
+			<property name="Extends" value="meleeHandZombie01" />
+			<property name="CreativeMode" value="None" />
+			<property class="Action0">
+				<property name="DamageEntity" value="25" />
+				<property name="DamageBlock" value="30" />
+				<property name="DamageBonus.wood" value="2" />
+				<property name="Particles_muzzle_smoke" value="nozzlesmoke_chainsaw" />
+				<property name="Sound_start" value="chainsaw_fire_start" />
+			</property>
+			<effect_group name="meleeHandCowhead" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<passive_effect name="BuffProcChance" operation="base_set" value=".5"
+					tags="buffInjuryBleedingZombie" />
+				<passive_effect name="BuffProcChance" operation="base_set" value=".3"
+					tags="buffInfectionCatch" />
+				<passive_effect name="BuffProcChance" operation="base_set" value=".3"
+					tags="buffInjuryStunned01" />
+				<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" target="other"
+					cvar="infectionZombieHit" operation="set" value="45" />
+				<triggered_effect trigger="onSelfDamagedOther" action="PlaySound"
+					sound="chainsaw_fire_start" />
+			</effect_group>
+		</item>
+		<!-- Zombie Undertaker -->
+
+		<item name="meleeHandUndertaker">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="Degradation" value="99999" param1="true" />
+			<property name="Material" value="Mmetal" />
+			<property class="Action0">
+				<property name="Range" value="3" />
+				<property name="Sound_start" value="swoosh" />
+				<property name="DamageEntity" value="30" />
+				<property name="DamageBlock" value="125" />
+			</property>
+		</item>
+
+		<!-- Zombie Juggernaut -->
+
+		<item name="meleeHandJuggernaut">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="Degradation" value="99999" param1="true" />
+			<property class="Action0">
+				<property name="Range" value="1.75" />
+				<property name="DamageEntity" value="75" />
+				<property name="DamageBlock" value="500" />
+				<property name="Buff"
+					value="buffInjuryBleedingZombie,buffInfectionCatch,buffInjuryStunned01" />
+				<property name="Sound_start" value="Auger_Fire_Start" />
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalsolidhitorganic" />
+				</property>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Vomit" />
+				<property name="Delay" value=".3" />
+				<property name="Range" value="500" />
+				<property name="Infinite_ammo" value="true" />
+				<property name="Magazine_items" value="JuggernautProjectile" />
+				<property name="Sound_warning" value="demolitionzexplodewarning" />
+				<property name="Sound_start" value="m136_fire" />
+				<property name="Sound_repeat" value="" />
+				<property name="Sound_end" value="" />
+				<property name="Sound_empty" value="" />
+				<property name="Sound_reload" value="" />
+			</property>
+			<effect_group name="meleeHandJuggernaut" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="50" />
+				<passive_effect name="MaxRange" operation="base_set" value="100" />
+				<passive_effect name="MagazineSize" operation="base_set" value="3" />
+				<passive_effect name="BurstRoundCount" operation="base_set" value="3" />
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1" />
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3" />
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1" />
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20"
+					tags="buffInjuryBleedingZombie" />
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20"
+					tags="buffInfectionCatch" />
+				<passive_effect name="BuffProcChance" operation="base_set" value=".25"
+					tags="buffInjuryStunned01" />
+				<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" target="other"
+					cvar="infectionZombieHit" operation="set" value="30" />
+			</effect_group>
+		</item>
+		<item name="JuggernautProjectile">
+			<property name="Meshfile"
+				value="#Other/Items?Weapons/Ranged/RocketLauncher/rocketPrefab.prefab" />
+			<property name="Material" value="Mmetal" />
+			<property name="CreativeMode" value="None" />
+			<property class="Action1">
+				<property name="Class" value="Projectile" />
+				<property name="DamageEntity" value="125" />
+				<property name="DamageBlock" value="1000" />
+				<!--property
+				name="Explosion.ParticleIndex" value="4"/-->
+				<property name="Explosion.ParticleIndex" value="5" />
+				<!-- which Prefab/particle is used -->
+				<property name="Explosion.RadiusBlocks" value="5" />
+				<!-- damage radius for blocks -->
+				<property name="Explosion.RadiusEntities" value="4" />
+				<!-- damage radius for entities -->
+				<property name="Explosion.DamageBonus.water" value="0" />
+				<property name="Velocity" value="18" />
+				<property name="FlyTime" value="2" />
+				<property name="LifeTime" value="4" />
+				<property name="CollisionRadius" value="0.75" />
+				<property name="DamageBonus.earth" value="0" />
+			</property>
+			<effect_group name="JuggernautProjectile" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth" />
+				<passive_effect name="DamageModifier" operation="perc_set" value="0.5" tags="stone" />
+				<passive_effect name="DamageModifier" operation="perc_add" value="1.2" tags="metal" />
+			</effect_group>
+		</item>
+
+
+		<!-- Salmon -->
+
+		<item name="foodSalmon">
+			<property name="CustomIcon" value="foodBoiledMeat" />
+			<property name="CustomIconTint" value="FFDAB9" />
+			<property name="Extends" value="foodGrilledMeat" />
+			<property name="Tags" value="food" />
+			<property name="DisplayType" value="food" />
+			<property name="EconomicValue" value="24" />
+			<property name="Group" value="Food/Cooking,CFFood/Cooking" />
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="2.1" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="player_eating" />
+			</property>
+			<effect_group tiered="false" name="Food Tier 0">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$foodAmountAdd" operation="add" value="8" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="foodHealthAmount" operation="add" value="5" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar=".foodStaminaBonusAdd" operation="add" value="3" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+			</effect_group>
+		</item>
+
+
+		<!-- Khaine zombie stuttering stop -->
+
+		<item name="VanillaEntityLoadingHack">
+			<property name="CreativeMode" value="None" />
+			<property name="CustomIcon" value="missingIcon" />
+			<property name="CustomIconTint" value="90ff90" />
+			<property name="HoldType" value="45" />
+			<property name="HoldingItemHidden" value="true" />
+			<property name="Meshfile"
+				value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab" />
+			<property name="DropMeshfile"
+				value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab" />
+			<property name="Material" value="MresourceScrapIron" />
+			<property name="Weight" value="1" />
+			<property name="Stacknumber" value="1" /> <!-- STK resource -->
+			<property name="EconomicValue" value="1" />
+			<property name="EconomicBundleSize" value="1000" />
+			<property name="Group" value="Resources" />
+		</item>
+
+		<!-- If you want to change the unread books icon, here is how to do it -->
+		<!-- 
+		<set xpath="/items/item[@name='schematicMaster']/property[@name='ItemTypeIcon']/@value">add</set>
+		-->
+		<!--  Read Books -->
+		<!-- 
+		<set
+		xpath="/items/item[@name='schematicMaster']/property[@name='AltItemTypeIcon']/@value">check</set>
+		<insertAfter xpath="/items/item[@name='schematicMaster']/property[@name='AltItemTypeIcon']">
+			 <property name="AltItemTypeIconColor" value="128,256,128,128" />
+		</insertAfter>
+	 -->
+
+		<!-- Antibiotics Shot -->
+
+		<item name="drugAntibioticsShot">
+			<property name="Extends" value="drugPainkillers" />
+			<property name="DisplayType" value="drugSteroids" />
+			<property name="CustomIcon" value="drugSteroids" />
+			<property name="CustomIconTint" value="61A7F4" />
+			<property name="EconomicValue" value="250" />
+			<property name="UnlockedBy" value="perkPhysician" />
+			<property name="Group" value="Science,Medical" />
+			<property name="DisplayType" value="cureInfection" />
+			<property name="DescriptionKey" value="drugAntibioticsShotDesc" />
+
+			<effect_group tiered="false">
+				<display_value name="dCureInfection" value=".5" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffInfectionAddCurePerc" operation="add" value="25" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffInfectionAddCure" />
+			</effect_group>
+		</item>
+
+
+		<!-- Adrenaline Shot -->
+
+		<item name="drugAdrenaline">
+			<property name="Extends" value="drugPainkillers" />
+			<property name="DisplayType" value="drugSteroids" />
+			<property name="CustomIcon" value="drugSteroids" />
+			<property name="CustomIconTint" value="0066ff" />
+			<property name="EconomicValue" value="250" />
+			<property name="UnlockedBy" value="perkPhysician" />
+			<property name="Group" value="Science,Medical" />
+			<property name="DescriptionKey" value="drugAdrenalineDesc" />
+
+			<effect_group tiered="false" name="Drug Tier 3">
+				<display_value name="dEntityDamage" value=".5" />
+				<display_value name="dCarryCapacity" value="50" />
+				<display_value name="dRunSpeed" value=".15" />
+				<display_value name="$waterAmountAdd" value="-30" />
+				<display_value name="dDuration" value="600" />
+
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"
+					cvar="$buffDrugFortBitesDuration" operation="set" value="0" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSteroidsDuration" operation="add" value="303" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSteroidsDuration" operation="set" value="903">
+					<requirement name="CVarCompare" cvar="$buffDrugSteroidsDuration" operation="GT"
+						value="903" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="add" value="123" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="set" value="363">
+					<requirement name="CVarCompare" cvar="$buffMegaCrushDuration" operation="GT"
+						value="363" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSkullCrushersDuration" operation="add" value="153" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSkullCrushersDuration" operation="set" value="453">
+					<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration"
+						operation="GT" value="453" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables,buffDrugSteroids,buffDrugSkullCrushers,buffMegaCrush" />
+			</effect_group>
+
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="1.0" />
+				<property name="UseAnimation" value="false" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="hulkexplodewarning" />
+				<property name="Sound_in_head" value="true" />
+			</property>
+		</item>
+
+		<!-- Energy Drink -->
+
+
+		<item name="drinkBangPeach">
+			<property name="CustomIcon" value="drinkJarPureMineralWater" />
+			<property name="CustomIconTint" value="F6C492" />
+			<property name="HoldType" value="3" />
+			<property name="DisplayType" value="water" />
+			<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" value="Mglass" />
+			<property name="Stacknumber" value="50" /> <!-- STK drink -->
+			<property name="Weight" value="10" />
+			<property name="EconomicValue" value="68" />
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="1.0" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="player_drinking" />
+				<property name="Create_item" value="drinkJarEmpty" />
+			</property>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking" />
+			<effect_group tiered="false" name="Drink Tier 0/1">
+				<requirement name="NotHasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$waterAmountAdd" operation="add" value="70" />
+				<display_value name="dStaminaRegen" value=".50" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffAutoWeaponsComplete" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="add" value="123" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="set" value="363">
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffExtinguishFire" />
+			</effect_group>
+		</item>
+
+		<item name="drinkBlueberryBliss">
+			<property name="CustomIcon" value="drinkJarPureMineralWater" />
+			<property name="CustomIconTint" value="4f86f7" />
+			<property name="HoldType" value="3" />
+			<property name="DisplayType" value="water" />
+			<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" value="Mglass" />
+			<property name="Stacknumber" value="50" /> <!-- STK drink -->
+			<property name="Weight" value="10" />
+			<property name="EconomicValue" value="68" />
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="1.0" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="player_drinking" />
+				<property name="Create_item" value="drinkJarEmpty" />
+			</property>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking" />
+			<effect_group tiered="false" name="Drink Tier 0/1">
+				<requirement name="NotHasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$waterAmountAdd" operation="add" value="90" />
+				<display_value name="dStaminaRegen" value=".50" />
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffAutoWeaponsComplete" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="add" value="123" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="set" value="363">
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffExtinguishFire" />
+			</effect_group>
+		</item>
+
+		<item name="drinkRagingRaspberry">
+			<property name="CustomIcon" value="drinkJarPureMineralWater" />
+			<property name="CustomIconTint" value="E30B5C" />
+			<property name="HoldType" value="3" />
+			<property name="DisplayType" value="water" />
+			<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" value="Mglass" />
+			<property name="Stacknumber" value="50" /> <!-- STK drink -->
+			<property name="Weight" value="10" />
+			<property name="EconomicValue" value="68" />
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="1.0" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="player_drinking" />
+				<property name="Create_item" value="drinkJarEmpty" />
+			</property>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking" />
+			<effect_group tiered="false" name="Drink Tier 0/1">
+				<requirement name="NotHasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$waterAmountAdd" operation="add" value="90" />
+				<display_value name="dStaminaRegen" value=".50" />
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.25" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffAutoWeaponsComplete" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="add" value="123" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="set" value="363">
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffExtinguishFire" />
+			</effect_group>
+		</item>
+
+		<item name="drinkStrawberryMilk">
+			<property name="CustomIcon" value="drinkJarPureMineralWater" />
+			<property name="CustomIconTint" value="F4E1EA" />
+			<property name="HoldType" value="3" />
+			<property name="DisplayType" value="water" />
+			<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" value="Mglass" />
+			<property name="Stacknumber" value="50" /> <!-- STK drink -->
+			<property name="Weight" value="10" />
+			<property name="EconomicValue" value="68" />
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="1.0" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="player_drinking" />
+				<property name="Create_item" value="drinkJarEmpty" />
+			</property>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking" />
+			<effect_group tiered="false" name="Drink Tier 0/1">
+				<requirement name="NotHasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$waterAmountAdd" operation="add" value="90" />
+				<display_value name="dStaminaRegen" value=".50" />
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.1" />
+				<passive_effect name="WeaponHandling" operation="perc_add" value="0.1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffAutoWeaponsComplete" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="add" value="123" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="set" value="363">
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffExtinguishFire" />
+			</effect_group>
+		</item>
+
+		<!-- Super Stun Baton -->
+
+		<item name="meleeWpnBatonT3StunBaton">
+			<property name="Tags"
+				value="melee,grunting,light,perkFlurryOfBlows,weapon,meleeWeapon,attIntellect,perkElectrocutioner,canHaveCosmetic" />
+			<property name="DisplayType" value="melee" />
+			<property name="HoldType" value="58" />
+			<property name="Meshfile"
+				value="#Other/Items?Weapons/Melee/TaserBaton/TaserBatonPrefab.prefab" />
+			<property name="Material" value="MmeleeWpnBatonParts" />
+			<property name="Weight" value="4" />
+			<property name="RepairTools" value="resourceRepairKit" />
+			<property name="DegradationBreaksAfter" value="false" />
+			<property name="EconomicValue" value="550" />
+			<property name="SoundJammed" value="ItemNeedsRepair" />
+			<property name="SoundDestroy" value="wooddestroy1" />
+			<property name="Group" value="Ammo/Weapons,Melee Weapons" />
+			<property name="RepairExpMultiplier" value="5.5" />
+			<property name="UnlockedBy"
+				value="perkElectrocutioner,meleeWpnBatonT2StunBatonSchematic" />
+			<property name="ShowQuality" value="true" />
+			<property name="CustomIcon" value="meleeWpnBatonT2StunBaton" />
+			<property name="CustomIconTint" value="227, 38, 54" />
+
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee" />
+				<property name="Damage_type" value="Slashing" />
+				<property name="Sphere" value=".15" />   <!-- limit to 0.15, else the sphere cast can
+				overlap the target already -->
+				<property name="Sound_start" value="stunbaton_swinglight" />
+
+				<property name="UseGrazingHits" value="true" />
+				<property name="GrazeStart" value=".25" />
+				<property name="GrazeEnd" value=".32" />
+				<property name="SwingDegrees" value="90" />
+				<property name="SwingAngle" value="90" />
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalhollowhitorganic" />
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic" />
+				</property>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee" />
+				<property name="Damage_type" value="Slashing" />
+				<property name="Sphere" value=".15" />   <!-- limit to 0.15, else the sphere cast can
+				overlap the target already -->
+				<property name="Sound_start" value="stunbaton_swingheavy" />
+				<property name="UsePowerAttackAnimation" value="true" />
+
+				<property name="UseGrazingHits" value="true" />
+				<property name="GrazeStart" value=".2" />
+				<property name="GrazeEnd" value=".32" />
+				<property name="SwingDegrees" value="65" />
+				<property name="SwingAngle" value="180" />
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalhollowhitorganic" />
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic" />
+				</property>
+			</property>
+			<effect_group name="meleeWpnBatonT2StunBaton">
+				<passive_effect name="EntityDamage" operation="base_set" value="12.8"
+					tags="perkElectrocutioner" /> <!-- meleeWpnBatonT2StunBaton -->
+				<passive_effect name="BlockDamage" operation="base_set" value="8"
+					tags="perkElectrocutioner" />
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="70"
+					tags="perkElectrocutioner,perkFlurryOfBlows" />
+				<passive_effect name="StaminaLoss" operation="base_set" value="12" tags="primary" />
+				<passive_effect name="DegradationMax" operation="base_set" value="269,673"
+					tier="1,6" tags="perkElectrocutioner" />
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1"
+					tags="perkElectrocutioner" />
+				<passive_effect name="MaxRange" operation="base_set" value="2.4"
+					tags="perkElectrocutioner" />
+				<passive_effect name="BlockRange" operation="base_set" value="3"
+					tags="perkElectrocutioner" />
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,2,2,3,4,5"
+					tier="1,2,3,4,5,6" />
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".15"
+					tags="EntityDamage,BlockDamage" />
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300"
+					tags="EconomicValue" />
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.20"
+					tags="perkElectrocutioner" /> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15,.65" tier="2,6"
+					tags="perkElectrocutioner" /> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.20"
+					tags="perkElectrocutioner" /> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".15,.65" tier="2,6"
+					tags="perkElectrocutioner" /> <!-- tier bonus -->
+
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.9" tags="earth" />
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.9" tags="stone" />
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.9" tags="metal" />
+				<passive_effect name="HarvestCount" operation="base_set" value="1"
+					tags="butcherHarvest" />
+
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75"
+					tags="allHarvest" />
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75"
+					tags="allToolsHarvest" />
+				<passive_effect name="HarvestCount" operation="base_add" value="-.75"
+					tags="oreWoodHarvest" />
+
+				<!--<triggered_effect
+				trigger="onSelfEquipStop" action="RemovePart" part="Sparks"/> -->
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="Sparks"
+					prefab="ParticleEffects/p_electric_shock_small" parentTransform="Handle"
+					localPos="0,0,0" localRot="0,0,0">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary" />
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary" />
+				<passive_effect name="StaminaLoss" operation="base_set" value="20" tags="secondary" />
+				<passive_effect name="DismemberChance" operation="base_add" value=".05" />
+			</effect_group>
+
+			<effect_group name="apply damage buff, meleeWpnBatonT2StunBaton">
+				<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE" value="40" />
+				<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="Sparks"
+					prefab="ItemModEffects/baton_electricityPrefab" parentTransform="Handle"
+					localPos="0,0,0" localRot="0,0,0" />
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="Ragdoll"
+					target="other" duration="2.5" force="350">
+					<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor" />
+					<requirement name="!HasBuff" buff="buffDrugNerdTats" />
+					<requirement name="!EntityTagCompare" target="other" tags="trader" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="Ragdoll"
+					target="other" duration="2.5" force="350">
+					<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor" />
+					<requirement name="!HasBuff" buff="buffDrugNerdTats" />
+					<requirement name="!EntityTagCompare" target="other" tags="trader" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="Ragdoll"
+					target="otherAOE" range="1.1" target_tags="zombie,animal" duration="2.5"
+					force="350">
+					<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor" />
+					<requirement name="HasBuff" buff="buffDrugNerdTats" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="Ragdoll"
+					target="otherAOE" range="1.1" target_tags="zombie,animal" duration="2.5"
+					force="350">
+					<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor" />
+					<requirement name="HasBuff" buff="buffDrugNerdTats" />
+				</triggered_effect>
+
+				<!-- Set duration -->
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="5">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="6">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="7">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="8">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="4" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="9">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="5" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="5">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="6">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="7">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="8">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="4" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					target="other" cvar=".buffShockedDurationStart" operation="set" value="9">
+					<requirement name="ProgressionLevel" progression_name="perkElectrocutioner"
+						operation="Equals" value="5" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="other" buff="buffShocked" />
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff"
+					target="other" buff="buffShocked" />
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="otherAOE" range="1.1" target_tags="zombie,animal" buff="buffShocked">
+					<requirement name="HasBuff" buff="buffDrugNerdTats" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff"
+					target="otherAOE" range="1.3" target_tags="zombie,animal"
+					buff="buffShocked,buffStunAoE">
+					<requirement name="HasBuff" buff="buffDrugNerdTats" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="RemovePart"
+					part="Sparks" />
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="RemovePart"
+					part="Sparks" />
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="set" value="0" />
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="set" value="0" />
+			</effect_group>
+			<effect_group name="increase charges">
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="add" value="1">
+					<requirement name="IsAlive" target="other" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="add" value="2">
+					<requirement name="IsAlive" target="other" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="add" value="4">
+					<requirement name="ProgressionLevel"
+						progression_name="perkTechJunkie6BatonCharge" operation="Equals" value="1" />
+					<requirement name="IsAlive" target="other" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100"
+						operation="LTE" value="25" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="add" value="4">
+					<requirement name="ProgressionLevel"
+						progression_name="perkTechJunkie6BatonCharge" operation="Equals" value="1" />
+					<requirement name="IsAlive" target="other" />
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100"
+						operation="LTE" value="50" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddPart" part="Sparks"
+					prefab="ParticleEffects/p_electric_shock_small" parentTransform="Handle"
+					localPos="0,0,0" localRot="0,0,0">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="LT"
+						value="40" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddPart"
+					part="Sparks" prefab="ParticleEffects/p_electric_shock_small"
+					parentTransform="Handle" localPos="0,0,0" localRot="0,0,0">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="LT"
+						value="40" />
+				</triggered_effect>
+
+				<!-- the attack that applies the last +1 charge can not immediately trigger the
+				effect -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="set" value="40">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					cvar=".stunBatonCharge" operation="set" value="40">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit1">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit2">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit3">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit4">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit5">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit1">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit2">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit3">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit4">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="Equals"
+						value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="PlaySound"
+					sound="stunbaton_hit5">
+					<requirement name="CVarCompare" cvar=".stunBatonCharge" operation="GTE"
+						value="4" />
+				</triggered_effect>
+			</effect_group>
+
+		</item>
+	</append>
+	<!-- Advanced Med Kits -->
+
+	<append xpath="/items">
+
+		<item name="medicalAdvancedFirstAidBandage">
+			<property name="Extends" value="medicalBandage" />
+			<property name="CustomIcon" value="medicalFirstAidBandage" />
+			<property name="CustomIconTint" value="255,91,91" />
+			<property name="Group" value="Science,Medical" />
+			<property name="EconomicValue" value="15" />
+			<property name="DescriptionKey" value="medicalFirstAidBandageDesc" />
+			<property name="Stacknumber" value="50" />
+			<property name="UnlockedBy"
+				value="perkPhysician,medicalAdvancedFirstAidBandageSchematic" />
+
+			<effect_group tiered="false">
+				<!-- used on self -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="healAbrasionMult" operation="set" value="3" /> <!-- X -->
+				<display_value name="dhealAbrasionMult" value="3" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffInjuryAbrasionTreated">
+					<requirement name="HasBuff" buff="buffInjuryAbrasion" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="medicalRegHealthAmount" operation="add" value="60" /> <!-- X -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed" />
+				<display_value name="foodHealthAmount" value="60" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff"
+					buff="buffInjuryBleeding" />
+				<display_value name="dStopsBleeding" value="1" />
+				<!-- used on other -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="healAbrasionMult" operation="set" value="3" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medicalRegHealthAmount" operation="add" value="60" />
+				<!-- used on other, regular health per tick based on perkPhysician -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="2">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="2.5">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="2.8">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="3.1">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="3.5">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="4" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff"
+					target="other" buff="buffInjuryBleeding" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other"
+					buff="buffInjuryAbrasionTreated">
+					<requirement name="HasBuff" buff="buffInjuryAbrasion" />
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<!-- medical XP gains -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="100" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="40">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="60">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="80">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="100">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="4" />
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<!-- medical XP secondary action gains -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="100" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="40">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="60">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="80">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="100">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="4" />
+				</triggered_effect>
+			</effect_group>
+
+		</item>
+
+		<item name="medicalAdvancedFirstAidKit">
+			<property name="Extends" value="medicalBandage" param1="DescriptionKey" />
+			<property name="CustomIcon" value="medicalFirstAidKit" />
+			<property name="CustomIconTint" value="255,91,91" />
+			<property name="DisplayType" value="medicalFirstAidKit" />
+			<property name="Group" value="Science,Medical" />
+			<property name="EconomicValue" value="200" />
+			<property name="DescriptionKey" value="medicalFirstAidKitDesc" />
+			<property name="Stacknumber" value="50" />
+			<property name="UnlockedBy" value="perkPhysician,medicalAdvancedFirstAidKitSchematic" />
+
+			<property class="Action0">
+				<!-- <requirement name="StatCompare" stat="health" operation="lte" value="50"/> -->
+				<property name="Sound_start" value="player_firstAidKit" />
+			</property>
+			<property class="Action1">
+				<property name="Sound_start" value="player_firstAidKit" />
+			</property>
+
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="healAbrasionMult" operation="set" value="4" /> <!-- X -->
+				<display_value name="dhealAbrasionMult" value="4" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffInjuryAbrasionTreated">
+					<requirement name="HasBuff" buff="buffInjuryAbrasion" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="medicalRegHealthAmount" operation="add" value="400" /> <!-- X -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="medRegHealthIncSpeed" operation="set" value="@medicRegHealthIncreaseSpeed" />
+				<display_value name="foodHealthAmount" value="400" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff"
+					buff="buffInjuryBleeding" />
+				<display_value name="dStopsBleeding" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff"
+					buff="buffLaceration" />
+				<display_value name="dStopsLaceration" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff"
+					buff="buffLegSprained" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff"
+					buff="buffArmSprained" />
+				<!-- used on other -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="healAbrasionMult" operation="set" value="4" /> <!-- X -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medicalRegHealthAmount" operation="add" value="400" /> <!--
+				X -->
+
+				<!-- used on other, regular health per tick based on perkPhysician -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="2">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="2.5">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="2.8">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="3.1">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar"
+					target="other" cvar="medRegHealthIncSpeed" operation="set" value="3.5">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="4" />
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other"
+					buff="buffProcessConsumables" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff"
+					target="other" buff="buffInjuryBleeding" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff"
+					target="other" buff="buffLaceration" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff"
+					target="other" buff="buffLegSprained" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff"
+					target="other" buff="buffArmSprained" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="300" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="other"
+					buff="buffInjuryAbrasionTreated">
+					<requirement name="HasBuff" buff="buffInjuryAbrasion" />
+				</triggered_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<!-- medical XP gains -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="300" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="120">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="180">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="240">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="300">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="4" />
+				</triggered_effect>
+			</effect_group>
+
+			<effect_group tiered="false">
+				<!-- medical XP secondary action gains -->
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="300" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="120">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="1" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="180">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="2" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="240">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="3" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="GiveExp" exp="300">
+					<requirement name="ProgressionLevel" progression_name="perkPhysician"
+						operation="Equals" value="4" />
+				</triggered_effect>
+			</effect_group>
+		</item>
+
+		<item name="medicalAdvancedFirstAidBandageSchematic">
+			<property name="Extends" value="schematicMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="medicalFirstAidBandage" />
+			<property name="CustomIconTint" value="255,91,91" />
+			<property name="Unlocks" value="medicalAdvancedFirstAidBandage" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="medicalAdvancedFirstAidBandage" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+		<item name="medicalAdvancedFirstAidKitSchematic">
+			<property name="Extends" value="schematicMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="medicalFirstAidKit" />
+			<property name="CustomIconTint" value="255,91,91" />
+			<property name="Unlocks" value="medicalAdvancedFirstAidKit" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="medicalAdvancedFirstAidKit" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+	</append>
+
+
+	<!-- Screamer Banshee weapon -->
+
+	<append xpath="/items">
+		<item name="meleeHandScreamerBoss">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="Degradation" value="99999" param1="true" />
+			<property class="Action0">
+				<property name="Range" value="3.75" />
+				<property name="DamageEntity" value="20" />
+				<property name="DamageBlock" value="100" />
+			</property>
+			<property class="Action1"> <!-- UseAction -->
+				<property name="Class" value="Vomit" />
+				<property name="Hitmask_override" value="Arrow" />
+				<property name="Delay" value=".3" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="200" />
+				<property name="Infinite_ammo" value="true" />
+				<property name="Magazine_items" value="ammoProjectileScreamerBoss" />
+				<property name="Sound_warning" value="hulkvomitwarning" />
+				<property name="Sound_start" value="hulkvomitattack" />
+				<property name="Sound_repeat" value="" />
+				<property name="Sound_end" value="" />
+				<property name="Sound_empty" value="" />
+				<property name="Sound_reload" value="" />
+			</property>
+			<effect_group name="meleeHandDemoBoss" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="75"/>  A16 .8 -->
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="100" />
+				<passive_effect name="MaxRange" operation="base_set" value="150" />
+				<passive_effect name="MagazineSize" operation="base_set" value="5" />
+				<passive_effect name="BurstRoundCount" operation="base_set" value="1" />
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2" />
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3" />
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1" />
+
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="infectionCounter" operation="add" value="10"><!--InfectionRegular-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter"
+						operation="GT" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="abrasionZombieHit" operation="set" value="1800" /><!--AbrasionRegular-->
+			</effect_group>
+		</item>
+	</append>
+
+	<!-- Baby Boar Damage -->
+	<append xpath="/items">
+
+		<item name="meleeHandanimalBabyBoar">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="35" />
+			<property class="Action0">
+				<property name="Delay" value=".6" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1" />
+				<property name="DamageEntity" value="7" />
+				<property name="DamageBlock" value="8" />
+			</property>
+			<effect_group name="meleeHandanimalBabyBoar" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="85"/>  A16 .7 -->
+				<passive_effect name="DamageModifier" operation="perc_add" value="3" tags="earth" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Bear Damage -->
+		<item name="meleeHandanimalBabyBear">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="46" />
+			<property class="Action0">
+				<property name="Delay" value="1.5" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1" />
+				<property name="Sphere" value=".3" />
+				<property name="DamageEntity" value="15" />
+				<property name="DamageBlock" value="20" />
+			</property>
+			<effect_group name="meleeHandanimalBabyBear" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="40"/>  A16 1.5 -->
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Wolf Damage -->
+		<item name="meleeHandanimalBabyWolf">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="35" />
+			<property class="Action0">
+				<property name="Delay" value=".6" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1" />
+				<property name="DamageEntity" value="7" />
+				<property name="DamageBlock" value="8" />
+			</property>
+			<effect_group name="meleeHandanimalBabyWolf" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="85"/>  A16 .7 -->
+				<passive_effect name="DamageModifier" operation="perc_add" value="3" tags="earth" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Coyote Damage -->
+		<item name="meleeHandanimalBabyCoyote">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="35" />
+			<property class="Action0">
+				<property name="Delay" value=".7" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1" />
+				<property name="DamageEntity" value="5" />
+				<property name="DamageBlock" value="3" />
+			</property>
+			<effect_group name="meleeHandanimalBabyCoyote" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="85"/>  A16 .7 -->
+				<passive_effect name="DamageModifier" operation="perc_add" value="3" tags="earth" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Mountain Lion Damage -->
+		<item name="meleeHandanimalBabyMountainLion">
+			<property name="Extends" value="meleeHandAnimalWolf" />
+			<property name="CreativeMode" value="None" />
+			<property class="Action0">
+				<property name="Delay" value=".8" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1.1" />
+				<property name="DamageEntity" value="11" />
+				<property name="DamageBlock" value="14" />
+			</property>
+			<effect_group name="meleeHandanimalBabyMountainLion" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Dire Wolf Damage -->
+		<item name="meleeHandanimalBabyDireWolf">
+			<property name="Extends" value="meleeHandAnimalWolf" />
+			<property name="CreativeMode" value="None" />
+			<property class="Action0">
+				<property name="Delay" value=".8" /> <!-- obsolete if rounds per minute exists -->
+				<property name="Range" value="1.1" />
+				<property name="DamageEntity" value="11" />
+				<property name="DamageBlock" value="14" />
+			</property>
+			<effect_group name="meleeHandanimalBabyDireWolf" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Zombie Dog Damage -->
+		<item name="meleeHandanimalBabyZombieDog">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="35" />
+			<property class="Action0">
+				<property name="Delay" value=".7" /> <!-- obsolete if rounds per minute exists -->
+				<property name="DamageEntity" value="4" />
+				<property name="DamageBlock" value="7" />
+			</property>
+			<effect_group name="meleeHandanimalBabyZombieDog" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="85"/>  A16 .7 -->
+				<passive_effect name="DamageModifier" operation="perc_add" value="3" tags="earth" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="infectionCounter" operation="add" value="10"><!--InfectionRegular-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter"
+						operation="GT" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="abrasionZombieHit" operation="set" value="1800" /><!--AbrasionRegular-->
+			</effect_group>
+		</item>
+
+		<!-- Baby Zombie Bear Damage -->
+		<item name="meleeHandanimalBabyZombieBear">
+			<property name="Extends" value="meleeHandAnimalBear" />
+			<property name="CreativeMode" value="None" />
+			<property class="Action0">
+				<property name="Range" value="1" />
+				<property name="DamageEntity" value="25" />
+				<property name="DamageBlock" value="40" />
+			</property>
+			<effect_group name="meleeHandanimalBabyZombieBear" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="40"/>  A16 1.5 -->
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="infectionCounter" operation="add" value="10"><!--InfectionRegular-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter"
+						operation="GT" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="abrasionZombieHit" operation="set" value="1800" /><!--AbrasionRegular-->
+			</effect_group>
+		</item>
+
+		<!-- Baby Snake Damage -->
+		<item name="meleeHandanimalBabySnake">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="55" />
+			<property class="Action0">
+				<property name="Delay" value="1.25" />
+				<property name="Range" value="1" />
+				<property name="DamageEntity" value="5" />
+				<property name="DamageBlock" value="1" />
+			</property>
+			<effect_group name="meleeHandanimalBabySnake" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="75"/>  A16 .8 -->
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+		<!-- Baby Zombie Vulture Damage -->
+		<item name="meleeHandAnimalBabyZombieVulture">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="35" />
+			<property class="Action0">
+				<property name="Delay" value=".7" /> <!-- obsolete if rounds per minute exists -->
+				<property name="DamageEntity" value="4" />
+				<property name="DamageBlock" value="4" />
+			</property>
+			<effect_group name="meleeHandAnimalBabyZombieVulture" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter"
+						operation="GT" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="abrasionZombieHit" operation="set" value="3200" /><!--AbrasionRadiated-->
+			</effect_group>
+		</item>
+
+		<!-- Baby Zombie Vulture Radiated Damage -->
+		<item name="meleeHandAnimalBabyZombieVultureRadiated">
+			<property name="Extends" value="meleeHandAnimalZombieVulture" />
+			<property name="CreativeMode" value="None" />
+			<property class="Action0">
+				<property name="Delay" value=".7" />
+				<property name="DamageEntity" value="15" />
+				<property name="DamageBlock" value="16" />
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Vomit" />
+				<property name="Hitmask_override" value="Arrow" />
+				<property name="Delay" value=".5" />
+				<property name="Infinite_ammo" value="true" />
+				<property name="Magazine_items" value="ammoProjectileVultureVomit" />
+				<property name="Sound_warning" value="vulturevomitwarning" />
+				<property name="Sound_start" value="vulturevomitattack" />
+				<property name="Sound_repeat" value="" />
+				<property name="Sound_end" value="" />
+				<property name="Sound_empty" value="" />
+				<property name="Sound_reload" value="" />
+			</property>
+			<effect_group name="meleeHandAnimalBabyZombieVultureRadiated" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<passive_effect name="MagazineSize" operation="base_set" value="1" />
+				<passive_effect name="BurstRoundCount" operation="base_set" value="2" />
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="6" />
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="15" />
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1" />
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="50" />
+				<passive_effect name="MaxRange" operation="base_set" value="50" />
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter"
+						operation="GT" value="0" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other"
+					cvar="abrasionZombieHit" operation="set" value="3200" /><!--AbrasionRadiated-->
+			</effect_group>
+		</item>
+	</append>
+
+	<!-- Nightvision goggle changes -->
+
+	<set xpath="/items/item[@name='apparelNightvisionGoggles']/effect_group">
+		<!--		<requirement name="IsLocalPlayer"/> -->
+		<triggered_effect trigger="onSelfItemActivate" action="ModifyScreenEffect"
+			effect_name="Bright" intensity="0.75" fade="0" />
+		<triggered_effect trigger="onSelfItemDeactivate" action="ModifyScreenEffect"
+			effect_name="Bright" intensity="0" fade="0" />
+		<triggered_effect trigger="onSelfEquipStop" action="ModifyScreenEffect" effect_name="Bright"
+			intensity="0" fade="0" />
+
+		<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="HeadLightTPV"
+			prefab="ScreenEffects/DeferredNV/NVGLight" parentTransform="Spotlight" localPos="0,0,0"
+			localRot="90,0,0" />
+		<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="HeadLightFPV"
+			prefab="ScreenEffects/DeferredNV/NVGLight" parentTransform="CameraNode"
+			localPos="0,0,.1" localRot="-90,0,0" />
+		<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLightTPV" />
+		<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLightFPV" />
+		<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLightTPV"
+			active="@!.IsFPV" />
+		<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLightFPV"
+			active="@.IsFPV" />
+		<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLightTPV"
+			active="false" />
+		<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLightFPV"
+			active="false" />
+		<triggered_effect trigger="onSelfChangedView" action="SetPartActive" part="HeadLightTPV"
+			active="@!.IsFPV" />
+		<triggered_effect trigger="onSelfChangedView" action="SetPartActive" part="HeadLightFPV"
+			active="@.IsFPV" />
+	</set>
+
+
+	<!-- Whisperer Stuff -->
+
+	<append xpath="/items">
+		<item name="whispererClothingMaster">
+			<property name="CreativeMode" value="None" />
+			<property name="CustomIcon" value="apparelHazmatBoots" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="DisplayType" value="clothing" />
+			<property name="Stacknumber" value="1" />
+			<property name="Material" value="MmilitaryFiber" />
+			<property name="DegradationBreaksAfter" value="false" />
+			<property name="Weight" />
+			<property name="EconomicValue" value="400" />
+			<property name="HoldType" value="45" />
+			<property name="Meshfile" value="Items/Misc/sackPrefab" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="DescriptionKey" value="hazmatClothesGroupDesc" />
+			<property name="Group" value="Clothing" />
+			<property name="ActionSkillGroup" value="Clothing/Armor" />
+			<property name="CraftingSkillGroup" value="craftSkillScience" />
+		</item>
+
+		<item name="whispererBoots">
+			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
+			<property name="CustomIcon" value="apparelHazmatBoots" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="Tags" value="lowerbody,feet,clothing" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="EquipSlot" value="Feet" />
+			<property class="UMA">
+				<property name="Mesh" value="armor_hazmat_feet" />
+				<property name="Overlay0" value="armor_hazmat_boots" />
+				<property name="Layer" value="0" />
+				<property name="UISlot" value="Footwear" />
+			</property>
+
+			<effect_group name="Base Whisperer Group" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="add" value="1" />
+				<triggered_effect trigger="onSelfEquipStop" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="subtract" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" target="self"
+					buff="buffWhisperer" />
+
+				<requirement name="NotHasBuff" buff="buffAntiWhisperer" />
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="buffAntiWhisperer" operation="add" value="20" />
+				<display_value name="buffAntiWhisperer" value=".15" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffWhisperer" />
+
+				<triggered_effect trigger="onSelfJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfLandJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouch" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfStand" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff"
+					target="self" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="other" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchWalk" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+			</effect_group>
+		</item>
+
+		<item name="whispererPants">
+			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
+			<property name="CustomIcon" value="apparelHazmatPants" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="Tags" value="lowerbody,legs,clothing" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="EquipSlot" value="Legs" />
+			<property class="UMA">
+				<property name="Mesh" value="armor_hazmat_legs" />
+				<property name="Mask0" value="legs" param1="middle" />
+				<property name="Overlay0" value="armor_hazmat_pants" />
+				<property name="Layer" value="1" />
+				<property name="UISlot" value="Pants" />
+			</property>
+
+			<effect_group name="Base Whisperer Group" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="add" value="1" />
+				<triggered_effect trigger="onSelfEquipStop" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="subtract" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" target="self"
+					buff="buffWhisperer" />
+				<requirement name="NotHasBuff" buff="buffAntiWhisperer" />
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="buffAntiWhisperer" operation="add" value="20" />
+				<display_value name="buffAntiWhisperer" value=".15" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffWhisperer" />
+
+				<triggered_effect trigger="onSelfJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfLandJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouch" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfStand" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff"
+					target="self" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="other" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchWalk" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+			</effect_group>
+		</item>
+
+		<item name="whispererShirt">
+			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
+			<property name="CustomIcon" value="apparelHazmatJacket" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="Tags" value="upperbody,chest,clothing" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="EquipSlot" value="Chest" />
+			<property class="UMA">
+				<property name="Mesh" value="armor_hazmat_chest" />
+				<property name="Overlay0" value="armor_hazmat_chest" />
+				<property name="Layer" value="3" />
+				<property name="Mask0" value="chest" param1="middle" />
+				<property name="Mask2" value="chest" param1="inner" />
+				<property name="UISlot" value="Jacket" />
+			</property>
+
+			<effect_group name="Base Whisperer Group" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="add" value="1" />
+				<triggered_effect trigger="onSelfEquipStop" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="subtract" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" target="self"
+					buff="buffWhisperer" />
+				<requirement name="NotHasBuff" buff="buffAntiWhisperer" />
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="buffAntiWhisperer" operation="add" value="20" />
+				<display_value name="buffAntiWhisperer" value=".15" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffWhisperer" />
+
+				<triggered_effect trigger="onSelfJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfLandJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouch" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfStand" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff"
+					target="self" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="other" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchWalk" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+			</effect_group>
+		</item>
+
+		<item name="whispererGloves">
+			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
+			<property name="CustomIcon" value="apparelHazmatGloves" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="Tags" value="upperbody,hands,clothing" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="EquipSlot" value="Hands" />
+			<property class="UMA">
+				<property name="Mesh" value="armor_hazmat_hands" />
+				<property name="Overlay0" value="armor_hazmat_gloves" />
+				<property name="Layer" value="0" />
+				<property name="UISlot" value="Gloves" />
+			</property>
+
+			<effect_group name="Base Whisperer Group" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="add" value="1" />
+				<triggered_effect trigger="onSelfEquipStop" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="subtract" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" target="self"
+					buff="buffWhisperer" />
+				<requirement name="NotHasBuff" buff="buffAntiWhisperer" />
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="buffAntiWhisperer" operation="add" value="20" />
+				<display_value name="buffAntiWhisperer" value=".15" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffWhisperer" />
+
+				<triggered_effect trigger="onSelfJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfLandJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouch" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfStand" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff"
+					target="self" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="other" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchWalk" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+			</effect_group>
+		</item>
+
+		<item name="whispererMask">
+			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
+			<property name="CustomIcon" value="apparelHazmatMask" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="Tags" value="head,clothing" />
+			<property name="EquipSlot" value="Head" />
+			<property class="UMA">
+				<property name="Mesh" value="armor_hazmat_head" />
+				<property name="Overlay0" value="armor_hazmat_hood" />
+				<property name="Layer" value="middle" />
+				<property name="UISlot" value="Headgear" />
+				<property name="Mask1" value="Head" param1="inner" />
+				<property name="Mask3" value="Face" param1="inner" />
+				<property name="Mask4" value="Face" param1="middle" />
+				<property name="Mask5" value="Face" param1="outer" />
+				<property name="ShowAltHair" value="true" />
+			</property>
+
+			<effect_group name="Base Whisperer Group" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="1" />
+				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" target="self"
+					buff="buffWhisperer" />
+				<triggered_effect trigger="onSelfEquipStart" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="add" value="1" />
+				<triggered_effect trigger="onSelfEquipStop" action="ModifyCVar" target="self"
+					cvar="whispererSet" operation="subtract" value="1" />
+				<requirement name="NotHasBuff" buff="buffAntiWhisperer" />
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="buffAntiWhisperer" operation="add" value="20" />
+				<display_value name="buffAntiWhisperer" value=".15" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffWhisperer" />
+
+				<triggered_effect trigger="onSelfJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfLandJump" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouch" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfStand" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionStart" action="AddBuff"
+					target="self" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff"
+					target="other" buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfAimingGunStop" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchRun" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfCrouchWalk" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+				<triggered_effect trigger="onSelfSwimStart" action="AddBuff" target="self"
+					buff="buffAntiWhisperer" />
+			</effect_group>
+		</item>
+
+		<item name="zombieSkin">
+			<property name="CustomIcon" value="goreBlockHumanCorpse3" />
+			<property name="CustomIconTint" value="87,87,87" />
+			<property name="HoldType" value="45" />
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab" />
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
+			<property name="Material" value="MresourceLeather" />
+			<property name="Weight" value="5" />
+			<property name="Stacknumber" value="250" /> <!-- STK resource -->
+			<property name="FuelValue" value="5" />
+			<property name="EconomicValue" value="22" />
+			<property name="Group" value="Resources" />
+			<property name="CraftingIngredientTime" value="2" />
+		</item>
+	</append>
+
+
+	<!-- Ultimate Tool -->
+
+	<append xpath="/items">
+		<item name="UltimateTool">
+			<property name="Tags"
+				value="axe,melee,grunting,medium,tool,longShaft,attStrength,perkMiner69r,perkMotherLode,canHaveCosmetic" />
+			<property name="DisplayType" value="melee" />
+			<property name="HoldType" value="17" />
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Axe/steelAxePrefab.prefab" />
+			<property name="Material" value="MmeleeToolAllSteel" />
+			<property name="Weight" value="5" />
+			<property name="RepairTools" value="resourceRepairKit" />
+			<property name="DegradationBreaksAfter" value="false" />
+			<property name="SoundJammed" value="ItemNeedsRepair" />
+			<property name="EconomicValue" value="800" />
+			<property name="SoundDestroy" value="metaldestroy1" />
+			<property name="UnlockedBy" value="ultimateToolSchematic" />
+			<property name="ShowQuality" value="true" />
+			<property name="Extends" value="meleeToolAxeT1IronFireaxe" />
+			<property name="CustomIcon" value="meleeToolAxeT2SteelAxe" />
+			<property name="CustomIconTint" value="0066ff" />
+			<property name="DropMeshfile"
+				value="#Other/Items?Weapons/Melee/Axe/steelAxePrefab.prefab" />
+			<property name="Group" value="Tools/Traps" />
+			<property name="DescriptionKey" value="UltimateToolSteelDesc" />
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee" />
+				<property name="Sphere" value=".15" />
+				<property name="Sound_start" value="axe_swinglight" />
+				<property name="ToolCategory.harvestingTools" value="1" param1="1" />
+				<property name="ToolCategory.Butcher" value="0" param1="4" />
+				<property name="GrazeStart" value=".4" />
+				<property name="GrazeEnd" value=".5" />
+				<property name="SwingDegrees" value="50" />
+				<property name="UseGrazingHits" value="true" />
+				<property name="SwingAngle" value="180" />
+				<property name="Sound_harvesting" value="open_animal" param1="organic" />
+			</property>
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee" />
+				<property name="Sphere" value=".15" />
+				<property name="Sound_start" value="axe_swingheavy" />
+				<property name="ToolCategory.harvestingTools" value="1" param1="1" />
+				<property name="UsePowerAttackAnimation" value="true" />
+				<property name="ToolCategory.Butcher" value="0" param1="4" />
+				<property name="Sound_harvesting" value="open_animal" param1="organic" />
+				<property name="GrazeStart" value=".4" />
+				<property name="GrazeEnd" value=".5" />
+				<property name="SwingDegrees" value="50" />
+				<property name="UseGrazingHits" value="true" />
+				<property name="SwingDegrees" value="50" />
+				<property name="SwingAngle" value="135" />
+			</property>
+			<effect_group name="UltimateTool">
+				<passive_effect name="EntityDamage" operation="base_set" value="15" />
+				<passive_effect name="BlockDamage" operation="base_set" value="50" /> <!-- Default 85 -->
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="70"
+					tags="perkMiner69r" />
+				<passive_effect name="StaminaLoss" operation="base_set" value="15" tags="primary" />
+				<passive_effect name="DegradationMax" operation="base_set" value="300,1100"
+					tier="1,6" tags="perkMiner69r" />
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1"
+					tags="perkMiner69r" />
+				<passive_effect name="MaxRange" operation="base_set" value="2.6" />
+				<passive_effect name="BlockRange" operation="base_set" value="3.5" />
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,2,3,4,5,6"
+					tier="1,2,3,4,5,6" /> <!-- base 1,1,2,3,4,5 -->
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10"
+					tags="EntityDamage,BlockDamage" />
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300"
+					tags="EconomicValue" />
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" />
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" />
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="-.1"
+					tags="Harvesting" />
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" />
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" />
+				<passive_effect name="DegradationMax" operation="perc_add" value="-.15,.15"
+					tags="perkMiner69r" />
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.05,.05" />
+				<passive_effect name="StaminaLoss" operation="perc_add" value="-.05,.05" />
+
+				<passive_effect name="HarvestCount" operation="base_set" value=".6"
+					tags="butcherHarvest" />  <!-- Base .8 -->
+			</effect_group>
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1.5"
+					tags="secondary" />
+				<passive_effect name="BlockDamage" operation="perc_add" value="1.5" tags="secondary" />
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="-.2"
+					tags="secondary" />
+				<passive_effect name="StaminaLoss" operation="base_add" value="40" tags="secondary" />
+			</effect_group>
+		</item>
+		<item name="ultimateToolSchematic">
+			<property name="Extends" value="schematicMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="meleeToolAxeT2SteelAxe" />
+			<property name="Unlocks" value="UltimateTool" />
+			<property name="DescriptionKey" value="ultimateToolSchematicDesc" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="UltimateTool" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+	</append>
+
+
+	<!-- Extra Mod Slots -->
+	<set
+		xpath="/items/item/effect_group/passive_effect[contains(@name, 'ModSlots')][@value='1,1,2,2,3,4']/@value">
+		2,3,4,5,6,6</set>
+
+
+	<!-- Aviator Goggles -->
+	<set
+		xpath="/items/item[@name='apparelAviatorGoggles']/effect_group/passive_effect[@name='LootGamestage']/@value">
+		4,4</set>
+
+	<append xpath="/items/item[@name='apparelAviatorGoggles']/effect_group">
+		<passive_effect name="AttributeLevel" tags="attFortitude" operation="base_add" value="1" />
+		<passive_effect name="PlayerExpGain" operation="perc_add" value=".1" />
+		<display_value name="dPlayerExpGain" value=".1" />
+	</append>
+
+	<!-- Ski Goggles -->
+	<append xpath="/items/item[@name='apparelSkiGoggles']/effect_group">
+		<passive_effect name="LootGamestage" operation="base_add" value="4,4" />
+		<passive_effect name="PlayerExpGain" operation="perc_add" value=".1" />
+		<display_value name="dPlayerExpGain" value=".1" />
+	</append>
+
+	<!-- Shades -->
+	<append xpath="/items/item[@name='apparelShades']/effect_group">
+		<passive_effect name="LootGamestage" operation="base_add" value="4,4" />
+		<passive_effect name="PlayerExpGain" operation="perc_add" value=".1" />
+		<display_value name="dPlayerExpGain" value=".1" />
+	</append>
+
+
+	<append xpath="/items">
+
+		<!-- Mod Schematics -->
+		<item name="modGunShotgunBoomstickSchematic">
+			<property name="Extends" value="schematicNoQualityMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="gunShotgunT2PumpShotgun" />
+			<property name="Unlocks" value="modGunShotgunBoomstick" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="modMeleeWeightedHead" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+		<item name="modGunMeleeFeelTheHeatSchematic">
+			<property name="Extends" value="schematicNoQualityMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="gunHandgunT1Pistol" />
+			<property name="Unlocks" value="modGunMeleeFeelTheHeat" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="modMeleeWeightedHead" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+
+		<item name="modGunHeadShotSchematic">
+			<property name="Extends" value="schematicNoQualityMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="modGunHeadShot" />
+			<property name="Unlocks" value="modGunHeadShot" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="modGunHeadShot" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+
+	</append>
+
+</configs>

@@ -1,0 +1,120 @@
+Key,Source,Context,UsedInMainMenu,NoTranslate,english
+
+
+zombieSpiderWightFeral,entityclasses,Entity,,,Spider Wight
+
+zombieGiantPartyGirl,entityclasses,Entity,,,Giant Party Girl
+
+zombieSpiderTomClark,entityclasses,Entity,,,Spider Tom Clark
+zombieSpiderTomClarkFeral,entityclasses,Entity,,,Feral Spider Tom Clark
+zombieSpiderTomClarkRadiated,entityclasses,Entity,,,Radiated Spider Tom Clark
+
+ammosuperFuel,items,,,,[DECEA3]Fuel: [ffffff] Super Fuel
+ammosuperFuelDesc,items,Super Fuel,,,[DECEA3] Fuel made from super corn
+
+zombieSkin,items,,,,The Skin of the dead. Used in making Whisperer Clothing.
+
+foodSalmon,items,,,,[DECEA3]Food:[ffffff]A piece of Salmon. 
+foodSalmonDesc,items,,,,A delicious piece of cooked salmon, ready to sate your hunger!
+
+drinkRagingRaspberry,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [E30B5C]\n Raging Raspberry
+drinkRagingRaspberryDesc,items,,,,"The flavor of pure energy!"
+
+drinkStrawberryMilk,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [F4E1EA]\n Strawberry Milk
+drinkStrawberryMilkDesc,items,,,,"The flavor of pure energy!"
+
+drinkBlueberryBliss,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [4f86f7]\n Blueberry Bliss
+drinkBlueberryBlissDesc,items,,,,"The flavor of pure energy!"
+
+drinkBangPeach,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [FFDAB9]\n Peach Mango
+drinkBangPeachDesc,items,,,,"The flavor of pure energy!"
+
+drugAntibioticsShot,items,,,,Antibiotics
+drugAntibioticsShotDesc,items,,,,Use this shot for infections!
+
+drugAdrenaline,items,,,,A shot of Adrenaline!
+drugAdrenalineDesc,items,,,,"A sudden burst of Vigor and Stamina! Destroy your enemies with your rage!"
+
+meleeWpnBatonT3StunBaton,items,Melee,,,Super Stun Baton
+meleeWpnBatonT3StunBatonDesc,items,Melee,,,Goes zap, zap, BOOM.\n\nRepair with a Repair Kit.\nScrap to Stun Baton parts.
+meleeWpnBatonT3StunBatonSchematic,items,Melee,,,Stun Baton Schematic
+
+medicalAdvancedFirstAidBandage,items,,,,Advanced First Aid Bandage
+medicalAdvancedFirstAidBandageSchematic,items,,,,Advanced First Aid Bandage Schematic
+medicalAdvancedFirstAidKit,items,,,,Advanced First Aid Kit
+medicalAdvancedFirstAidKitSchematic,items,,,,Advanced First Aid Kit Schematic
+perkPhysicianRank2LongDesc,progression,Perk,New,,"Medical healing items heal 40% more health over time. Gain 60% more XP using bandages, first aid bandages, first aid kits and splints. Craft advanced first aid bandages, items craft 20% faster at the chemistry stations.",,
+perkPhysicianRank3LongDesc,progression,Perk,New,,"Medical healing items heal 55% more health over time. Gain 80% more XP using bandages, first aid bandages, first aid kits and splints. Can craft first aid kits, advanced first aid kits, and steroids.",,
+
+
+quest_clear_response,Quest,Quest Info,,,Clear [DECEA3]({poi.name}[-]) ({poi.distance} {poi.direction}[-])
+quest_fetch_response,Quest,Quest Info,,,Fetch [DECEA3]({poi.name}[-]) ({poi.distance} {poi.direction}[-])
+quest_fetch_clear_response,Quest,Quest Info,,,Fetch / Clear [DECEA3] ({poi.name}[-]) ({poi.distance} {poi.direction}[-]),
+quest_restore_power_response,Quest,Quest Info,,,Restore Power [ff001e][Night Only[-]] [DECEA3] ({poi.name}[-]) ({poi.distance} {poi.direction}[-]),
+quest_tier1_buried_supplies,Quest,Quest Info,,,Buried Supplies[DECEA3]({poi.name}[-]) ({poi.distance} {poi.direction}[-])
+
+MStarterCrate,blocks,Container,,,Starting Gear: Break This Open
+MStarterCrateDesc,blocks,Container,,,"Your Starting gear."
+MStarterCrateOpen,blocks,Container,,,"Starting Gear: Open This for some stuff and things"
+
+
+noteDuke01Desc,items,Quest - Note,,,"I hope you enjoy playing on the Madhouse server. This is designed to be both challenging and rewarding. You will find many features unavailable on Vanilla servers. For instance, the healing beds! Drop a bedroll and give it a try! \n If you have any questions, just chat in game and your message will be relayed to our discord server! Be careful and have fun!"
+
+
+modArmorStoragePocket,item_modifiers,mod,,,small pocket mod for armor
+modArmorStoragePocketDesc,item_modifiers,mod,,,Decrease encumbrance penalty by 5 by installing this modification into your armor.
+modArmorStoragePocketSchematic,item_modifiers,mod,,,small pocket mod for armor Schematic
+
+modArmorDoubleStoragePocket,item_modifiers,mod,,,medium pocket mod for armor
+modArmorDoubleStoragePocketDesc,item_modifiers,mod,,,Decrease encumbrance penalty by 10 by installing this modification into your armor.
+modArmorDoubleStoragePocketSchematic,item_modifiers,mod,,,medium pocket mod for armor Schematic
+
+modArmorTripleStoragePocket,item_modifiers,mod,,,great pocket mod for armor
+modArmorTripleStoragePocketDesc,item_modifiers,mod,,,Decrease encumbrance penalty by 15 by installing this modification into your armor.
+modArmorTripleStoragePocketSchematic,item_modifiers,mod,,,great pocket mod for armor Schematic
+
+modClothingStoragePocket,item_modifiers,mod,,,small pocket mod for clothes,,kleine Taschen-Mod für Kleidung
+modClothingStoragePocketDesc,item_modifiers,mod,,,"Decreases encumbrance penalty by 6 by installing this modification into pants, shirts, and overcoats.
+
+modClothingCargoStoragePocket,item_modifiers,mod,,,great pocket mod for clothes,,große Taschen-Mod für Kleidung
+modClothingCargoStoragePocketDesc,item_modifiers,mod,,,"Decreases encumbrance penalty by 12 by installing this modification into pants, shirts, and overcoats.
+
+modGunMeleeFeelTheHeat,item_modifiers,mod,,,Feel the Heat Pistol Mod
+modGunMeleeFeelTheHeatDesc,item_modifiers,mod,,,This pistol mod increases fire rate and damage of pistols.\nThis mod can only be installed into pistols.
+
+modGunShotgunBoomstick,item_modifiers,mod,,,This is my BOOMSTICK! Mod,,,,,
+modGunShotgunBoomstickDesc,item_modifiers,mod,,,This shotgun mod increases fire rate and damage of shotguns.\nThis mod can only be installed into shotguns.
+
+modJumpBoots,item_modifiers,mod,,,Jump Boots
+modJumpBootsDesc,item_modifiers,,,This boot mod enhances your jump height potential.\This mod can only be installed into boots.
+
+UltimateToolSchematic,items,Tool,newKey,,Ultimate Tool Schematic
+UltimateTool,items,Tool,,,Ultimate Tool
+UltimateToolSchematicDesc,items,Tool,newKey,,Schematic steel ultimate tool.
+UltimateToolSteelDesc,items,items,Tool,,The ultimate tool every survivor needs.\n\nRepair with Repair Kit\nScraps to Steel Tool Parts
+
+perkBringItOn,progression,perk,,,"Bring it On"
+perkBringItOnDesc,progression,perk,,,"Someone with your strength seeks a real challenge. Only real men buy this perk!"
+perkBringItOnRank1Desc,progression,perk,,,"Wussy"
+perkBringItOnRank1LongDesc,progression,perk,,,"You still need to grow in strength in order to attract the real challenges. Raise gamestage by 10."
+perkBringItOnRank2Desc,progression,perk,,,"Wannabee"
+perkBringItOnRank2LongDesc,progression,perk,,,"Do you have what it takes or are you just a Wannabee? Raise gamestage by 25."
+perkBringItOnRank3Desc,progression,perk,,,"Contender"
+perkBringItOnRank3LongDesc,progression,perk,,,"Now we are talking, you are contending with the real fighters. Raise gamestage by 50."
+perkBringItOnRank4Desc,progression,perk,,,"Challenger"
+perkBringItOnRank4LongDesc,progression,perk,,,"You are a real challenger, only drawing in the hardiest of enemies. Raise gamestage by 75."
+perkBringItOnRank5Desc,progression,perk,,,"Show-Off"
+perkBringItOnRank5LongDesc,progression,perk,,,"Now you are just showing off. Raise gamestage by 100."
+
+perkFastLearner,progression,perk,,,"NERD!"
+perkFastLearnerDesc,progression,perk,,,"You are a quick study and easily pick up on new skills."
+perkFastLearnerRank1Desc,progression,perk,,,"You are kind of not dumb"
+perkFastLearnerRank1LongDesc,progression,perk,,,"You are the equivalent of a natural talent, you are quick to pick up on things that you attempt to accomplish but are not an expert, yet."
+perkFastLearnerRank2Desc,progression,perk,,,"You know some stuff and things."
+perkFastLearnerRank2LongDesc,progression,perk,,,"New ideas and skills are starting to come easily to you."
+perkFastLearnerRank3Desc,progression,perk,,,"So now you think you are smart."
+perkFastLearnerRank3LongDesc,progression,perk,,,"You are officially smarter than the rest."
+perkFastLearnerRank4Desc,progression,perk,,,"There's a fine line between genius and insanity. I have erased this line."
+perkFastLearnerRank4LongDesc,progression,perk,,,"You have an uncanny knack for picking up new skills simply by trying."
+perkFastLearnerRank5Desc,progression,perk,,,"You are a genius!"
+perkFastLearnerRank5LongDesc,progression,perk,,,"You simply outshine the others in all areas of thought. We bow before your greatness!"

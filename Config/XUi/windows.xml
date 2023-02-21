@@ -1,0 +1,16 @@
+
+<config>
+<!-- 
+<append xpath="/windows/window[@name='HUDRightStatBars']">
+	<rect name="hud" pos="-90,31" side="right" controller="CollectedItemList" pivot="BottomLeft">
+		
+	<panel width="168" height="43" name="item" visible="false" pivot="right" disableautobackground="true" pos="70, 0" >
+		<sprite depth="3" pos="0,0"  name="Background" sprite="ui_game_popup" color="[transparent]" height="43" width="162" pivot="center" />
+		<sprite depth="4" name="Icon" atlas="ItemIconAtlas" size="0,0" pos="50,0" pivot="center" foregroundlayer="true"/>
+	<label depth="6" name="TextContent" font_size="28" color="[transparent]" justify="center" height="30" pivot="center"/> 
+	<sprite depth="6" pos="0,16" width="32" height="32" name="Negative" sprite="ui_game_symbol_x" color="[transparent]" />
+	</panel>
+	</rect>
+</append>
+ -->
+</config>
