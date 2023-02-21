@@ -9,6 +9,9 @@ zombieSpiderTomClark,entityclasses,Entity,,,Spider Tom Clark
 zombieSpiderTomClarkFeral,entityclasses,Entity,,,Feral Spider Tom Clark
 zombieSpiderTomClarkRadiated,entityclasses,Entity,,,Radiated Spider Tom Clark
 
+ammo762Incendiary,items,7.62 Incendiary,,,7.62 Incendiary
+ammo762IncendiaryDesc,items,7.62 Incendiary,,,Incendiary 7.62 Ammo
+
 ammosuperFuel,items,Super Fuel,,,[DECEA3]Fuel: [ffffff] Super Fuel
 ammosuperFuelDesc,items,Super Fuel,,,[DECEA3] Fuel made from super corn
 

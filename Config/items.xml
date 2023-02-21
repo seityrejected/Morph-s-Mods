@@ -88,9 +88,9 @@
 
 		<!-- Incendiary 7.62 -->
 		<item name="ammo762Incendiary">
-			<property name="Extends" value="ammo762mmBulletAP" />
+			<property name="Extends" value="ammoRocketHE" />
 			<property name="DisplayType" value="ammoLauncher" />
-			<property name="DescriptionKey" value="40mmIncDesc" />
+			<property name="DescriptionKey" value="ammo762IncendiaryDesc" />
 			<property name="CustomIcon" value="ammo762mmBulletAP" />
 			<property name="CustomIconTint" value="ff001e" />
 			<property name="HandMeshfile" value="Items/Misc/sackPrefab" />
