@@ -74,58 +74,61 @@
 
 <!-- Medical First Aid Kit -->
 
-<recipe name="medicalAdvancedFirstAidBandage" count="1" craft_time="5" tags="perkPhysician,learnable">
-	<ingredient name="medicalAloeCream" count="2"/>
-	<ingredient name="resource13erserkCleanCloth" count="1"/>
-	<ingredient name="resourceSewingKit" count="1"/>	
-</recipe>
+		<recipe name="medicalAdvancedFirstAidBandage" count="1" craft_time="5" tags="perkPhysician,learnable">
+			<ingredient name="medicalAloeCream" count="2"/>
+			<ingredient name="resource13erserkCleanCloth" count="1"/>
+			<ingredient name="resourceSewingKit" count="1"/>	
+		</recipe>
 
-<recipe name="medicalAdvancedFirstAidKit" count="1" craft_time="5" tags="perkPhysician,learnable">
-	<ingredient name="medicalBloodBag" count="2"/>
-	<ingredient name="drinkJarBeer" count="2"/>
-	<ingredient name="medicalBandage" count="10"/>
-	<ingredient name="resource13erserkCleanCloth" count="1"/>
-	<ingredient name="resourceSewingKit" count="1"/>	
-</recipe>
+		<recipe name="medicalAdvancedFirstAidKit" count="1" craft_time="5" tags="perkPhysician,learnable">
+			<ingredient name="medicalBloodBag" count="2"/>
+			<ingredient name="drinkJarBeer" count="2"/>
+			<ingredient name="medicalBandage" count="10"/>
+			<ingredient name="resource13erserkCleanCloth" count="1"/>
+			<ingredient name="resourceSewingKit" count="1"/>	
+		</recipe>
 
 <!-- Whisperer Stuff -->
 
-<recipe name="whispererMask" count="1" craft_time="25" craft_area="workbench" >
-	<ingredient name="foodRottingFlesh" count="4"/>
-	<ingredient name="zombieSkin" count="1"/>
-	<ingredient name="resourceCloth" count="4"/>
-	<ingredient name="apparelHazmatMask" count="1"/>
-	</recipe>
+		<recipe name="whispererMask" count="1" craft_time="25" craft_area="workbench" >
+			<ingredient name="foodRottingFlesh" count="4"/>
+			<ingredient name="zombieSkin" count="1"/>
+			<ingredient name="resourceCloth" count="4"/>
+			<ingredient name="apparelHazmatMask" count="1"/>
+			</recipe>
 
-<recipe name="whispererBoots" count="1" craft_time="25" craft_area="workbench" >
-	<ingredient name="foodRottingFlesh" count="12"/>
-	<ingredient name="zombieSkin" count="1"/>
-	<ingredient name="resourceCloth" count="6"/>
-	<ingredient name="apparelHazmatBoots" count="1"/>
-</recipe>
+		<recipe name="whispererBoots" count="1" craft_time="25" craft_area="workbench" >
+			<ingredient name="foodRottingFlesh" count="12"/>
+			<ingredient name="zombieSkin" count="1"/>
+			<ingredient name="resourceCloth" count="6"/>
+			<ingredient name="apparelHazmatBoots" count="1"/>
+		</recipe>
 
-<recipe name="whispererShirt" count="1" craft_time="25" craft_area="workbench" >
-	<ingredient name="foodRottingFlesh" count="12"/>
-	<ingredient name="zombieSkin" count="1"/>
-	<ingredient name="resourceCloth" count="8"/>
-	<ingredient name="apparelHazmatJacket" count="1"/>
-</recipe>
+		<recipe name="whispererShirt" count="1" craft_time="25" craft_area="workbench" >
+			<ingredient name="foodRottingFlesh" count="12"/>
+			<ingredient name="zombieSkin" count="1"/>
+			<ingredient name="resourceCloth" count="8"/>
+			<ingredient name="apparelHazmatJacket" count="1"/>
+		</recipe>
 
-<recipe name="whispererGloves" count="1" craft_time="25" craft_area="workbench" >
-	<ingredient name="foodRottingFlesh" count="6"/>
-	<ingredient name="zombieSkin" count="1"/>
-	<ingredient name="resourceCloth" count="4"/>
-	<ingredient name="apparelHazmatGloves" count="1"/>
-</recipe>
+		<recipe name="whispererGloves" count="1" craft_time="25" craft_area="workbench" >
+			<ingredient name="foodRottingFlesh" count="6"/>
+			<ingredient name="zombieSkin" count="1"/>
+			<ingredient name="resourceCloth" count="4"/>
+			<ingredient name="apparelHazmatGloves" count="1"/>
+		</recipe>
 
-<recipe name="whispererPants" count="1" craft_time="25" craft_area="workbench" >
-	<ingredient name="foodRottingFlesh" count="12"/>
-	<ingredient name="zombieSkin" count="1"/>
-	<ingredient name="resourceCloth" count="8"/>
-	<ingredient name="apparelHazmatPants" count="1"/>
-</recipe>
-</append>
-
+		<recipe name="whispererPants" count="1" craft_time="25" craft_area="workbench" >
+			<ingredient name="foodRottingFlesh" count="12"/>
+			<ingredient name="zombieSkin" count="1"/>
+			<ingredient name="resourceCloth" count="8"/>
+			<ingredient name="apparelHazmatPants" count="1"/>
+		</recipe>
+		</append>
+				
+		<recipe name="modWhispererMask" count="1" craft_exp_gain="0">
+				<ingredient name="whispererMask" count="1"/>
+			</recipe>
 
 	<!-- Ultimate Tool -->
 	<append xpath="/recipes">
@@ -347,11 +350,11 @@
 					<passive_effect name="CraftingIngredientCount" level="2,6" operation="perc_add" value=".5,2.5" tags="resourceBrokenGlass,resourceScrapLead,resourceForgedIron,resourceSilverNugget"/>
 				</effect_group>	
 		</recipe>
-<!-- 		<recipe name="solarbank" count="1" craft_area="workbench" tags="perkAdvancedEngineering">
+		<!-- <recipe name="solarbank" count="1" craft_area="workbench" tags="perkAdvancedEngineering">
 			<ingredient name="resourceForgedSteel" count="20"/>
 			<ingredient name="resourceElectricParts" count="10"/>			
-			<ingredient name="resourceScrapPolymers" count="5"/> -->
-		</recipe>
+			<ingredient name="resourceScrapPolymers" count="5"/>
+		</recipe>  -->
 		<recipe name="smallEngine" count="1" craft_area="workbench" tags="perkGreaseMonkey,learnable">
 			<ingredient name="resourceForgedSteel" count="25"/>
 			<ingredient name="resourceMechanicalParts" count="25"/>

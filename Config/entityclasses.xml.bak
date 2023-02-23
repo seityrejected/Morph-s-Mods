@@ -1049,12 +1049,13 @@
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
-		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 	</append>
 	<append xpath="/entity_classes/entity_class[@name='zombieWightRadiated']">
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1069,6 +1070,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
@@ -1083,6 +1085,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
@@ -1098,6 +1101,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1114,6 +1118,7 @@
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1126,6 +1131,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1140,6 +1146,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1150,6 +1157,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1166,6 +1174,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1176,6 +1185,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1189,6 +1199,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1202,6 +1213,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1213,6 +1225,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1225,6 +1238,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1238,6 +1252,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1246,6 +1261,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1260,6 +1276,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1274,6 +1291,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1287,6 +1305,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1295,6 +1314,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
@@ -1311,6 +1331,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1325,6 +1346,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1335,6 +1357,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1346,6 +1369,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1357,6 +1381,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1370,6 +1395,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1382,6 +1408,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1394,6 +1421,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1406,6 +1434,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1418,6 +1447,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
@@ -1432,6 +1462,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1445,6 +1476,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1457,6 +1489,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
@@ -1471,6 +1504,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1482,6 +1516,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1495,6 +1530,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1508,6 +1544,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1520,6 +1557,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1529,6 +1567,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1541,6 +1580,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1553,6 +1593,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1564,6 +1605,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1577,6 +1619,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1587,6 +1630,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1600,6 +1644,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1611,6 +1656,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1622,6 +1668,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1634,6 +1681,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1645,6 +1693,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1660,6 +1709,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="medicalFirstAidBandage" tag="allToolsHarvest" count="1" prob="0.2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1671,6 +1721,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="medicalFirstAidBandage" tag="allToolsHarvest" count="1" prob="0.2"/>
@@ -1684,6 +1735,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1693,6 +1745,7 @@
 	<append xpath="/entity_classes/entity_class[@name='zombieFatHawaiianFeral']">
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
@@ -1705,6 +1758,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1717,6 +1771,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1731,6 +1786,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1741,6 +1797,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1753,6 +1810,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1765,6 +1823,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1775,6 +1834,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1788,6 +1848,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1801,6 +1862,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1814,6 +1876,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1826,6 +1889,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1836,6 +1900,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1848,6 +1913,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1860,6 +1926,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1871,6 +1938,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1883,6 +1951,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1891,6 +1960,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1906,6 +1976,7 @@
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1915,6 +1986,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1928,6 +2000,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
@@ -1941,6 +2014,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1953,6 +2027,7 @@
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -1963,6 +2038,7 @@
 		<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher"/>
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
@@ -1976,6 +2052,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2"/>
 		<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2"/>
+		<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1"/>
 		<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5"/>
 		<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2"/>
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest"/>

@@ -158,7 +158,7 @@
 		
 <!-- add Whisperer mask as mod -->
 		
-		<item_modifier name="modWhispererMask" installable_tags="head" modifier_tags="rare" blocked_tags="noMods,clothing" type="attachment">
+		<item_modifier name="modHazmatMask" installable_tags="head" modifier_tags="rare" blocked_tags="noMods,clothing" type="attachment">
 				<property name="CustomIcon" value="apparelHazmatMask"/>
 				<property name="Stacknumber" value="1"/> <property name="Group" value="Mods"/>
 				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>

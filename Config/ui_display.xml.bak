@@ -1,0 +1,11 @@
+<configs>
+
+    <insertAfter xpath="ui_display_info/item_display/item_display_info[@display_type='ammo762Incendiary']">
+        <item_display_info display_type="Decimal1" display_group="groupAmmo">
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+		</item_display_info>
+    </insertAfter>
+
+
+</configs>
