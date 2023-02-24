@@ -160,8 +160,9 @@
 			</property>
 		</item>
 
-		<append xpath="/items/item[@name='gunMGT2TacticalAR']/property[@class='Action0']/property[@name='Magazine_items']" name="value">,ammo762Incendiary</append>
-
+		<append
+			xpath="/items/item[@name='gunMGT2TacticalAR']/property[@class='Action0']/property[@name='Magazine_items and @value='ammo762mmBulletAP']/@value">
+			,ammo762Incendiary</append>
 
 
 		<!-- Super Fuel -->
@@ -194,7 +195,9 @@
 			</effect_group>
 		</item>
 
-		<append xpath="/items/item[@name='smallEngine']/property[@class='Attributes']/property[@name='VehicleFuelItem']" name="value">,ammoSuperFuel</append>
+		<append
+			xpath="/items/item[@name='smallEngine']/property[@class='Attributes']/property[@name='VehicleFuelItem']"
+			name="value">,ammoSuperFuel</append>
 
 
 		<!-- Zombie Cowhead -->
@@ -1646,6 +1649,7 @@
 
 	<append xpath="/items">
 		<item name="whispererClothingMaster">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="CreativeMode" value="None" />
 			<property name="CustomIcon" value="apparelHazmatBoots" />
 			<property name="CustomIconTint" value="87,87,87" />
