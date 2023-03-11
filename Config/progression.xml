@@ -1,4 +1,9 @@
 <configs>
+	
+	<!-- Large Generator Bank -->	
+	
+	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='5']/@tags">,LargeGeneratorBank</append>
+
 
 
 	<!-- Medical First Aid Bandage -->

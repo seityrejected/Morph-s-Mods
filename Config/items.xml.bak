@@ -84,7 +84,116 @@
 		1.35</set>
 
 	<append xpath="/items">
+		
+		<!-- Advanced Tactical AR -->
+		
+				
+		<item name="gunMGT2TacticalARAdvanced">
+			<property name="Tags" value="weapon,ranged,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,stock,magazine,drumMagazine,firingMode,bottomAttachments,attFortitude,perkMachineGunner,perkBookAutoWeapons,canHaveCosmetic"/><!-- attachmentsIncluded -->
+			<property name="DisplayType" value="rangedGun"/>
+			<property name="HoldType" value="71"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Tactical Assault Rifle/tacticalAssaultRiflePrefab.prefab"/>
+			<property name="Material" value="MMachineGunParts"/> <property name="Weight" value="4"/>
+			<property name="CustomIcon" value="gunMGT2TacticalAR"/>
+			<property name="CustomIconTint" value="ff001e" />
+			<property name="DescriptionKey" value="gunMGT2TacticalARAdvancedDesc" />
+			<property name="CrosshairOnAim" value="true"/> <!-- aimTest -->
+			<property name="CrosshairUpAfterShot" value="true"/> <!-- aimTest -->
 
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="DegradationBreaksAfter" value="false"/>
+
+			<property name="SoundJammed" value="weapon_jam"/>
+			<property name="Sound_Sight_In" value="rifle_sight_in"/>
+			<property name="Sound_Sight_Out" value="rifle_sight_out"/>
+
+			<property name="RepairExpMultiplier" value="10.8"/>
+			<property name="EconomicValue" value="1000"/>
+			<property name="UnlockedBy" value="gunMGT2TacticalARAdvancedSchematic"/>
+			<property name="ShowQuality" value="true"/>
+			<property name="Group" value="Ammo/Weapons,Ranged Weapons"/>
+
+			<property class="Action0">
+				<property name="Class" value="Ranged"/>
+				<property name="Delay" value=".150"/> <!-- obsolete if rounds per minute exists -->
+				<property name="Magazine_items" value="ammo762mmBulletBall,ammo762mmBulletHP,ammo762mmBulletAP,ammo762Incendiary"/>
+				<property name="Sound_start" value="tacticalar_fire"/>
+				<property name="Sound_loop" value="tacticalar_fire"/>
+				<property name="Sound_empty" value="dryfire"/>
+				<property name="AutoReload" value="false"/>
+				<property name="Particles_muzzle_fire" value="gunfire_assault_rifle"/>
+				<property name="Particles_muzzle_fire_fpv" value="gunfire_assault_rifle_fpv"/>
+				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".98"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Zoom"/>
+				<property name="Zoom_max_out" value="55"/>
+				<property name="Zoom_max_in" value="55"/>
+				<property name="ScopeCameraOffset" value="-.00062,0,.055"/>
+			</property>
+
+			<effect_group name="gunMGT2TacticalAR">
+				<passive_effect name="MaxRange" operation="base_set" value="90" tags="perkMachineGunner"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="50" tags="perkMachineGunner"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2" tags="perkMachineGunner"/> <!-- random effective rng -->
+				<passive_effect name="EntityDamage" operation="base_add" value="-7" tags="perkMachineGunner"/> <!-- damage offset -->
+				<passive_effect name="BlockDamage" operation="base_add" value="-2" tags="perkMachineGunner"/> <!-- damage offset -->
+
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkMachineGunner"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMachineGunner"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkMachineGunner"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMachineGunner"/> <!-- tier bonus -->
+
+				<passive_effect name="DegradationMax" operation="perc_add" value="-.2,.2" tags="perkMachineGunner"/> <!-- random DegMax -->
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="-.05,.05" tags="perkMachineGunner"/> <!-- random APM -->
+				<passive_effect name="MagazineSize" operation="perc_add" value="-.122,.122"/> <!-- random MagazineSize -->
+				<passive_effect name="WeaponHandling" operation="perc_add" value="-.08,.08" tags="perkMachineGunner"/> <!-- random WeaponHandling -->
+
+				<passive_effect name="RoundsPerMinute" operation="base_set" value="405" tags="perkMachineGunner"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="3" tags="perkMachineGunner"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="30" tags="perkMachineGunner"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="base_set" value=".7" tags="perkMachineGunner"/> <!-- 3.8s -->
+
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2.8" tags="perkMachineGunner"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2.8" tags="perkMachineGunner"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".22" tags="perkMachineGunner"/>
+				<passive_effect name="SpreadMultiplierCrouching" operation="base_set" value=".8" tags="perkMachineGunner"/>
+				<passive_effect name="SpreadMultiplierWalking" operation="base_set" value="1.5" tags="perkMachineGunner"/>
+				<passive_effect name="SpreadMultiplierRunning" operation="base_set" value="2.2" tags="perkMachineGunner"/>
+
+				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="-.5" tags="perkMachineGunner"/>
+				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="1" tags="perkMachineGunner"/>
+				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-1" tags="perkMachineGunner"/>
+				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="1" tags="perkMachineGunner"/>
+
+				<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="1.9" tags="perkMachineGunner"/>
+				<passive_effect name="WeaponHandling" operation="base_set" value=".7" tags="perkMachineGunner"/> <!-- ak47 -->
+
+				<passive_effect name="DegradationMax" operation="base_set" value="225,500" tier="1,6" tags="perkMachineGunner,perkBookAutoWeapons"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkMachineGunner,perkBookAutoWeapons"/>
+
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+			</effect_group>
+		</item>
+		
+			<item name="gunMGT2TacticalARAdvancedSchematic">
+				<property name="Extends" value="schematicMaster" />
+				<property name="CreativeMode" value="Player" />
+				<property name="CustomIcon" value="gunMGT2TacticalAR" />
+				<property name="CustomIconTint" value="ff001e" />
+				<property name="Unlocks" value="ammo762Incendiary" />
+				<effect_group tiered="false">
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+						cvar="gunMGT2TacticalARAdvanced" operation="set" value="1" />
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+						cvar="gunMGT2TacticalARAdvanced" operation="set" value="1" />
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+				</effect_group>
+			</item>
+
+		
 
 		<!-- Incendiary 7.62 -->
 		<item name="ammo762Incendiary">
@@ -93,17 +202,16 @@
 			<property name="DescriptionKey" value="ammo762IncendiaryDesc" />
 			<property name="CustomIcon" value="ammo762mmBulletAP" />
 			<property name="CustomIconTint" value="ff001e" />
-			<property name="HandMeshfile" value="Items/Misc/sackPrefab" />
 			<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
 			<property name="Weight" value="5" />
 			<property name="Stacknumber" value="50" />
 			<property name="UnlockedBy" value="ammo762IncendiarySchematic" />
 			<property name="EconomicValue" value="50" />
 			<property name="EconomicBundleSize" value="1" />
+			<property name="ExplodeOnHit" value="true"/>
 			<property class="Action1">
 				<property name="Explosion.RadiusBlocks" value="1" /> <!-- damage radius for blocks -->
-				<property name="Explosion.RadiusEntities" value="2" /> <!-- damage radius for
-				entities -->
+				<property name="Explosion.RadiusEntities" value="2" /> <!-- damage radius for entities -->
 				<property name="Explosion.DamageBonus.stone" value=".1" />
 				<property name="Explosion.DamageBonus.metal" value=".5" />
 				<property name="Explosion.DamageBonus.earth" value="0" />
@@ -160,167 +268,7 @@
 			</property>
 		</item>
 
-		<append xpath="/items/item[@name='gunMGT2TacticalAR']/property[@class='Action0']/property[@name='Magazine_items']" name="value">,ammo762Incendiary</append>
-
-
-
-		<!-- Super Fuel -->
-		<item name="ammoSuperFuel">
-			<property name="Tags" value="gasoline" />
-			<property name="HoldType" value="45" />
-			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab" />
-			<property name="CustomIcon" value="ammoGasCan" />
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab" />
-			<property name="Material" value="MFuelBarrelMetal" />
-			<property name="DescriptionKey" value="ammosuperFuelDesc" />
-			<property name="Stacknumber" value="10000" /> <!-- STK resource -->
-			<property name="FuelValue" value="4" />
-			<property name="EconomicValue" value="10" /> <!-- oil barrel 500 -->
-			<property name="EconomicBundleSize" value="100" />
-			<property name="Group" value="Resources,Chemicals,CFChemicals,Ammo" />
-			<property name="UnlockedBy" value="ammoSuperFuelSchematic" />
-			<property name="CraftingIngredientTime" value=".05" />
-		</item>
-
-
-		<item name="ammoSuperFuelSchematic">
-			<property name="Extends" value="schematicNoQualityRecipeMaster" />
-			<property name="CreativeMode" value="Player" />
-			<property name="CustomIcon" value="ammoGasCan" />
-			<property name="Unlocks" value="ammoSuperFuel" />
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="ammoSuperFuel" operation="set" value="1" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
-			</effect_group>
-		</item>
-
-		<set xpath="/items/item[@name='smallEngine']/property[@name='VehicleFuelItem']/@value">
-			ammoGasCan,ammoSuperFuel</set>
-
-
-		<!-- Zombie Cowhead -->
-
-		<item name="meleeHandCowhead">
-			<property name="Extends" value="meleeHandZombie01" />
-			<property name="CreativeMode" value="None" />
-			<property class="Action0">
-				<property name="DamageEntity" value="25" />
-				<property name="DamageBlock" value="30" />
-				<property name="DamageBonus.wood" value="2" />
-				<property name="Particles_muzzle_smoke" value="nozzlesmoke_chainsaw" />
-				<property name="Sound_start" value="chainsaw_fire_start" />
-			</property>
-			<effect_group name="meleeHandCowhead" tiered="false">
-				<passive_effect name="ModSlots" operation="base_set" value="0" />
-				<passive_effect name="BuffProcChance" operation="base_set" value=".5"
-					tags="buffInjuryBleedingZombie" />
-				<passive_effect name="BuffProcChance" operation="base_set" value=".3"
-					tags="buffInfectionCatch" />
-				<passive_effect name="BuffProcChance" operation="base_set" value=".3"
-					tags="buffInjuryStunned01" />
-				<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" target="other"
-					cvar="infectionZombieHit" operation="set" value="45" />
-				<triggered_effect trigger="onSelfDamagedOther" action="PlaySound"
-					sound="chainsaw_fire_start" />
-			</effect_group>
-		</item>
-		<!-- Zombie Undertaker -->
-
-		<item name="meleeHandUndertaker">
-			<property name="Extends" value="meleeHandMaster" />
-			<property name="CreativeMode" value="None" />
-			<property name="Degradation" value="99999" param1="true" />
-			<property name="Material" value="Mmetal" />
-			<property class="Action0">
-				<property name="Range" value="3" />
-				<property name="Sound_start" value="swoosh" />
-				<property name="DamageEntity" value="30" />
-				<property name="DamageBlock" value="125" />
-			</property>
-		</item>
-
-		<!-- Zombie Juggernaut -->
-
-		<item name="meleeHandJuggernaut">
-			<property name="Extends" value="meleeHandMaster" />
-			<property name="CreativeMode" value="None" />
-			<property name="Degradation" value="99999" param1="true" />
-			<property class="Action0">
-				<property name="Range" value="1.75" />
-				<property name="DamageEntity" value="75" />
-				<property name="DamageBlock" value="500" />
-				<property name="Buff"
-					value="buffInjuryBleedingZombie,buffInfectionCatch,buffInjuryStunned01" />
-				<property name="Sound_start" value="Auger_Fire_Start" />
-				<property class="HitSounds">
-					<property name="Override0" value="organic" param1="metalsolidhitorganic" />
-				</property>
-			</property>
-			<property class="Action1">
-				<property name="Class" value="Vomit" />
-				<property name="Delay" value=".3" />
-				<property name="Range" value="500" />
-				<property name="Infinite_ammo" value="true" />
-				<property name="Magazine_items" value="JuggernautProjectile" />
-				<property name="Sound_warning" value="demolitionzexplodewarning" />
-				<property name="Sound_start" value="m136_fire" />
-				<property name="Sound_repeat" value="" />
-				<property name="Sound_end" value="" />
-				<property name="Sound_empty" value="" />
-				<property name="Sound_reload" value="" />
-			</property>
-			<effect_group name="meleeHandJuggernaut" tiered="false">
-				<passive_effect name="ModSlots" operation="base_set" value="0" />
-				<passive_effect name="DamageFalloffRange" operation="base_set" value="50" />
-				<passive_effect name="MaxRange" operation="base_set" value="100" />
-				<passive_effect name="MagazineSize" operation="base_set" value="3" />
-				<passive_effect name="BurstRoundCount" operation="base_set" value="3" />
-				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1" />
-				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3" />
-				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1" />
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20"
-					tags="buffInjuryBleedingZombie" />
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20"
-					tags="buffInfectionCatch" />
-				<passive_effect name="BuffProcChance" operation="base_set" value=".25"
-					tags="buffInjuryStunned01" />
-				<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" target="other"
-					cvar="infectionZombieHit" operation="set" value="30" />
-			</effect_group>
-		</item>
-		<item name="JuggernautProjectile">
-			<property name="Meshfile"
-				value="#Other/Items?Weapons/Ranged/RocketLauncher/rocketPrefab.prefab" />
-			<property name="Material" value="Mmetal" />
-			<property name="CreativeMode" value="None" />
-			<property class="Action1">
-				<property name="Class" value="Projectile" />
-				<property name="DamageEntity" value="125" />
-				<property name="DamageBlock" value="1000" />
-				<!--property
-				name="Explosion.ParticleIndex" value="4"/-->
-				<property name="Explosion.ParticleIndex" value="5" />
-				<!-- which Prefab/particle is used -->
-				<property name="Explosion.RadiusBlocks" value="5" />
-				<!-- damage radius for blocks -->
-				<property name="Explosion.RadiusEntities" value="4" />
-				<!-- damage radius for entities -->
-				<property name="Explosion.DamageBonus.water" value="0" />
-				<property name="Velocity" value="18" />
-				<property name="FlyTime" value="2" />
-				<property name="LifeTime" value="4" />
-				<property name="CollisionRadius" value="0.75" />
-				<property name="DamageBonus.earth" value="0" />
-			</property>
-			<effect_group name="JuggernautProjectile" tiered="false">
-				<passive_effect name="ModSlots" operation="base_set" value="0" />
-				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth" />
-				<passive_effect name="DamageModifier" operation="perc_set" value="0.5" tags="stone" />
-				<passive_effect name="DamageModifier" operation="perc_add" value="1.2" tags="metal" />
-			</effect_group>
-		</item>
-
+		<set xpath="items/item[@name='gunMGT2TacticalAR']/property[@class='Action0']/property[@name='Magazine_items'][@value='ammo762mmBulletAP']/@value">ammo762mmBulletAP,ammo762Incendiary </set>
 
 		<!-- Salmon -->
 
@@ -328,6 +276,7 @@
 			<property name="CustomIcon" value="foodBoiledMeat" />
 			<property name="CustomIconTint" value="FFDAB9" />
 			<property name="Extends" value="foodGrilledMeat" />
+			<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
 			<property name="Tags" value="food" />
 			<property name="DisplayType" value="food" />
 			<property name="EconomicValue" value="24" />
@@ -490,6 +439,7 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
 					cvar="$waterAmountAdd" operation="add" value="70" />
 				<display_value name="dStaminaRegen" value=".50" />
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.5" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
 					buff="buffProcessConsumables" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
@@ -531,8 +481,8 @@
 				<requirement name="NotHasBuff" buff="buffIsOnFire" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
 					cvar="$waterAmountAdd" operation="add" value="90" />
-				<display_value name="dStaminaRegen" value=".50" />
-				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.1" />
+				<display_value name="dStaminaRegen" value=".25" />
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.25" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
 					buff="buffProcessConsumables" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
@@ -575,7 +525,7 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
 					cvar="$waterAmountAdd" operation="add" value="90" />
 				<display_value name="dStaminaRegen" value=".50" />
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.25" />
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.33" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
 					buff="buffProcessConsumables" />
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
@@ -1648,6 +1598,7 @@
 
 	<append xpath="/items">
 		<item name="whispererClothingMaster">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="CreativeMode" value="None" />
 			<property name="CustomIcon" value="apparelHazmatBoots" />
 			<property name="CustomIconTint" value="87,87,87" />
@@ -1667,6 +1618,7 @@
 		</item>
 
 		<item name="whispererBoots">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
 			<property name="CustomIcon" value="apparelHazmatBoots" />
 			<property name="CustomIconTint" value="87,87,87" />
@@ -1735,6 +1687,7 @@
 		</item>
 
 		<item name="whispererPants">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
 			<property name="CustomIcon" value="apparelHazmatPants" />
 			<property name="CustomIconTint" value="87,87,87" />
@@ -1803,6 +1756,7 @@
 		</item>
 
 		<item name="whispererShirt">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
 			<property name="CustomIcon" value="apparelHazmatJacket" />
 			<property name="CustomIconTint" value="87,87,87" />
@@ -1872,6 +1826,7 @@
 		</item>
 
 		<item name="whispererGloves">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
 			<property name="CustomIcon" value="apparelHazmatGloves" />
 			<property name="CustomIconTint" value="87,87,87" />
@@ -1939,6 +1894,7 @@
 		</item>
 
 		<item name="whispererMask">
+			<property name="tags" value="canHaveCosmetic" />
 			<property name="Extends" value="whispererClothingMaster" param1="CustomIcon" />
 			<property name="CustomIcon" value="apparelHazmatMask" />
 			<property name="CustomIconTint" value="87,87,87" />

@@ -1,9 +1,0 @@
-<configs>
-
-	<!-- 
-	<set xpath="/worldgeneration/biomes/biome/subbiome/decorations/decoration[@blockname='cntForestRandomLootHelper']/@prob">0.001</set>
-	<set xpath="/worldgeneration/biomes/biome/decorations/decoration[@blockname='cntForestRandomLootHelper']/@prob">0.001/set>
-	<set xpath="/worldgeneration/biomes/biome/decorations/decoration[@blockname='cntWastelandRandomLootHelper']/@prob">0.001/set> 
-	-->
-
-</configs>

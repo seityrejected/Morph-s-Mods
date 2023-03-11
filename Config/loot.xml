@@ -33,6 +33,10 @@
 		<item name="medicalAdvancedFirstAidKitSchematic" />
 		<item name="drugAdrenaline" />
 	</append>
+	
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsWeaponsArmorT2']">
+		<item name="gunMGT2TacticalARAdvanced" />
+	</append>
 	<!-- NightVision Mod -->
 
 	<!-- Whisperer Stuff -->
@@ -87,13 +91,6 @@
 		<item group="groupAmmoAdvanced" prob="0.05" count="4" />
 		<item group="groupWeaponsMeleeScaledNoStone" prob="0.05" count="2" />
 		<item group="groupWeaponsRangedScaledNoStone" prob="0.05" count="2" />
-	</append>
-
-	<!-- Add Super Fuel To loot -->
-
-	<append xpath="lootcontainers/lootgroup[@name='vehiclePartsTiered']">
-		<item name="ammoSuperFuel" count="50" />
-		<item name="ammoSuperFuelSchematic" />
 	</append>
 
 	<!-- Added mods to T3 loot-->
@@ -432,6 +429,7 @@
 			<item name="gunHandgunT3SMG5" prob="0.05" />
 			<item name="gunMGT1AK47" prob="0.02" />
 			<item name="gunMGT2TacticalAR" prob="0.005" />
+			<item name="gunMGT2TacticalARAdvanced" prob="0.003"/>
 			<item name="gunMGT3M60" prob="0.001" />
 			<item name="gunHandgunT1PistolParts" prob="0.6" />
 			<item name="gunMGT1AK47Parts" prob="0.5" />

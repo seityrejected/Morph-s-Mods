@@ -1,5 +1,7 @@
 Key,Source,Context,UsedInMainMenu,NoTranslate,english
 
+gunMGT2TacticalARAdvanced,items,,,High end Tactical Assault Rifle
+gunMGT2TacticalARAdvancedDesc,items,,,High end Tactical Assault rifle that allows for specialized ammo types.
 
 zombieSpiderWightFeral,entityclasses,Entity,,,Spider Wight
 
@@ -9,8 +11,11 @@ zombieSpiderTomClark,entityclasses,Entity,,,Spider Tom Clark
 zombieSpiderTomClarkFeral,entityclasses,Entity,,,Feral Spider Tom Clark
 zombieSpiderTomClarkRadiated,entityclasses,Entity,,,Radiated Spider Tom Clark
 
-ammosuperFuel,items,,,,[DECEA3]Fuel: [ffffff] Super Fuel
-ammosuperFuelDesc,items,Super Fuel,,,[DECEA3] Fuel made from super corn
+ammo762Incendiary,items,7.62 Incendiary,,,7.62 Incendiary
+ammo762IncendiaryDesc,items,7.62 Incendiary,,,Incendiary 7.62 Ammo
+
+ammosuperFuel,items,Super Fuel,,[DECEA3]Fuel: [ffffff] Super Fuel
+ammosuperFuelDesc,items,Super Fuel,,[DECEA3] Fuel made from super corn
 
 zombieSkin,items,,,,The Skin of the dead. Used in making Whisperer Clothing.
 
@@ -50,8 +55,8 @@ perkPhysicianRank3LongDesc,progression,Perk,New,,"Medical healing items heal 55%
 quest_clear_response,Quest,Quest Info,,,Clear [DECEA3]({poi.name}[-]) ({poi.distance} {poi.direction}[-])
 quest_fetch_response,Quest,Quest Info,,,Fetch [DECEA3]({poi.name}[-]) ({poi.distance} {poi.direction}[-])
 quest_fetch_clear_response,Quest,Quest Info,,,Fetch / Clear [DECEA3] ({poi.name}[-]) ({poi.distance} {poi.direction}[-]),
-quest_restore_power_response,Quest,Quest Info,,,Restore Power [ff001e][Night Only[-]] [DECEA3] ({poi.name}[-]) ({poi.distance} {poi.direction}[-]),
-quest_tier1_buried_supplies,Quest,Quest Info,,,Buried Supplies[DECEA3]({poi.name}[-]) ({poi.distance} {poi.direction}[-])
+quest_restore_power_response,Quest,Quest Info,,,Restore Power [ff001e][Night Only[-]] [DECEA3] ({poi.name}[-]) ({poi.distance} {poi.direction}[-])
+quest_tier1_buried_supplies,Quest,Quest Info,,,Buried Supplies[DECEA3] ({poi.distance} {poi.direction}[-])
 
 MStarterCrate,blocks,Container,,,Starting Gear: Break This Open
 MStarterCrateDesc,blocks,Container,,,"Your Starting gear."
@@ -118,3 +123,9 @@ perkFastLearnerRank4Desc,progression,perk,,,"There's a fine line between genius 
 perkFastLearnerRank4LongDesc,progression,perk,,,"You have an uncanny knack for picking up new skills simply by trying."
 perkFastLearnerRank5Desc,progression,perk,,,"You are a genius!"
 perkFastLearnerRank5LongDesc,progression,perk,,,"You simply outshine the others in all areas of thought. We bow before your greatness!"
+
+
+buffWhisperer,buffs,buff,You walk among the dead,,You walk among the dead
+buffWhispererDesc,buffs,buff,,,You walk among the dead
+buffAntiWhisperer,buffs,buff,You walk among the dead,,You are visible to the dead
+buffAntiWhispererDesc,buffs,buff,You walk among the dead,,You are visible to the dead

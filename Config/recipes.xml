@@ -1,14 +1,36 @@
 <configs>
 
 	<append xpath="/recipes">
+	
+		<!-- Blessed Metal mod -->
+		
+		<recipe name="modGunMeleeBlessedMetal" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
+			<ingredient name="resourceForgedSteel" count="5"/>
+			<ingredient name="resourceGlue" count="5"/>
+			<ingredient name="resourceMechanicalParts" count="5"/>
+			<ingredient name="resourceSpring" count="10"/>
+		</recipe>
+	
+	
+		<!-- Large Generator Bank -->
+		
+			
+		<recipe name="LargeGeneratorBank" count="1" craft_area="workbench" tags="perkAdvancedEngineering,learnable">
+			<ingredient name="resourceForgedSteel" count="30"/>
+			<ingredient name="resourceMechanicalParts" count="25"/>
+			<ingredient name="resourceElectricParts" count="20"/>
+			<ingredient name="resourceOil" count="5"/>
+			<ingredient name="carBattery" count="1"/>
+		</recipe>
+
 		<!-- Super Fuel -->
 
-		<recipe name="ammoSuperFuel" count="1" craft_area="chemistryStation" tags="perkGreaseMonkey">
+		<recipe name="ammoGasCan" count="1" craft_area="chemistryStation" tags="perkGreaseMonkey">
 			<ingredient name="resourcePotassiumNitratePowder" count="5" />
 			<ingredient name="foodCropGraceCorn" count="3" />
 			<ingredient name="resourceAnimalFat" count="2" />
 		</recipe>
-
+	
 
 		<!-- Reinforced Entry Doors -->
 		<recipe name="reinforcedEntryDoorHelper" count="1" craft_area="workbench"
@@ -139,6 +161,12 @@
 		</recipe>
 		<recipe name="modWhispererMask" count="1" craft_exp_gain="0">
 			<ingredient name="whispererMask" count="1" />
+		</recipe>
+		<recipe name="modWhispererGloves" count="1" craft_exp_gain="0">
+			<ingredient name="whispererGloves" count="1" />
+		</recipe>
+		<recipe name="modWhispererBoots" count="1" craft_exp_gain="0">
+			<ingredient name="whispererBoots" count="1" />
 		</recipe>
 
 	</append>
