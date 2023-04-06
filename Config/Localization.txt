@@ -4,7 +4,7 @@ gunMGT2TacticalARAdvanced,items,,,High end Tactical Assault Rifle
 gunMGT2TacticalARAdvancedDesc,items,,,High end Tactical Assault rifle that allows for specialized ammo types.
 
 zombieSpiderWightFeral,entityclasses,Entity,,,Spider Wight
-
+zombieSpiderScreamer,entityclasses,Entity,,,Spider Screamer. The stuff of nightmares.
 zombieGiantPartyGirl,entityclasses,Entity,,,Giant Party Girl
 
 zombieSpiderTomClark,entityclasses,Entity,,,Spider Tom Clark
@@ -17,7 +17,7 @@ ammo762IncendiaryDesc,items,7.62 Incendiary,,,Incendiary 7.62 Ammo
 ammosuperFuel,items,Super Fuel,,[DECEA3]Fuel: [ffffff] Super Fuel
 ammosuperFuelDesc,items,Super Fuel,,[DECEA3] Fuel made from super corn
 
-zombieSkin,items,,,,The Skin of the dead. Used in making Whisperer Clothing.
+zombieSkin,items,,,,Zombie Skin
 
 foodSalmon,items,,,,[DECEA3]Food:[ffffff]A piece of Salmon. 
 foodSalmonDesc,items,,,,A delicious piece of cooked salmon, ready to sate your hunger!
@@ -30,6 +30,12 @@ drinkStrawberryMilkDesc,items,,,,"The flavor of pure energy!"
 
 drinkBlueberryBliss,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [4f86f7]\n Blueberry Bliss
 drinkBlueberryBlissDesc,items,,,,"The flavor of pure energy!"
+
+drinkJarBlueBeer,items,,,,[DECEA3]Drink:[FFFFFF] Beer  [4f86f7]\n Blue Beer
+drinkJarBlueBeerDesc,items,,,,"The flavor of pure energy!"
+
+drinkFruitSmoothie,items,,,,[DECEA3]Drink:[FFFFFF] Smoothie  [4f86f7]\n Fruit Smoothie
+drinkFruitSmoothieDesc,items,,,,"The flavor of pure energy!"
 
 drinkBangPeach,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [FFDAB9]\n Peach Mango
 drinkBangPeachDesc,items,,,,"The flavor of pure energy!"
@@ -90,6 +96,9 @@ modGunMeleeFeelTheHeatDesc,item_modifiers,mod,,,This pistol mod increases fire r
 modGunShotgunBoomstick,item_modifiers,mod,,,This is my BOOMSTICK! Mod,,,,,
 modGunShotgunBoomstickDesc,item_modifiers,mod,,,This shotgun mod increases fire rate and damage of shotguns.\nThis mod can only be installed into shotguns.
 
+modGunHeadShot,item_modifiers,mod,,,Boom! Headshot!
+modGunHeadShotDesc,item_modifiers,mod,,,Boom! Headshot! yeah! I can dance all day!
+
 modJumpBoots,item_modifiers,mod,,,Jump Boots
 modJumpBootsDesc,item_modifiers,,,This boot mod enhances your jump height potential.\This mod can only be installed into boots.
 
@@ -123,6 +132,19 @@ perkFastLearnerRank4Desc,progression,perk,,,"There's a fine line between genius 
 perkFastLearnerRank4LongDesc,progression,perk,,,"You have an uncanny knack for picking up new skills simply by trying."
 perkFastLearnerRank5Desc,progression,perk,,,"You are a genius!"
 perkFastLearnerRank5LongDesc,progression,perk,,,"You simply outshine the others in all areas of thought. We bow before your greatness!"
+
+perkAxeMan,progression,perk,,,"And my axe."
+perkAxeManDesc,progression,perk,,,"You're a lumberjack and you're ok!"
+perkAxeManRank1Desc,progression,perk,,,"You are an Axe man"
+perkAxeManRank1LongDesc,progression,perk,,,"Craft quality 2 poor Steel Axe, deal 10% more damage and attacks do 40% more damage to stunned enemies. Power attacks have a 60% chance to knock foes back down.\nUnlocks Steel Axe crafting."
+perkAxeManRank2Desc,progression,perk,,,"Sharpen the blade"
+perkAxeManRank2LongDesc,progression,perk,,,"You are making a name for yourself as a Man of the Woods. Craft quality 3 fair Axe, deal 20% more damage, attacks do 80% more damage to stunned enemies and power attacks have a 70% chance to knock foes back down."
+perkAxeManRank3Desc,progression,perk,,,"You are a lumberjack."
+perkAxeManRank3LongDesc,progression,perk,,,"You strike hard enough to dismember with a single blow. Craft quality 4 good Steel Axe, deal 30% more damage, attacks do 120% more damage to stunned enemies and power attacks have a 80% chance to knock foes back down.\nLanding 5 successive hits in a short time causes the last blow to do 100% extra damage."
+perkAxeManRank4Desc,progression,perk,,,"True man of the woods"
+perkAxeManRank4LongDesc,progression,perk,,,"Hack, cleave, split."
+perkAxeManRank5Desc,progression,perk,,,"You are the Oak."
+perkAxeManRank5LongDesc,progression,perk,,,"A legend in the woods. We bow before your greatness!"
 
 
 buffWhisperer,buffs,buff,You walk among the dead,,You walk among the dead

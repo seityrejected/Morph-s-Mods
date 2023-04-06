@@ -1,6 +1,5 @@
 <configs>
 
-
 	<!-- Armor pocket mods -->
 
 
@@ -144,6 +143,7 @@
 		<item_modifier name="modGunHeadShot" installable_tags="weapon" modifier_tags="specialDamage"
 			blocked_tags="noMods" type="attachment">
 			<property name="UnlockedBy" value="modGunHeadShotSchematic" />
+			<property name="DescriptionKey" value="modGunHeadShotDesc" />
 			<property name="CustomIcon" value="modGunScopeLarge" />
 			<property name="CustomIconTint" value="227, 38, 54" />
 			<property name="Stacknumber" value="1" />

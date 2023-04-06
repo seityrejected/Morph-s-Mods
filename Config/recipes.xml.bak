@@ -2,6 +2,16 @@
 
 	<append xpath="/recipes">
 	
+		<!-- Blessed Metal mod -->
+		
+		<recipe name="modGunMeleeBlessedMetal" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
+			<ingredient name="resourceForgedSteel" count="5"/>
+			<ingredient name="resourceGlue" count="5"/>
+			<ingredient name="resourceMechanicalParts" count="5"/>
+			<ingredient name="resourceSpring" count="10"/>
+		</recipe>
+	
+	
 		<!-- Large Generator Bank -->
 		
 			
@@ -445,7 +455,12 @@
 			<ingredient name="resourceDuctTape" count="1" />
 			<ingredient name="resourceForgedIron" count="30" />
 		</recipe>
-
+		<recipe name="meleeWpnClubT3SteelClubParts" count="1" craft_time="300">
+			<ingredient name="resourceForgedSteel" count="2" />
+			<ingredient name="resourceMechanicalParts" count="2" />
+			<ingredient name="resourceScrapPolymers" count="50" />
+			<ingredient name="resourceDuctTape" count="1" />			
+		</recipe>
 		<recipe name="resourceSpring" count="1" craft_time="10" craft_area="workbench">
 			<ingredient name="resourceForgedIron" count="5" />
 		</recipe>

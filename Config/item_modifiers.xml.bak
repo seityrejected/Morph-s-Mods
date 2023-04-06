@@ -1,6 +1,5 @@
 <configs>
 
-
 	<!-- Armor pocket mods -->
 
 
@@ -176,7 +175,7 @@
 			</effect_group>
 		</item_modifier>
 
-		<!-- add Whisperer mask as mod -->
+		<!-- add Whisperer items as clothing mod -->
 
 		<item_modifier name="modWhispererMask" installable_tags="head" modifier_tags="rare" blocked_tags="noMods,clothing" type="attachment">
 			<property name="CustomIcon" value="apparelHazmatMask" />

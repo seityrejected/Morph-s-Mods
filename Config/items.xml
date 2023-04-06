@@ -82,354 +82,12 @@
 	<set
 		xpath="/items/item[@name='meleeHandZombieCop']/property[@class='Action0']/property[@name='Range']/@value">
 		1.35</set>
-
+		
+		
+	<!-- Foods -->
 	<append xpath="/items">
 		
-		<!-- Advanced Tactical AR -->
-		
-				
-		<item name="gunMGT2TacticalARAdvanced">
-			<property name="Tags" value="weapon,ranged,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,stock,magazine,drumMagazine,firingMode,bottomAttachments,attFortitude,perkMachineGunner,perkBookAutoWeapons,canHaveCosmetic"/><!-- attachmentsIncluded -->
-			<property name="DisplayType" value="rangedGun"/>
-			<property name="HoldType" value="71"/>
-			<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Tactical Assault Rifle/tacticalAssaultRiflePrefab.prefab"/>
-			<property name="Material" value="MMachineGunParts"/> <property name="Weight" value="4"/>
-			<property name="CustomIcon" value="gunMGT2TacticalAR"/>
-			<property name="CustomIconTint" value="ff001e" />
-			<property name="DescriptionKey" value="gunMGT2TacticalARAdvancedDesc" />
-			<property name="CrosshairOnAim" value="true"/> <!-- aimTest -->
-			<property name="CrosshairUpAfterShot" value="true"/> <!-- aimTest -->
-
-			<property name="RepairTools" value="resourceRepairKit"/>
-			<property name="DegradationBreaksAfter" value="false"/>
-
-			<property name="SoundJammed" value="weapon_jam"/>
-			<property name="Sound_Sight_In" value="rifle_sight_in"/>
-			<property name="Sound_Sight_Out" value="rifle_sight_out"/>
-
-			<property name="RepairExpMultiplier" value="10.8"/>
-			<property name="EconomicValue" value="1000"/>
-			<property name="UnlockedBy" value="gunMGT2TacticalARAdvancedSchematic"/>
-			<property name="ShowQuality" value="true"/>
-			<property name="Group" value="Ammo/Weapons,Ranged Weapons"/>
-
-			<property class="Action0">
-				<property name="Class" value="Ranged"/>
-				<property name="Delay" value=".150"/> <!-- obsolete if rounds per minute exists -->
-				<property name="Magazine_items" value="ammo762mmBulletBall,ammo762mmBulletHP,ammo762mmBulletAP,ammo762Incendiary"/>
-				<property name="Sound_start" value="tacticalar_fire"/>
-				<property name="Sound_loop" value="tacticalar_fire"/>
-				<property name="Sound_empty" value="dryfire"/>
-				<property name="AutoReload" value="false"/>
-				<property name="Particles_muzzle_fire" value="gunfire_assault_rifle"/>
-				<property name="Particles_muzzle_fire_fpv" value="gunfire_assault_rifle_fpv"/>
-				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".98"/>
-			</property>
-			<property class="Action1">
-				<property name="Class" value="Zoom"/>
-				<property name="Zoom_max_out" value="55"/>
-				<property name="Zoom_max_in" value="55"/>
-				<property name="ScopeCameraOffset" value="-.00062,0,.055"/>
-			</property>
-
-			<effect_group name="gunMGT2TacticalAR">
-				<passive_effect name="MaxRange" operation="base_set" value="90" tags="perkMachineGunner"/>
-				<passive_effect name="DamageFalloffRange" operation="base_set" value="50" tags="perkMachineGunner"/>
-				<passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2" tags="perkMachineGunner"/> <!-- random effective rng -->
-				<passive_effect name="EntityDamage" operation="base_add" value="-7" tags="perkMachineGunner"/> <!-- damage offset -->
-				<passive_effect name="BlockDamage" operation="base_add" value="-2" tags="perkMachineGunner"/> <!-- damage offset -->
-
-				<passive_effect name="EntityDamage" operation="perc_add" value="-.15,.15" tags="perkMachineGunner"/> <!-- random EntityDmg -->
-				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMachineGunner"/> <!-- tier bonus -->
-				<passive_effect name="BlockDamage" operation="perc_add" value="-.15,.15" tags="perkMachineGunner"/> <!-- random BlockDmg -->
-				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkMachineGunner"/> <!-- tier bonus -->
-
-				<passive_effect name="DegradationMax" operation="perc_add" value="-.2,.2" tags="perkMachineGunner"/> <!-- random DegMax -->
-				<passive_effect name="RoundsPerMinute" operation="perc_add" value="-.05,.05" tags="perkMachineGunner"/> <!-- random APM -->
-				<passive_effect name="MagazineSize" operation="perc_add" value="-.122,.122"/> <!-- random MagazineSize -->
-				<passive_effect name="WeaponHandling" operation="perc_add" value="-.08,.08" tags="perkMachineGunner"/> <!-- random WeaponHandling -->
-
-				<passive_effect name="RoundsPerMinute" operation="base_set" value="405" tags="perkMachineGunner"/>
-				<passive_effect name="BurstRoundCount" operation="base_set" value="3" tags="perkMachineGunner"/>
-				<passive_effect name="MagazineSize" operation="base_set" value="30" tags="perkMachineGunner"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="base_set" value=".7" tags="perkMachineGunner"/> <!-- 3.8s -->
-
-				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2.8" tags="perkMachineGunner"/>
-				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2.8" tags="perkMachineGunner"/>
-				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".22" tags="perkMachineGunner"/>
-				<passive_effect name="SpreadMultiplierCrouching" operation="base_set" value=".8" tags="perkMachineGunner"/>
-				<passive_effect name="SpreadMultiplierWalking" operation="base_set" value="1.5" tags="perkMachineGunner"/>
-				<passive_effect name="SpreadMultiplierRunning" operation="base_set" value="2.2" tags="perkMachineGunner"/>
-
-				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="-.5" tags="perkMachineGunner"/>
-				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="1" tags="perkMachineGunner"/>
-				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-1" tags="perkMachineGunner"/>
-				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value="1" tags="perkMachineGunner"/>
-
-				<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="1.9" tags="perkMachineGunner"/>
-				<passive_effect name="WeaponHandling" operation="base_set" value=".7" tags="perkMachineGunner"/> <!-- ak47 -->
-
-				<passive_effect name="DegradationMax" operation="base_set" value="225,500" tier="1,6" tags="perkMachineGunner,perkBookAutoWeapons"/>
-				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkMachineGunner,perkBookAutoWeapons"/>
-
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
-				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
-				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
-			</effect_group>
-		</item>
-		
-			<item name="gunMGT2TacticalARAdvancedSchematic">
-				<property name="Extends" value="schematicMaster" />
-				<property name="CreativeMode" value="Player" />
-				<property name="CustomIcon" value="gunMGT2TacticalAR" />
-				<property name="CustomIconTint" value="ff001e" />
-				<property name="Unlocks" value="ammo762Incendiary" />
-				<effect_group tiered="false">
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-						cvar="gunMGT2TacticalARAdvanced" operation="set" value="1" />
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-						cvar="gunMGT2TacticalARAdvanced" operation="set" value="1" />
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
-				</effect_group>
-			</item>
-
-		
-
-		<!-- Incendiary 7.62 -->
-		<item name="ammo762Incendiary">
-			<property name="Extends" value="ammoRocketHE" />
-			<property name="DisplayType" value="ammoLauncher" />
-			<property name="DescriptionKey" value="ammo762IncendiaryDesc" />
-			<property name="CustomIcon" value="ammo762mmBulletAP" />
-			<property name="CustomIconTint" value="ff001e" />
-			<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
-			<property name="Weight" value="5" />
-			<property name="Stacknumber" value="50" />
-			<property name="UnlockedBy" value="ammo762IncendiarySchematic" />
-			<property name="EconomicValue" value="50" />
-			<property name="EconomicBundleSize" value="1" />
-			<property name="ExplodeOnHit" value="true"/>
-			<property class="Action1">
-				<property name="Explosion.RadiusBlocks" value="1" /> <!-- damage radius for blocks -->
-				<property name="Explosion.RadiusEntities" value="2" /> <!-- damage radius for entities -->
-				<property name="Explosion.DamageBonus.stone" value=".1" />
-				<property name="Explosion.DamageBonus.metal" value=".5" />
-				<property name="Explosion.DamageBonus.earth" value="0" />
-				<property name="Explosion.DamageBonus.wood" value="5" />
-				<property name="Explosion.DamageBonus.water" value="0" />
-
-				<property name="Explosion.BlockDamage" value="10" /> <!-- workaround, not affected by
-				perks at all -->
-				<property name="Explosion.EntityDamage" value="50" /> <!-- workaround, not affected
-				by perks at all -->
-				<property name="Gravity" value="-6" />
-			</property>
-			<effect_group name="Base Effects" tiered="false">
-				<passive_effect name="EntityDamage" operation="base_set" value="50" />
-				<display_value name="dExDamageEntity" value="50" />
-				<passive_effect name="BlockDamage" operation="base_set" value="10" />
-				<display_value name="dExDamageBlock" value="10" />
-				<passive_effect name="ProjectileVelocity" operation="base_set" value="30" />
-				<display_value name="dExRadius" value="2" />
-				<display_value name="dExDamageFire" value="250" />
-				<triggered_effect trigger="onProjectileImpact" action="RemoveBuff"
-					target="positionAOE" range="2" buff="buffIncendiaryRound" />
-				<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="positionAOE"
-					range="2" buff="buffIncendiaryRound" />
-			</effect_group>
-			<effect_group name="new Fire Proc" tiered="false">
-				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".93"/>
-				<requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="30"/>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffBurningElement"/>
-				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="10">
-					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="0"/></triggered_effect>
-				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="11">
-					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="1"/></triggered_effect>
-			</effect_group>		
-			<effect_group name="always refresh existing Fire Proc" tiered="false">
-				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".93"/>
-				<requirement name="HasBuff" target="other" buff="buffBurningElement"/>
-				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffBurningElement"/>
-				<!--default duration is 10-->
-				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="11">
-					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="1"/></triggered_effect>
-			</effect_group>
-		</item>
-
-
-		<item name="ammo762IncendiarySchematic">
-			<property name="Extends" value="schematicMaster" />
-			<property name="CreativeMode" value="Player" />
-			<property name="CustomIcon" value="ammo762mmBulletAP" />
-			<property name="CustomIconTint" value="ff001e" />
-			<property name="Unlocks" value="ammo762Incendiary" />
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="ammoBundle762Incendiary" operation="set" value="1" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="ammo762Incendiary" operation="set" value="1" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
-			</effect_group>
-		</item>
-
-
-		<item name="ammoBundle762Incendiary">
-			<property name="Extends" value="ammoBundleMaster" />
-			<property name="CustomIcon" value="ammo762mmBulletAP" />
-			<property name="Stacknumber" value="10" /> <!-- STK ammobundle high -->
-			<property name="EconomicValue" value="2500" />
-			<property name="UnlockedBy" value="ammo762IncendiarySchematic" />
-			<property class="Action0">
-				<property name="Create_item" value="ammoBundle762Incendiary" />
-				<property name="Create_item_count" value="50" />
-			</property>
-		</item>
-
-		<set xpath="items/item[@name='gunMGT2TacticalAR']/property[@class='Action0']/property[@name='Magazine_items'][@value='ammo762mmBulletAP']/@value">ammo762mmBulletAP,ammo762Incendiary </set>
-
-		<!-- Salmon -->
-
-		<item name="foodSalmon">
-			<property name="CustomIcon" value="foodBoiledMeat" />
-			<property name="CustomIconTint" value="FFDAB9" />
-			<property name="Extends" value="foodGrilledMeat" />
-			<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
-			<property name="Tags" value="food" />
-			<property name="DisplayType" value="food" />
-			<property name="EconomicValue" value="24" />
-			<property name="Group" value="Food/Cooking,CFFood/Cooking" />
-			<property class="Action0">
-				<property name="Class" value="Eat" />
-				<property name="Delay" value="2.1" />
-				<property name="Use_time" value="..." />
-				<property name="Sound_start" value="player_eating" />
-			</property>
-			<effect_group tiered="false" name="Food Tier 0">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$foodAmountAdd" operation="add" value="8" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="foodHealthAmount" operation="add" value="5" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar=".foodStaminaBonusAdd" operation="add" value="3" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
-					buff="buffProcessConsumables" />
-			</effect_group>
-		</item>
-
-
-		<!-- Khaine zombie stuttering stop -->
-
-		<item name="VanillaEntityLoadingHack">
-			<property name="CreativeMode" value="None" />
-			<property name="CustomIcon" value="missingIcon" />
-			<property name="CustomIconTint" value="90ff90" />
-			<property name="HoldType" value="45" />
-			<property name="HoldingItemHidden" value="true" />
-			<property name="Meshfile"
-				value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab" />
-			<property name="DropMeshfile"
-				value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab" />
-			<property name="Material" value="MresourceScrapIron" />
-			<property name="Weight" value="1" />
-			<property name="Stacknumber" value="1" /> <!-- STK resource -->
-			<property name="EconomicValue" value="1" />
-			<property name="EconomicBundleSize" value="1000" />
-			<property name="Group" value="Resources" />
-		</item>
-
-		<!-- If you want to change the unread books icon, here is how to do it -->
-		<!-- 
-		<set xpath="/items/item[@name='schematicMaster']/property[@name='ItemTypeIcon']/@value">add</set>
-		-->
-		<!--  Read Books -->
-		<!-- 
-		<set
-		xpath="/items/item[@name='schematicMaster']/property[@name='AltItemTypeIcon']/@value">check</set>
-		<insertAfter xpath="/items/item[@name='schematicMaster']/property[@name='AltItemTypeIcon']">
-			 <property name="AltItemTypeIconColor" value="128,256,128,128" />
-		</insertAfter>
-	 -->
-
-		<!-- Antibiotics Shot -->
-
-		<item name="drugAntibioticsShot">
-			<property name="Extends" value="drugPainkillers" />
-			<property name="DisplayType" value="drugSteroids" />
-			<property name="CustomIcon" value="drugSteroids" />
-			<property name="CustomIconTint" value="61A7F4" />
-			<property name="EconomicValue" value="250" />
-			<property name="UnlockedBy" value="perkPhysician" />
-			<property name="Group" value="Science,Medical" />
-			<property name="DisplayType" value="cureInfection" />
-			<property name="DescriptionKey" value="drugAntibioticsShotDesc" />
-
-			<effect_group tiered="false">
-				<display_value name="dCureInfection" value=".5" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffInfectionAddCurePerc" operation="add" value="25" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
-					buff="buffInfectionAddCure" />
-			</effect_group>
-		</item>
-
-
-		<!-- Adrenaline Shot -->
-
-		<item name="drugAdrenaline">
-			<property name="Extends" value="drugPainkillers" />
-			<property name="DisplayType" value="drugSteroids" />
-			<property name="CustomIcon" value="drugSteroids" />
-			<property name="CustomIconTint" value="0066ff" />
-			<property name="EconomicValue" value="250" />
-			<property name="UnlockedBy" value="perkPhysician" />
-			<property name="Group" value="Science,Medical" />
-			<property name="DescriptionKey" value="drugAdrenalineDesc" />
-
-			<effect_group tiered="false" name="Drug Tier 3">
-				<display_value name="dEntityDamage" value=".5" />
-				<display_value name="dCarryCapacity" value="50" />
-				<display_value name="dRunSpeed" value=".15" />
-				<display_value name="$waterAmountAdd" value="-30" />
-				<display_value name="dDuration" value="600" />
-
-				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"
-					cvar="$buffDrugFortBitesDuration" operation="set" value="0" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffDrugSteroidsDuration" operation="add" value="303" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffDrugSteroidsDuration" operation="set" value="903">
-					<requirement name="CVarCompare" cvar="$buffDrugSteroidsDuration" operation="GT"
-						value="903" />
-				</triggered_effect>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffMegaCrushDuration" operation="add" value="123" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffMegaCrushDuration" operation="set" value="363">
-					<requirement name="CVarCompare" cvar="$buffMegaCrushDuration" operation="GT"
-						value="363" />
-				</triggered_effect>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffDrugSkullCrushersDuration" operation="add" value="153" />
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
-					cvar="$buffDrugSkullCrushersDuration" operation="set" value="453">
-					<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration"
-						operation="GT" value="453" />
-				</triggered_effect>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
-					buff="buffProcessConsumables,buffDrugSteroids,buffDrugSkullCrushers,buffMegaCrush" />
-			</effect_group>
-
-			<property class="Action0">
-				<property name="Class" value="Eat" />
-				<property name="Delay" value="1.0" />
-				<property name="UseAnimation" value="false" />
-				<property name="Use_time" value="..." />
-				<property name="Sound_start" value="hulkexplodewarning" />
-				<property name="Sound_in_head" value="true" />
-			</property>
-		</item>
-
-		<!-- Energy Drink -->
+		<!-- Energy Drinks -->
 
 
 		<item name="drinkBangPeach">
@@ -604,6 +262,312 @@
 					buff="buffExtinguishFire" />
 			</effect_group>
 		</item>
+		
+		<!-- Meals -->
+		
+		<item name="foodHamSandwich">
+			  <property name="Tags" value="food"/>
+			  <property name="HoldType" value="31"/>
+			  <property name="DisplayType" value="food"/>
+			  <property name="CustomIcon" value="foodShamSandwich"/>
+			  <property name="CustomIconTint" value="F4E1EA" />
+			  <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+			  <property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			  <property name="Material" value="Morganic"/>
+			  <property name="Stacknumber" value="10"/>
+			  <!-- STK food -->
+			  <property name="EconomicValue" value="16"/>
+			  <!-- <property name="UnlockedBy" value="perkBachelor"/> -->
+			  <property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_eating"/>
+				<!--  prop create item here -->
+			  </property>
+			  <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+
+			  <effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="10"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="15"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+			  </effect_group>
+			</item>
+			
+			<item name="foodBeefTacos">
+				<property name="Tags" value="food"/>
+				<property name="HoldType" value="31"/>
+				<property name="DisplayType" value="food"/>
+				<property name="CustomIcon" value="foodFishTacos"/>
+				<property name="CustomIconTint" value="e7af00" />
+				<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="Material" value="Mplants"/>
+				<property name="Stacknumber" value="10"/> <!-- STK resource -->
+				<property name="EconomicValue" value="92"/>
+				<property name="EconomicBundleSize" value="5"/>
+				<property name="CraftingIngredientTime" value="10"/>
+				<!-- 14 is large round hold -->
+				<property name="UnlockedBy" value="perkMasterChef,foodFishTacosSchematic"/>
+				<property class="Action0">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Sound_start" value="player_eating"/>
+				</property>
+				<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+				<effect_group tiered="false" name="Food Tier 3">
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="50"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="45"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="50"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				</effect_group>
+			</item>
+
+			<item name="foodSalmon">
+				<property name="CustomIcon" value="foodBoiledMeat" />
+				<property name="CustomIconTint" value="FFDAB9" />
+				<property name="Extends" value="foodGrilledMeat" />
+				<property name="DropMeshfile" value="Items/Misc/sack_droppedPrefab" />
+				<property name="Tags" value="food" />
+				<property name="DisplayType" value="food" />
+				<property name="EconomicValue" value="24" />
+				<property name="Group" value="Food/Cooking,CFFood/Cooking" />
+				<property class="Action0">
+					<property name="Class" value="Eat" />
+					<property name="Delay" value="2.1" />
+					<property name="Use_time" value="..." />
+					<property name="Sound_start" value="player_eating" />
+				</property>
+				<effect_group tiered="false" name="Food Tier 0">
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+						cvar="$foodAmountAdd" operation="add" value="8" />
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+						cvar="foodHealthAmount" operation="add" value="5" />
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+						cvar=".foodStaminaBonusAdd" operation="add" value="3" />
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+						buff="buffProcessConsumables" />
+				</effect_group>
+			</item>
+		
+			<item name="foodChickenStew">
+				<property name="Tags" value="food"/>
+				<property name="CustomIcon" value="foodMeatStew"/> <property name="CustomIconTint" value="f2f2ed"/>
+				<property name="HoldType" value="31"/>
+				<property name="DisplayType" value="foodWater"/>
+				<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>				
+				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="Material" value="Morganic"/>
+				<property name="Stacknumber" value="10"/>
+				<property name="EconomicValue" value="250"/>
+				<property name="UnlockedBy" value="perkMasterChef"/>
+				<property class="Action0">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Sound_start" value="player_drinking"/>
+				</property>
+				<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+				<effect_group tiered="false" name="Food Tier 6">
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="30"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="85"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="75"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="50"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				</effect_group>
+			</item>
+			
+			<item name="drinkFruitSmoothie">
+				<property name="CustomIcon" value="drinkYuccaJuiceSmoothie"/> <property name="CustomIconTint" value="63b8c2"/>
+				<property name="HoldType" value="3"/>
+				<property name="DisplayType" value="drinkYuccaSmoothie"/>
+				<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
+				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="Material" value="Mglass"/>
+				<property name="Stacknumber" value="10"/>
+				<property name="Weight" value="10"/>
+				<property name="EconomicValue" value="156"/>
+				<property name="UnlockedBy" value="perkMasterChef"/>
+				<property class="Action0">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="1.0"/>
+					<property name="Use_time" value="..."/>
+					<property name="Sound_start" value="player_drinking"/>
+					<property name="Create_item" value="drinkJarEmpty"/>
+				</property>
+				<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+			<effect_group tiered="false" name="Drink Tier 6">
+				<requirement name="NotHasBuff" buff="buffIsOnFire"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="100"/>
+					<display_value name="dStaminaRegen" value=".15"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="35"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="25"/>
+					<display_value name="dHypothermalResist" value="30"/>
+					<display_value name="dDuration" value="900"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffYuccaJuiceSmoothieDuration" operation="add" value="903"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffYuccaJuiceSmoothieDuration" operation="set" value="2703">
+					<requirement name="CVarCompare" cvar="$buffYuccaJuiceSmoothieDuration" operation="GT" value="2703"/></triggered_effect>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables,buffYuccaJuiceSmoothie"/>
+			</effect_group>
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+			</effect_group>
+			</item>
+			<item name="drinkJarBlueBeer">
+				<property name="CustomIcon" value="drinkJarBeer"/> <property name="CustomIconTint" value="036bfc"/>/?
+				<property name="HoldType" value="3"/>
+				<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
+				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="Material" value="Mglass"/>
+				<property name="Weight" value="10"/>
+				<property name="Stacknumber" value="10"/> <!-- STK drink -->
+				<property name="EconomicValue" value="100"/>
+				<property name="UnlockedBy" value="perkMasterChef"/>
+				<property name="DisplayType" value="waterBeer"/>
+				<property name="Group" value="Food/Cooking,CFDrink/Cooking,Medical"/>
+				<property class="Action0">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2"/>
+					<property name="Use_time" value="..."/>
+					<property name="Sound_start" value="player_drinking"/>
+					<property name="Create_item" value="drinkJarEmpty"/>
+				</property>
+				<effect_group tiered="false" name="Drink Tier 6">
+					<requirement name="NotHasBuff" buff="buffIsOnFire"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="100"/>
+						<display_value name="dStaminaRegen" value=".4"/>
+						<display_value name="dEntityDamageBrawling" value="3"/>
+						<display_value name="dStunResist" value="1"/>
+						<display_value name="dDuration" value="45"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="48"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="set" value="138">
+							<requirement name="CVarCompare" cvar="$buffBeerDuration" operation="GT" value="138"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffBeer"/>
+				</effect_group>
+				<effect_group tiered="false">
+					<requirement name="HasBuff" buff="buffIsOnFire"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+				</effect_group>
+			</item>
+			
+		<!-- End Foods -->
+		
+		
+		<!-- Khaine zombie stuttering stop -->
+
+		<item name="VanillaEntityLoadingHack">
+			<property name="CreativeMode" value="None" />
+			<property name="CustomIcon" value="missingIcon" />
+			<property name="CustomIconTint" value="90ff90" />
+			<property name="HoldType" value="45" />
+			<property name="HoldingItemHidden" value="true" />
+			<property name="Meshfile"
+				value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab" />
+			<property name="DropMeshfile"
+				value="#Entities/Zombies?Zombies/zombieStandardBoeRagdoll.prefab" />
+			<property name="Material" value="MresourceScrapIron" />
+			<property name="Weight" value="1" />
+			<property name="Stacknumber" value="1" /> <!-- STK resource -->
+			<property name="EconomicValue" value="1" />
+			<property name="EconomicBundleSize" value="1000" />
+			<property name="Group" value="Resources" />
+		</item>
+
+		<!-- If you want to change the unread books icon, here is how to do it -->
+		<!-- 
+		<set xpath="/items/item[@name='schematicMaster']/property[@name='ItemTypeIcon']/@value">add</set>
+		-->
+		<!--  Read Books -->
+		<!-- 
+		<set
+		xpath="/items/item[@name='schematicMaster']/property[@name='AltItemTypeIcon']/@value">check</set>
+		<insertAfter xpath="/items/item[@name='schematicMaster']/property[@name='AltItemTypeIcon']">
+			 <property name="AltItemTypeIconColor" value="128,256,128,128" />
+		</insertAfter>
+	 -->
+
+		<!-- Antibiotics Shot -->
+
+		<item name="drugAntibioticsShot">
+			<property name="Extends" value="drugPainkillers" />
+			<property name="DisplayType" value="drugSteroids" />
+			<property name="CustomIcon" value="drugSteroids" />
+			<property name="CustomIconTint" value="61A7F4" />
+			<property name="EconomicValue" value="250" />
+			<property name="UnlockedBy" value="perkPhysician" />
+			<property name="Group" value="Science,Medical" />
+			<property name="DisplayType" value="cureInfection" />
+			<property name="DescriptionKey" value="drugAntibioticsShotDesc" />
+
+			<effect_group tiered="false">
+				<display_value name="dCureInfection" value=".5" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffInfectionAddCurePerc" operation="add" value="25" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffInfectionAddCure" />
+			</effect_group>
+		</item>
+
+
+		<!-- Adrenaline Shot -->
+
+		<item name="drugAdrenaline">
+			<property name="Extends" value="drugPainkillers" />
+			<property name="DisplayType" value="drugSteroids" />
+			<property name="CustomIcon" value="drugSteroids" />
+			<property name="CustomIconTint" value="0066ff" />
+			<property name="EconomicValue" value="250" />
+			<property name="UnlockedBy" value="perkPhysician" />
+			<property name="Group" value="Science,Medical" />
+			<property name="DescriptionKey" value="drugAdrenalineDesc" />
+
+			<effect_group tiered="false" name="Drug Tier 3">
+				<display_value name="dEntityDamage" value=".5" />
+				<display_value name="dCarryCapacity" value="50" />
+				<display_value name="dRunSpeed" value=".15" />
+				<display_value name="$waterAmountAdd" value="-30" />
+				<display_value name="dDuration" value="600" />
+
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"
+					cvar="$buffDrugFortBitesDuration" operation="set" value="0" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSteroidsDuration" operation="add" value="303" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSteroidsDuration" operation="set" value="903">
+					<requirement name="CVarCompare" cvar="$buffDrugSteroidsDuration" operation="GT"
+						value="903" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="add" value="123" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffMegaCrushDuration" operation="set" value="363">
+					<requirement name="CVarCompare" cvar="$buffMegaCrushDuration" operation="GT"
+						value="363" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSkullCrushersDuration" operation="add" value="153" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="$buffDrugSkullCrushersDuration" operation="set" value="453">
+					<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration"
+						operation="GT" value="453" />
+				</triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff"
+					buff="buffProcessConsumables,buffDrugSteroids,buffDrugSkullCrushers,buffMegaCrush" />
+			</effect_group>
+
+			<property class="Action0">
+				<property name="Class" value="Eat" />
+				<property name="Delay" value="1.0" />
+				<property name="UseAnimation" value="false" />
+				<property name="Use_time" value="..." />
+				<property name="Sound_start" value="hulkexplodewarning" />
+				<property name="Sound_in_head" value="true" />
+			</property>
+		</item>
+
 
 		<!-- Super Stun Baton -->
 

@@ -261,7 +261,6 @@
 			<ingredient name="foodCornMeal" count="5" />
 			<ingredient name="foodCropMushrooms" count="3" />
 		</recipe>
-
 		<recipe name="foodCanPasta" count="1" craft_time="240" craft_area="campfire"
 			craft_tool="toolCookingPot" tags="learnable,perkMasterChef">
 			<ingredient name="drinkCanEmpty" count="1" />
@@ -415,12 +414,6 @@
 					tags="resourceBrokenGlass,resourceScrapLead,resourceForgedIron,resourceSilverNugget" />
 			</effect_group>
 		</recipe>
-		<!-- <recipe name="solarbank" count="1" craft_area="workbench"
-		tags="perkAdvancedEngineering">
-			<ingredient name="resourceForgedSteel" count="20"/>
-			<ingredient name="resourceElectricParts" count="10"/>			
-			<ingredient name="resourceScrapPolymers" count="5"/>
-		</recipe>  -->
 		<recipe name="smallEngine" count="1" craft_area="workbench"
 			tags="perkGreaseMonkey,learnable">
 			<ingredient name="resourceForgedSteel" count="25" />
@@ -455,7 +448,12 @@
 			<ingredient name="resourceDuctTape" count="1" />
 			<ingredient name="resourceForgedIron" count="30" />
 		</recipe>
-
+		<recipe name="meleeWpnClubT3SteelClubParts" count="1" craft_time="300">
+			<ingredient name="resourceForgedSteel" count="2" />
+			<ingredient name="resourceMechanicalParts" count="2" />
+			<ingredient name="resourceScrapPolymers" count="50" />
+			<ingredient name="resourceDuctTape" count="1" />			
+		</recipe>
 		<recipe name="resourceSpring" count="1" craft_time="10" craft_area="workbench">
 			<ingredient name="resourceForgedIron" count="5" />
 		</recipe>
@@ -491,13 +489,6 @@
 			<ingredient name="unit_clay" count="50" />
 			<ingredient name="unit_lead" count="10" />
 		</recipe>
-		<recipe name="drinkCanMegaCrush" count="1" craft_area="chemistryStation">
-			<ingredient name="drinkJarBoiledWater" count="1" />
-			<ingredient name="resourceCropCoffeeBeans" count="2" />
-			<ingredient name="resourceCropChrysanthemumPlant" count="2" />
-			<ingredient name="drinkJarBeer" count="1" />
-			<ingredient name="foodCropYuccaFruit" count="1" />
-		</recipe>
 		<recipe name="resourceAcid" count="1" craft_area="chemistryStation" tags="perkYeahScience">
 			<ingredient name="drinkJarBoiledWater" count="1" />
 			<ingredient name="resourceCropCoffeeBeans" count="1" />
@@ -510,9 +501,7 @@
 			<ingredient name="resourceDuctTape" count="1" />
 			<ingredient name="resourceMechanicalParts" count="1" />
 		</recipe>
-
-		<recipe name="resourceScrapPolymers" count="5" craft_area="chemistryStation"
-			tags="perkYeahScience">
+		<recipe name="resourceScrapPolymers" count="5" craft_area="chemistryStation" tags="perkYeahScience">
 			<ingredient name="resourceOil" count="1" />
 			<ingredient name="resourceCoal" count="1" />
 		</recipe>

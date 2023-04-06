@@ -1,55 +1,141 @@
 <configs>
 
+	<remove xpath="/blocks/block[@name='bodyBagBlack']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagYellow']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagPile']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagPileMix']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagPair']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagPairYellow']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagPairMixed']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagBlackFlies']"></remove>
+	<remove xpath="/blocks/block[@name='bodyBagYellowFlies']"></remove>
+	
 	<append xpath="/blocks">
-	<!-- Large Generator Bank -->
+		<block name="bodyBagBlack">			
+			<property name="Material" value="Morganic"/>
+			<property name="MaxDamage" value="200"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/Misc/body_bagPrefab"/>
+			<property name="ModelOffset" value="0,.5,.5"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="MultiBlockDim" value="1,1,2"/>
+			<property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>
+			<drop event="Harvest" name="foodRottingFlesh" count="1,3" tag="butcherHarvest" tool_category="Butcher"/><!-- triggers bonus damage and harvest animation -->
+			<drop event="Harvest" name="resourceAnimalFat" count="1,2" prob="0.33" tag="butcherHarvest"/>
+			<drop event="Harvest" name="resourcePotassiumNitratePowder" count="4,8" tag="butcherHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="6,10" tag="butcherHarvest"/>
+			<drop event="Destroy" name="resourceScrapPolymers" count="1,2"/>
+			<drop event="Fall" count="0" prob="0"/>
+			<property name="DescriptionKey" value="creativeMenuBlockGroupDesc"/>
+			<property name="FilterTags" value="fdecor,fother"/>
+			
+			<property name="CanMobsSpawnOn" value="true"/>
+			
+			<property name="Class" value="Loot"/>
+			<property name="LootList" value="363"/>
+
+		</block>
+		
+		<block name="bodyBagYellow">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_yellowPrefab"/>
+		</block>
+
+		<block name="bodyBagPile">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_pilePrefab"/>
+			<property name="LootList" value="365"/>
+		</block>
+
+		<block name="bodyBagPileMix">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_pile_mixPrefab"/>
+			<property name="LootList" value="365"/>
+		</block>
+
+		<block name="bodyBagPair">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_pairPrefab"/>
+			<property name="LootList" value="364"/>
+		</block>
+
+		<block name="bodyBagPairYellow">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_pair_yellowPrefab"/>
+			<property name="LootList" value="364"/>
+		</block>
+
+		<block name="bodyBagPairMixed">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_pair_mixPrefab"/>
+			<property name="LootList" value="364"/>
+		</block>
+
+		<block name="bodyBagBlackFlies">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_fliesPrefab"/>
+			<property name="LootList" value="364"/>
+		</block>
+
+		<block name="bodyBagYellowFlies">
+			<property name="Extends" value="bodyBagBlack"/>
+			<property name="Model" value="Entities/Misc/body_bag_yellow_fliesPrefab"/>
+			<property name="LootList" value="364"/>
+
+		</block>
+	 </append>
+
+	<append xpath="/blocks">
+
+		<!-- Large Generator Bank -->
 
 
 		<block name="LargeGeneratorBank">
-			<property name="CreativeMode" value="Player"/>
-			<property name="Class" value="Generator"/>
-			<property name="DisplayType" value="blockElectricalHardened"/>
-			<property name="UnlockedBy" value="perkAdvancedEngineering,generatorbankSchematic"/>
-			<property name="Material" value="Mmetal_medium"/>
-			<property name="StabilitySupport" value="false"/>
-			<property name="Shape" value="ModelEntity"/>
-			<property name="Mesh" value="models"/>
-			<property name="Path" value="solid"/>
-			<property name="Model" value="Entities/Electrical/bigGeneratorPrefab"/>
-			<property name="HandleFace" value="Bottom"/>
-			<property name="ImposterDontBlock" value="true"/>
-			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
-			<property name="DescriptionKey" value="powerSourceDesc"/>
-			<property name="MaxFuel" value="20000"/>
-			<property name="OutputPerFuel" value="10000"/>
-			<property name="MaxPower" value="36750"/>
-			<property name="OutputPerStack" value="300"/>
-			<property name="SlotItem" value="smallEngine"/>
-			<property name="Group" value="Science"/>
-			<property name="MultiBlockDim" value="3,2,2"/>
-			<property name="MaxDamage" value="4000"/>
+			<property name="CreativeMode" value="Player" />
+			<property name="Class" value="Generator" />
+			<property name="DisplayType" value="blockElectricalHardened" />
+			<property name="UnlockedBy" value="perkAdvancedEngineering,generatorbankSchematic" />
+			<property name="Material" value="Mmetal_medium" />
+			<property name="StabilitySupport" value="false" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Mesh" value="models" />
+			<property name="Path" value="solid" />
+			<property name="Model" value="Entities/Electrical/bigGeneratorPrefab" />
+			<property name="HandleFace" value="Bottom" />
+			<property name="ImposterDontBlock" value="true" />
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket" />
+			<property name="DescriptionKey" value="powerSourceDesc" />
+			<property name="MaxFuel" value="20000" />
+			<property name="OutputPerFuel" value="10000" />
+			<property name="MaxPower" value="36750" />
+			<property name="OutputPerStack" value="300" />
+			<property name="SlotItem" value="smallEngine" />
+			<property name="Group" value="Science" />
+			<property name="MultiBlockDim" value="3,2,2" />
+			<property name="MaxDamage" value="4000" />
 			<property class="RepairItems">
-				<property name="resourceForgedIron" value="8"/>
-				<property name="resourceMechanicalParts" value="8"/>
-				<property name="resourceElectricParts" value="8"/>
-				<property name="resourceElectricParts" value="3"/>
+				<property name="resourceForgedIron" value="8" />
+				<property name="resourceMechanicalParts" value="8" />
+				<property name="resourceElectricParts" value="8" />
+				<property name="resourceElectricParts" value="3" />
 			</property>
-			<drop event="Harvest" name="resourceScrapIron" count="192" tag="allHarvest"/>
-			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
-			<drop event="Harvest" name="resourceForgedIron" count="3" tag="salvageHarvest"/>
-			<drop event="Harvest" name="resourceMechanicalParts" count="3" tag="salvageHarvest"/>
-			<drop event="Harvest" name="resourceElectricParts" count="3,4" tag="salvageHarvest"/>
-			<drop event="Destroy" count="0"/>
-			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
-			<property name="Stacknumber" value="1"/>
-			<property name="TakeDelay" value="15"/>
-			<property name="EconomicValue" value="9000"/>
-			<property name="FilterTags" value="MC_playerBlocks,SC_electrical"/>
-			<property name="SortOrder1" value="70a0"/>	
+			<drop event="Harvest" name="resourceScrapIron" count="192" tag="allHarvest" />
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble" />
+			<drop event="Harvest" name="resourceForgedIron" count="3" tag="salvageHarvest" />
+			<drop event="Harvest" name="resourceMechanicalParts" count="3" tag="salvageHarvest" />
+			<drop event="Harvest" name="resourceElectricParts" count="3,4" tag="salvageHarvest" />
+			<drop event="Destroy" count="0" />
+			<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1" />
+			<property name="Stacknumber" value="1" />
+			<property name="TakeDelay" value="15" />
+			<property name="EconomicValue" value="9000" />
+			<property name="FilterTags" value="MC_playerBlocks,SC_electrical" />
+			<property name="SortOrder1" value="70a0" />
 		</block>
 
-			
-	<!-- Double Drawbridge -->
-	
+
+		<!-- Double Drawbridge -->
+
 		<block name="metalReinforcedWoodDrawBridgeDouble">
 			<property name="CustomIcon" value="metalReinforcedWoodDrawBridge" />
 			<property name="CustomIconTint" value="255,255,0" />
@@ -103,7 +189,7 @@
 	</append>
 	<!--Snow -->
 	<append xpath="/blocks/block[@name='terrSnow']">
-		<property name="MovementFactor" value=".6" />
+		<property name="MovementFactor" value=".8" />
 	</append>
 	<!--Bedrock -->
 	<append xpath="/blocks/block[@name='terrBedrock']">
@@ -219,8 +305,12 @@
         <property name="Explosion.Buff" value="triggerBrokenLeg"/>
     </append>
  -->
-
-
+	<!-- Repair Potted Plant -->
+		<append xpath="/blocks/block[@name='treePlant02']">
+			<property class="RepairItems">
+			<property name="resourceClayLump" value="5"/>
+		</property>
+		</append>
 	<!-- Don't let your fire burn too long, this will punish players with screamers and hordes -->
 	<set xpath="/blocks/block[@name='campfire']/property[@name='HeatMapStrength']/@value">6</set>        <!--
 	original: 5    -->
@@ -391,10 +481,10 @@
 		<property name="CanPickup" value="true" />
 		<property name="Weight" value="60" />
 	</append>
-	<append xpath="/blocks/block[@name='cntWoodFurnitureBlockVariantHelper']">
+<!-- 	<append xpath="/blocks/block[@name='cntWoodFurnitureBlockVariantHelper']">
 		<property name="CanPickup" value="true" />
 		<property name="Weight" value="60" />
-	</append>
+	</append> -->
 	<append xpath="/blocks/block[@name='barStool']">
 		<property name="CanPickup" value="true" />
 		<property name="Weight" value="60" />
@@ -772,13 +862,13 @@
 
 
 	<!-- Healing Beds -->
-	<append xpath="/blocks/block[contains(@name,'Bed') and not(contains(@name,'terr')and not(contains(@name,'semi'))]">
+	<append xpath="/blocks/block[contains(@name,'Bed') and not(contains(@name,'terr')and not(contains(@name,'semi')))]">
 		<property name="BuffsWhenWalkedOn" value="Resting" />
 	</append>
-	<append xpath="/blocks/block[contains(@name,'bed') and not(contains(@name,'terr')and not(contains(@name,'semi'))]">
+	<append xpath="/blocks/block[contains(@name,'bed') and not(contains(@name,'terr')and not(contains(@name,'semi')))]">
 		<property name="BuffsWhenWalkedOn" value="Resting" />
 	</append>
-	<append xpath="/blocks/block[contains(@name,'bedroll') and not(contains(@name,'terr')and not(contains(@name,'semi'))]">
+	<append xpath="/blocks/block[contains(@name,'bedroll') and not(contains(@name,'terr')and not(contains(@name,'semi')))]">
 		<property name="BuffsWhenWalkedOn" value="Resting" />
 	</append>
 
@@ -1395,197 +1485,297 @@
 	</append>
 
 
-<!-- Loot from the ground -->
+	<!-- Loot from the ground -->
 
-		<append xpath="//block[@name='terrForestGround']">
-			<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceAcid" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="foodCropPotato" count="1" prob="0.001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="foodCropMushrooms" count="1" prob="0.005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarRiverWater" count="1" prob="0.0007" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSpring" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.00023" tag="oreWoodHarvest"/>
+	<append xpath="//block[@name='terrForestGround']">
+		<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceAcid" count="1" prob="0.00023" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="foodCropPotato" count="1" prob="0.001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="foodCropMushrooms" count="1" prob="0.005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarRiverWater" count="1" prob="0.0007" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSpring" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
 
-		</append>
+	</append>
 
-		<append xpath="//block[@name='terrBurntForestGround']">
+	<append xpath="//block[@name='terrBurntForestGround']">
 
-			<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceCoal" count="1,12" prob="0.007" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceAcid" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarRiverWater" count="1" prob="0.0007" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-
-		</append>
-
-		<append xpath="//block[@name='terrSnow']">
-			<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0055" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceAcid" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="foodRawMeat" count="1,5" prob="0.0003" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-
-		</append>
-
-		<append xpath="//block[@name='terrDirt']">
-			<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceCrushedSand" count="1,12" prob="0.05" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarRiverWater" count="1" prob="0.0007" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-
-		</append>
-
-		<append xpath="//block[@name='terrStone']">
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.0029" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.0029" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.0029" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.05" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.05" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceCoal" count="1,12" prob="0.07" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourcePotassiumNitratePowder" count="1,12" prob="0.05" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOil" count="50,50" prob="0.0006" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOilShale" count="1,12" prob="0.05" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceCrushedSand" count="1,12" prob="0.05" tag="oreWoodHarvest"/>
-		</append>
-
-		<append xpath="//block[@name='terrDesertGround']">
-			<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceAcid" count="1" prob="0.00029" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-
-		</append>
+		<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceCoal" count="1,12" prob="0.007" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceAcid" count="1" prob="0.00023" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarRiverWater" count="1" prob="0.0007" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
 
 
-		<append xpath="//block[@name='terrSand']">
-			<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceAcid" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
-			<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.0001" tag="oreWoodHarvest"/>
+	</append>
 
-		</append>
+	<append xpath="//block[@name='terrSnow']">
+		<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0055" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceAcid" count="1" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="foodRawMeat" count="1,5" prob="0.0003" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+
+
+	</append>
+
+	<append xpath="//block[@name='terrDirt']">
+		<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceCrushedSand" count="1,12" prob="0.05"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarRiverWater" count="1" prob="0.0007" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+
+
+	</append>
+
+	<append xpath="//block[@name='terrStone']">
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.0029" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.0029"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.0029"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.05" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.05" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceCoal" count="1,12" prob="0.07" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourcePotassiumNitratePowder" count="1,12" prob="0.05"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOil" count="50,50" prob="0.0006" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOilShale" count="1,12" prob="0.05" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceCrushedSand" count="1,12" prob="0.05"
+			tag="oreWoodHarvest" />
+	</append>
+
+	<append xpath="//block[@name='terrDesertGround']">
+		<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceAcid" count="1" prob="0.00029" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+
+	</append>
+
+
+	<append xpath="//block[@name='terrSand']">
+		<drop event="Harvest" name="resourceScrapPolymers" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkCanEmpty" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="drinkJarEmpty" count="1" prob="0.0003" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRockSmall" count="1" prob="0.4" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceGoldNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceNail" count="1" prob="0.0005" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceAcid" count="1" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceArrowHeadIron" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="casinoCoin" count="4,17" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo9mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammoShotgunShell" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="ammo762mmBulletBall" count="6,24" prob="0.00025"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBulletCasing" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceBone" count="1,6" prob="0.0002" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1Pistol" count="1" prob="0.00001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceMetalPipe" count="1,3" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceOil" count="50,50" prob="0.00025" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceRawDiamond" count="1" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSilverNugget" count="1,3" prob="0.00023"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="carBattery" count="1" prob="0.00001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceSpring" count="1" prob="0.0001" tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapIron" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapBrass" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="resourceScrapLead" count="1,12" prob="0.0002"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunHandgunT1PistolParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunRifleT1HuntingRifleParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+		<drop event="Harvest" name="gunShotgunT1DoubleBarrelParts" count="1" prob="0.0001"
+			tag="oreWoodHarvest" />
+
+	</append>
 
 
 </configs>

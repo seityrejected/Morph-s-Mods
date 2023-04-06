@@ -266,7 +266,7 @@
 		<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest" />
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
-		<property name="LootListOnDeath" value="zombieFatCop" />
+
 		<!-- Gameplay -->
 		<!-- <property name="Buffs" value="zombieRadiatedBuff80"/> -->
 		<property name="SizeScale" value="1.18"/>
@@ -334,7 +334,7 @@
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<property name="MoveSpeedAggro" value="1, 1.4"/>
-		<property name="LootListOnDeath" value="zombieSkateboarder" />
+		
 		<effect_group name="Base Effects">
 			<passive_effect name="HealthMax" operation="base_set" value="2500"/>
 			<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
@@ -391,7 +391,7 @@
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<property name="MoveSpeedAggro" value="1, 1.2"/>
-		<property name="LootListOnDeath" value="zombieWightFeral" />
+		
 		<effect_group name="Base Effects">
 			<passive_effect name="HealthMax" operation="base_set" value="2500"/>
 			<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
@@ -464,7 +464,7 @@
 		<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
 		<property name="MoveSpeedAggro" value=".8, .9"/>
-		<property name="LootListOnDeath" value="zombieFatCop" />
+		
 		<effect_group name="Base Effects">
 			<passive_effect name="HealthMax" operation="base_set" value="2000"/>
 			<passive_effect name="HealthMax" operation="perc_set" value="1"/>
