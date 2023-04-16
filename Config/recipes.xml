@@ -11,6 +11,11 @@
 			<ingredient name="resourceSpring" count="10"/>
 		</recipe>
 	
+		<!-- Placeable Flashlight -->
+		
+		<recipe name="flashlightDecor" count="1">
+			<ingredient name="meleeToolFlashlight02" count="1"/>
+		</recipe>
 	
 		<!-- Large Generator Bank -->
 		

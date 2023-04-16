@@ -1,6 +1,6 @@
 <configs>
 
-	<!-- default template for entity additions 		<entity name="EliteBoomer" prob="0.005"/> -->
+	<!-- default template for entity additions 		<entity name="zombieSpiderScreamer" prob="0.005"/> -->
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
 		<entity name="zombieTinySpider" count="8" prob="0.15" />
@@ -10,6 +10,7 @@
 		<entity name="zombieSpiderTomClarkFeral" prob="0.1" />
 		<entity name="zombieTinySteveCrawler" prob="0.1" />
 		<entity name="zombieWightCrawler" prob="0.01"/>
+		<entity name="zombieSpiderScreamer" prob="0.05"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
@@ -86,6 +87,7 @@
 		<entity name="animalBabyBear" prob="0.1" />
 		<entity name="animalBabyWolf" prob="0.1" />
 		<entity name="animalBabySnake" prob="0.2" />
+		<entity name="MotherClucker" prob="0.05"/>
 	</append>
 
 	<!-- Spawn in desert -->

@@ -1,6 +1,6 @@
 <configs>
 
-	<!-- default template for entity additions 		<entity name="EliteSkater" prob="0.005"/> -->
+	<!-- default template for entity additions 		<entity name="MotherClucker" prob="0.005"/> -->
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
 		<entity name="zombieTinySpider" count="8" prob="0.15" />
@@ -27,6 +27,8 @@
 		<entity name="zombieWightCrawler" prob="0.01"/>
 		<entity name="EliteCop" prob="0.005"/>
 		<entity name="EliteSkater" prob="0.005"/>
+		<entity name="EliteFeral" prob="0.005"/>
+		<entity name="EliteBoomer" prob="0.005"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesDowntown']">
@@ -43,6 +45,8 @@
 		<entity name="zombieWightCrawler" prob="0.01"/>
 		<entity name="EliteCop" prob="0.005"/>
 		<entity name="EliteSkater" prob="0.005"/>
+		<entity name="EliteFeral" prob="0.005"/>
+		<entity name="EliteBoomer" prob="0.005"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesHoard']">
@@ -62,6 +66,8 @@
 		<entity name="zombieWightCrawler" prob="0.01"/>
 		<entity name="EliteCop" prob="0.005"/>
 		<entity name="EliteSkater" prob="0.005"/>
+		<entity name="EliteFeral" prob="0.005"/>
+		<entity name="EliteBoomer" prob="0.005"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='BearGroup']">
@@ -80,6 +86,7 @@
 		<entity name="animalBabyBear" prob="0.1" />
 		<entity name="animalBabyWolf" prob="0.1" />
 		<entity name="animalBabySnake" prob="0.2" />
+		<entity name="MotherClucker" prob="0.05"/>
 	</append>
 
 	<!-- Spawn in desert -->

@@ -415,43 +415,43 @@
 				<requirement name="HasBuff" buff="buffIsOnFire"/>
 					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
 			</effect_group>
-		</item>
-		<item name="drinkJarBlueBeer">
-			<property name="CustomIcon" value="drinkJarBeer"/> <property name="CustomIconTint" value="036bfc"/>/?
-			<property name="HoldType" value="3"/>
-			<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
-			<property name="Material" value="Mglass"/>
-			<property name="Weight" value="10"/>
-			<property name="Stacknumber" value="10"/> <!-- STK drink -->
-			<property name="EconomicValue" value="100"/>
-			<property name="UnlockedBy" value="perkMasterChef"/>
-			<property name="DisplayType" value="waterBeer"/>
-			<property name="Group" value="Food/Cooking,CFDrink/Cooking,Medical"/>
-			<property class="Action0">
-				<property name="Class" value="Eat"/>
-				<property name="Delay" value="2"/>
-				<property name="Use_time" value="..."/>
-				<property name="Sound_start" value="player_drinking"/>
-				<property name="Create_item" value="drinkJarEmpty"/>
-			</property>
-			<effect_group tiered="false" name="Drink Tier 6">
-				<requirement name="NotHasBuff" buff="buffIsOnFire"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="100"/>
-					<display_value name="dStaminaRegen" value=".4"/>
-					<display_value name="dEntityDamageBrawling" value="3"/>
-					<display_value name="dStunResist" value="1"/>
-					<display_value name="dDuration" value="45"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="48"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="set" value="138">
-						<requirement name="CVarCompare" cvar="$buffBeerDuration" operation="GT" value="138"/></triggered_effect>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffBeer"/>
-			</effect_group>
-			<effect_group tiered="false">
-				<requirement name="HasBuff" buff="buffIsOnFire"/>
-					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
-			</effect_group>
-		</item>
+			</item>
+			<item name="drinkJarBlueBeer">
+				<property name="CustomIcon" value="drinkJarBeer"/> <property name="CustomIconTint" value="036bfc"/>/?
+				<property name="HoldType" value="3"/>
+				<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
+				<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+				<property name="Material" value="Mglass"/>
+				<property name="Weight" value="10"/>
+				<property name="Stacknumber" value="10"/> <!-- STK drink -->
+				<property name="EconomicValue" value="100"/>
+				<property name="UnlockedBy" value="perkMasterChef"/>
+				<property name="DisplayType" value="waterBeer"/>
+				<property name="Group" value="Food/Cooking,CFDrink/Cooking,Medical"/>
+				<property class="Action0">
+					<property name="Class" value="Eat"/>
+					<property name="Delay" value="2"/>
+					<property name="Use_time" value="..."/>
+					<property name="Sound_start" value="player_drinking"/>
+					<property name="Create_item" value="drinkJarEmpty"/>
+				</property>
+				<effect_group tiered="false" name="Drink Tier 6">
+					<requirement name="NotHasBuff" buff="buffIsOnFire"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="100"/>
+						<display_value name="dStaminaRegen" value=".4"/>
+						<display_value name="dEntityDamageBrawling" value="3"/>
+						<display_value name="dStunResist" value="1"/>
+						<display_value name="dDuration" value="45"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="add" value="48"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffBeerDuration" operation="set" value="138">
+							<requirement name="CVarCompare" cvar="$buffBeerDuration" operation="GT" value="138"/></triggered_effect>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffBeer"/>
+				</effect_group>
+				<effect_group tiered="false">
+					<requirement name="HasBuff" buff="buffIsOnFire"/>
+						<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+				</effect_group>
+			</item>
 			
 		<!-- End Foods -->
 		
@@ -1203,6 +1203,74 @@
 		</item>
 
 	</append>
+
+	<!-- Giant Chicken Weapon -->
+	
+		<item name="meleeHandMotherClucker">
+			<property name="Extends" value="meleeHandAnimalZombieVulture"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action0">
+				<property name="Delay" value=".7"/>
+				<property name="DamageEntity" value="12"/>
+				<property name="DamageBlock" value="50"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Vomit"/>
+				<property name="Hitmask_override" value="Arrow"/>
+				<property name="Delay" value=".4"/>
+				<property name="Infinite_ammo" value="true"/>
+				<property name="Magazine_items" value="ammoProjectileChickenEgg"/>
+				<property name="Sound_warning" value="vulturevomitwarning"/>
+				<property name="Sound_start" value="vulturevomitattack"/>
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value=""/>
+				<property name="Sound_reload" value=""/>
+			</property>
+			<effect_group name="meleeHandMotherClucker" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="1"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="2"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="3"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3"/>
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="10"/>
+				<passive_effect name="MaxRange" operation="base_set" value="15"/>
+
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter" operation="GT" value="0"/></triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="abrasionZombieHit" operation="set" value="3200"/><!--AbrasionRadiated-->
+			</effect_group>
+		</item>
+
+		<item name="ammoProjectileChickenEgg">
+			<property name="Meshfile" value="#Other/Items?Misc/snowballPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="15"/>
+				<property name="DamageBlock" value="12"/>
+				<property name="Explosion.ParticleIndex" value="0"/>
+				<property name="Velocity" value="13"/>
+				<property name="FlyTime" value="6"/>
+				<property name="LifeTime" value="8"/>
+				<property name="CollisionRadius" value=".5"/>
+				<property name="Buff" value="buffInfectionCatch"/>
+			</property>
+			<effect_group name="ammoProjectileChickenEgg" tiered="false">
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
+					<requirement name="CVarCompare" target="other" cvar="infectionCounter" operation="GT" value="0"/></triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="abrasionZombieHit" operation="set" value="3200"/><!--AbrasionRadiated-->
+			</effect_group>
+		</item>
 
 
 	<!-- Screamer Banshee weapon -->
