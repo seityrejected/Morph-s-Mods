@@ -1,6 +1,28 @@
 <configs>
 
 	<append xpath="/recipes">
+		<!-- Hazmat gear -->
+		<recipe name="apparelHazmatBoots" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+		</recipe>
+		<recipe name="apparelHazmatGloves" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+		</recipe>
+		<recipe name="apparelHazmatJacket" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="10"/>
+			<ingredient name="resourceSewingKit" />
+		</recipe>
+		<recipe name="apparelHazmatMask" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+			<ingredient name="apparelAviatorGoggles"/>
+		</recipe>
+		<recipe name="apparelHazmatPants" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+		</recipe>	
 	
 		<!-- Blessed Metal mod -->
 		

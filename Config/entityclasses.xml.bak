@@ -1536,6 +1536,74 @@
 					cvar="EntityBoss" operation="set" value="1" />
 			</effect_group>
 		</entity_class>
+	
+			<!-- Giant Chicken -->
+		
+		<entity_class name="MotherClucker" extends="animalTemplateHostile">
+			<property name="Tags" value="entity,animal,chicken,perkAT01,perkAT02,perkAT03"/>
+			<property name="ExperienceGain" value="1000"/>
+			<property name="LootListOnDeath" value="zPackBoss"/>
+			<property name="MapIcon" value="ui_game_symbol_tracking_chicken"/>
+			<property name="TrackerIcon" value="ui_game_symbol_tracking_chicken"/>
+			<property name="SizeScale" value="3.5"/>	
+			<property name="Prefab" value="/Entities/Animals/CHICKEN/chickenPrefab"/>
+			<property name="Class" value="EntityEnemyAnimal"/>
+			<property name="Parent" value="Animals"/>
+			<property name="Faction" value="animals"/>
+			<property name="PhysicsBody" value="chicken"/>
+			<property name="Mass" value="45"/>
+			<property name="Weight" value="30"/>
+			<property name="SoundHurt" value="Animals/Chicken/chickenpain"/>
+			<property name="SoundDeath" value="Animals/Chicken/chickendeath"/>
+			<property name="SwimOffset" value="2"/>
+			<property name="HasRagdoll" value="false"/>
+			<property name="HasDeathAnim" value="false"/>
+	
+			<property name="HandItem" value="meleeHandMotherClucker"/>
+	
+	
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=3;duration=5"/>	
+			<property name="AITask-3" value="Leap"/>
+			<property name="AITask-4" value="Territorial"/>
+			<property name="AITask-5" value="ApproachAndAttackTarget" data="class=EntityPlayer,15"/>
+			<property name="AITask-6" value="ApproachSpot"/>
+			<property name="AITask-7" value="Look"/>
+			<property name="AITask-8" value="Wander"/>
+	
+			<property name="AITask-9" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,24,12"/>
+			<property name="AITarget-4" value=""/>
+	
+			<property name="CanClimbVertical" value="true"/>
+			<property name="JumpMaxDistance" value="4, 12"/>
+
+			<!-- Gameplay -->
+			<property name="MoveSpeedPanic" value="1.3"/>
+			<property name="ExperienceGain" value="1000"/>
+			<property name="DeadBodyHitPoints" value="300"/>
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="30"/> <!-- animalChicken -->
+			<drop event="Harvest" name="resourceFeather" tag="butcherHarvest" count="69"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="12"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="6"/>
+			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="foodEgg" tag="butcherHarvest" count="1,4"/>
+			<drop event="Harvest" name="foodEgg" tag="allToolsHarvest" count="1,2"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="900"/>
+				<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="5"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+
+			<property name="NavObject" value="animaltracking_chicken" />
+		</entity_class>
+
 
 	</append>
 
@@ -1556,7 +1624,7 @@
 	</append>
 
 	<!-- Time edit for loot bags -->
-
+<!-- 
 	<set
 		xpath="/entity_classes/entity_class[@name='DroppedLootContainer']/property[@name='TimeStayAfterDeath']/@value">
 		9600</set>
@@ -1564,7 +1632,7 @@
 		xpath="/entity_classes/entity_class[starts-with(@name, 'EntityLootContainer')]/property[@name='TimeStayAfterDeath']/@value">
 		9600</set>
 
-
+ -->
 	<!-- Set zombies to target animals as well -->
 	<setattribute xpath="//entity_class[@name='zombieTemplateMale']/property[@name='AITarget-4']"
 		name="data">class=EntityPlayer,0,0,EntityNPC,0,0,EntityEnemyAnimal,0,0</setattribute>

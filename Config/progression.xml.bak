@@ -183,7 +183,8 @@
 				<requirement name="CVarCompare" cvar="_stunned" operation="Equals" value="1" target="other"/>
 			</passive_effect>
 		</effect_group>
-
+		
+		<effect_group>
 				<effect_description level="1" desc_key="perkAxeManRank1Desc"
 					long_desc_key="perkAxeManRank1LongDesc" />
 				<effect_description level="2" desc_key="perkAxeManRank2Desc"

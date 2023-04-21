@@ -200,6 +200,13 @@
 		
 		</append>
 
+	<!-- Unlock Hazmat -->
+	
+	<append xpath="/progression/perks/perk[@name='perkNeedleAndThreadComplete']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1"
+			tags="apparelHazmatBoots,apparelHazmatGloves,apparelHazmatJacket,apparelHazmatMask,apparelHazmatPants" />
+	</append>
+	
 
 	<!-- Cooking Perks -->
 

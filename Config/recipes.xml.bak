@@ -1,6 +1,28 @@
 <configs>
 
 	<append xpath="/recipes">
+		<!-- Hazmat gear -->
+		<recipe name="apparelHazmatBoots" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+		</recipt>
+		<recipe name="apparelHazmatGloves" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+		</recipt>
+		<recipe name="apparelHazmatJacket" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="10"/>
+			<ingredient name="resourceSewingKit" />
+		</recipt>
+		<recipe name="apparelHazmatMask" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+			<ingredient name="apparelAviatorGoggles"/>
+		</recipt>
+		<recipe name="apparelHazmatPants" count="1" craft_area="workbench" tags="learnable">
+			<ingredient name="resourceMilitaryFiber" count="5"/>
+			<ingredient name="resourceSewingKit" />
+		</recipt>	
 	
 		<!-- Blessed Metal mod -->
 		
@@ -11,6 +33,11 @@
 			<ingredient name="resourceSpring" count="10"/>
 		</recipe>
 	
+		<!-- Placeable Flashlight -->
+		
+		<recipe name="flashlightDecor" count="1">
+			<ingredient name="meleeToolFlashlight02" count="1"/>
+		</recipe>
 	
 		<!-- Large Generator Bank -->
 		
