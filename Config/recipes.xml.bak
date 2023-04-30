@@ -5,24 +5,24 @@
 		<recipe name="apparelHazmatBoots" count="1" craft_area="workbench" tags="learnable">
 			<ingredient name="resourceMilitaryFiber" count="5"/>
 			<ingredient name="resourceSewingKit" />
-		</recipt>
+		</recipe>
 		<recipe name="apparelHazmatGloves" count="1" craft_area="workbench" tags="learnable">
 			<ingredient name="resourceMilitaryFiber" count="5"/>
 			<ingredient name="resourceSewingKit" />
-		</recipt>
+		</recipe>
 		<recipe name="apparelHazmatJacket" count="1" craft_area="workbench" tags="learnable">
 			<ingredient name="resourceMilitaryFiber" count="10"/>
 			<ingredient name="resourceSewingKit" />
-		</recipt>
+		</recipe>
 		<recipe name="apparelHazmatMask" count="1" craft_area="workbench" tags="learnable">
 			<ingredient name="resourceMilitaryFiber" count="5"/>
 			<ingredient name="resourceSewingKit" />
 			<ingredient name="apparelAviatorGoggles"/>
-		</recipt>
+		</recipe>
 		<recipe name="apparelHazmatPants" count="1" craft_area="workbench" tags="learnable">
 			<ingredient name="resourceMilitaryFiber" count="5"/>
 			<ingredient name="resourceSewingKit" />
-		</recipt>	
+		</recipe>	
 	
 		<!-- Blessed Metal mod -->
 		
@@ -453,6 +453,11 @@
 			<ingredient name="resourceScrapPolymers" count="7" />
 			<ingredient name="resourceElectricParts" count="5" />
 			<ingredient name="resourceForgedIron" count="5" />
+		</recipe>
+		<recipe name="resourceHeadlight" count="1" craft_area="workbench">
+			<ingredient name="resourceBrokenGlass" count="2" />
+			<ingredient name="resourceElectronicParts" count="2" />
+			<ingredient name="resourceScrapIron" count="5" />
 		</recipe>
 		<recipe name="bunkBedMade" count="1" craft_time="100" craft_area="workbench">
 			<ingredient name="resourceScrapIron" count="10" />

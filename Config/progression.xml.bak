@@ -5,6 +5,11 @@
 	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='5']/@tags">,LargeGeneratorBank</append>
 
 
+	<!-- small engine -->
+	
+	<append xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='5']/@tags">,smallEngine</append>
+
+
 
 	<!-- Medical First Aid Bandage -->
 
@@ -200,6 +205,13 @@
 		
 		</append>
 
+	<!-- Unlock Hazmat -->
+	
+	<append xpath="/progression/perks/perk[@name='perkNeedleAndThreadComplete']/effect_group">
+		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1"
+			tags="apparelHazmatBoots,apparelHazmatGloves,apparelHazmatJacket,apparelHazmatMask,apparelHazmatPants" />
+	</append>
+	
 
 	<!-- Cooking Perks -->
 

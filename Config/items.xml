@@ -1,5 +1,37 @@
 <configs>
 
+	<!-- Make Empty Glass Jars and Empty Buckets fillable at Toilets, Sinks and Faucets -->
+	<insertAfter xpath="/items/item[@name='drinkJarEmpty']/property[@class='Action1']/property[@name='Focused_blockname_5']">
+		<property name="Focused_blockname_6" value="cntGraniteSink"/>
+		<property name="Focused_blockname_7" value="faucet02"/>
+		<property name="Focused_blockname_8" value="faucet04"/>
+		<property name="Focused_blockname_9" value="faucetBrass02"/>
+		<property name="Focused_blockname_10" value="faucetBrass04"/>
+		<property name="Focused_blockname_11" value="cntToilet01"/>
+		<property name="Focused_blockname_12" value="fountain"/>
+		<property name="Focused_blockname_13" value="cntCabinetOldSink"/>
+		<property name="Focused_blockname_14" value="utilitySink" />
+		<property name="Focused_blockname_15" value="wallHungSink" />
+		<property name="Focused_blockname_16" value="cntToilet02" />
+		<property name="Focused_blockname_17" value="cntToilet03" />
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='bucketEmpty']/property[@class='Action1']/property[@name='Focused_blockname_5']">
+		<property name="Focused_blockname_6" value="cntGraniteSink"/>
+		<property name="Focused_blockname_7" value="faucet02"/>
+		<property name="Focused_blockname_8" value="faucet04"/>
+		<property name="Focused_blockname_9" value="faucetBrass02"/>
+		<property name="Focused_blockname_10" value="faucetBrass04"/>
+		<property name="Focused_blockname_11" value="cntToilet01"/>
+		<property name="Focused_blockname_12" value="fountain"/>
+		<property name="Focused_blockname_13" value="cntCabinetOldSink"/>
+		<property name="Focused_blockname_14" value="utilitySink" />
+		<property name="Focused_blockname_15" value="wallHungSink" />
+		<property name="Focused_blockname_16" value="cntToilet02" />
+		<property name="Focused_blockname_17" value="cntToilet03" />
+	</insertAfter>
+	
+
 	<!-- Remove Quality of non-tier tools in recipes -->
 	<set xpath="/items/item[@name='meleeToolRepairT3Nailgun']/property[@name='ShowQuality']/@value">
 		false</set>
@@ -1201,7 +1233,22 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
 			</effect_group>
 		</item>
+	
+		<item name="smallEngineSchematic">
+			<property name="Extends" value="schematicMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="smallEngine" />
+			<property name="CustomIconTint" value="255,91,91" />
+			<property name="Unlocks" value="smallEngine" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="smallEngine" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
 	</append>
+	
+	
 	<!-- Giant Chicken Weapon -->
 		<append xpath="/items">
 		<item name="meleeHandMotherClucker">

@@ -1201,11 +1201,24 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
 			</effect_group>
 		</item>
-
-	</append>
-
-	<!-- Giant Chicken Weapon -->
 	
+		<item name="smallEngineSchematic">
+			<property name="Extends" value="schematicMaster" />
+			<property name="CreativeMode" value="Player" />
+			<property name="CustomIcon" value="smallEngine" />
+			<property name="CustomIconTint" value="255,91,91" />
+			<property name="Unlocks" value="smallEngine" />
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar"
+					cvar="smallEngine" operation="set" value="1" />
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
+			</effect_group>
+		</item>
+	</append>
+	
+	
+	<!-- Giant Chicken Weapon -->
+		<append xpath="/items">
 		<item name="meleeHandMotherClucker">
 			<property name="Extends" value="meleeHandAnimalZombieVulture"/>
 			<property name="CreativeMode" value="None"/>
@@ -1272,6 +1285,7 @@
 			</effect_group>
 		</item>
 
+</append>
 
 	<!-- Screamer Banshee weapon -->
 

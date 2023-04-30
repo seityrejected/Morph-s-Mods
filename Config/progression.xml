@@ -1,8 +1,18 @@
 <configs>
 	
+	<!-- Max level 1000 -->
+	
+	<set xpath="/progression/level/@max_level">1000</set>
+	
+	
 	<!-- Large Generator Bank -->	
 	
 	<append xpath="/progression/perks/perk[@name='perkAdvancedEngineering']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='5']/@tags">,LargeGeneratorBank</append>
+
+
+	<!-- small engine -->
+	
+	<append xpath="/progression/perks/perk[@name='perkGreaseMonkey']/effect_group/passive_effect[@name='RecipeTagUnlocked' and @level='5']/@tags">,smallEngine</append>
 
 
 
