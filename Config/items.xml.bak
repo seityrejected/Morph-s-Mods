@@ -1,4 +1,60 @@
 <configs>
+	 
+	 <!-- Included from donovan-betterpowertools -->
+	  <!-- Chainsaw -->
+	  <set xpath="items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']/passive_effect[@name='MaxRange']/@value">3.5</set>
+	  <set xpath="items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']/passive_effect[@name='EntityDamage' and @operation='base_set']/@value">20</set>
+	  <set xpath="items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']/passive_effect[@name='BlockDamage' and @operation='base_set']/@value">50</set>
+	  <set xpath="items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']/passive_effect[@name='MagazineSize' and @operation='base_set']/@value">500</set>
+	  <append xpath="items/item[@name='meleeToolAxeT3Chainsaw']/effect_group[@name='meleeToolAxeT3Chainsaw']">
+		<passive_effect name="HarvestCount" operation="base_set" value=".35" tags="butcherHarvest"/>
+	  </append>
+	  <!-- Auger -->
+	  <set xpath="items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']/passive_effect[@name='MaxRange']/@value">3.5</set>
+	  <set xpath="items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']/passive_effect[@name='BlockDamage' and @operation='base_set']/@value">35</set>
+	  <set xpath="items/item[@name='meleeToolPickT3Auger']/effect_group[@name='meleeToolPickT3Auger']/passive_effect[@name='MagazineSize' and @operation='base_set']/@value">500</set>
+
+	<!-- Increase the walk and run speeds of both types of Military Boots -->
+	<append xpath="/items/item[@name='armorMilitaryBoots']/effect_group"> 
+		<passive_effect name="WalkSpeed" operation="base_add" value="1.65"/>
+		<passive_effect name="RunSpeed" operation="base_add" value="3"/>	
+	</append>	
+	<append xpath="/items/item[@name='armorMilitaryStealthBoots']/effect_group"> 
+		<passive_effect name="WalkSpeed" operation="base_add" value="1.65"/>
+		<passive_effect name="RunSpeed" operation="base_add" value="3"/>	
+	</append>	
+	
+	<!-- Make Empty Glass Jars and Empty Buckets fillable at Toilets, Sinks and Faucets -->
+	<insertAfter xpath="/items/item[@name='drinkJarEmpty']/property[@class='Action1']/property[@name='Focused_blockname_5']">
+		<property name="Focused_blockname_6" value="cntGraniteSink"/>
+		<property name="Focused_blockname_7" value="faucet02"/>
+		<property name="Focused_blockname_8" value="faucet04"/>
+		<property name="Focused_blockname_9" value="faucetBrass02"/>
+		<property name="Focused_blockname_10" value="faucetBrass04"/>
+		<property name="Focused_blockname_11" value="cntToilet01"/>
+		<property name="Focused_blockname_12" value="fountain"/>
+		<property name="Focused_blockname_13" value="cntCabinetOldSink"/>
+		<property name="Focused_blockname_14" value="utilitySink" />
+		<property name="Focused_blockname_15" value="wallHungSink" />
+		<property name="Focused_blockname_16" value="cntToilet02" />
+		<property name="Focused_blockname_17" value="cntToilet03" />
+	</insertAfter>
+	
+	<insertAfter xpath="/items/item[@name='bucketEmpty']/property[@class='Action1']/property[@name='Focused_blockname_5']">
+		<property name="Focused_blockname_6" value="cntGraniteSink"/>
+		<property name="Focused_blockname_7" value="faucet02"/>
+		<property name="Focused_blockname_8" value="faucet04"/>
+		<property name="Focused_blockname_9" value="faucetBrass02"/>
+		<property name="Focused_blockname_10" value="faucetBrass04"/>
+		<property name="Focused_blockname_11" value="cntToilet01"/>
+		<property name="Focused_blockname_12" value="fountain"/>
+		<property name="Focused_blockname_13" value="cntCabinetOldSink"/>
+		<property name="Focused_blockname_14" value="utilitySink" />
+		<property name="Focused_blockname_15" value="wallHungSink" />
+		<property name="Focused_blockname_16" value="cntToilet02" />
+		<property name="Focused_blockname_17" value="cntToilet03" />
+	</insertAfter>
+	
 
 	<!-- Remove Quality of non-tier tools in recipes -->
 	<set xpath="/items/item[@name='meleeToolRepairT3Nailgun']/property[@name='ShowQuality']/@value">
@@ -2227,6 +2283,29 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50" />
 			</effect_group>
 		</item>
+
+	<!-- Adjust Stack sizes -->
+
+		<set xpath="/items/item[starts-with(@name, 'ammo')]/property[@name='Stacknumber']/@value">1000</set>
+		<!-- Ammo -->
+		<set xpath="/items/item[starts-with(@name, 'medical')]/property[@name='Stacknumber']/@value">50</set>
+		<!-- Medical -->
+		<set xpath="/items/item[starts-with(@name, 'drug')]/property[@name='Stacknumber']/@value">100</set>
+		<!-- Drugs -->
+		<set xpath="/items/item[starts-with(@name, 'food')]/property[@name='Stacknumber']/@value">100</set>
+		<!-- Food -->
+		<set xpath="/items/item[starts-with(@name, 'foodCrop')]/property[@name='Stacknumber']/@value">1000</set>
+		<!-- Crops -->
+		<set xpath="/items/item[starts-with(@name, 'drink')]/property[@name='Stacknumber']/@value">500</set>
+		<!-- Drinks -->
+		<set xpath="/items/item[starts-with(@name, 'resource')]/property[@name='Stacknumber']/@value">30000</set>
+		<!-- Resources -->
+		<set xpath="/items/item[starts-with(@name, 'resourceCrop')]/property[@name='Stacknumber']/@value">500</set>
+		<!-- Resources -->
+		<set xpath="/items/item[starts-with(@name, 'thrown')]/property[@name='Stacknumber']/@value">100</set>
+		<!-- Grenades & Molotovs -->
+		<set xpath="/items/item[starts-with(@name, 'tool')]/property[@name='Stacknumber']/@value">25</set>
+
 
 	</append>
 

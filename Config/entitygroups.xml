@@ -1,6 +1,6 @@
 <configs>
 
-	<!-- default template for entity additions 		<entity name="zombieSpiderScreamer" prob="0.005"/> -->
+	<!-- default template for entity additions 		<entity name="zombieSpiderWalker" prob="0.03"/> -->
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
 		<entity name="zombieTinySpider" prob="0.15" />
@@ -12,7 +12,13 @@
 		<entity name="zombieWightCrawler" prob="0.01"/>
 		<entity name="zombieSpiderScreamer" prob="0.05"/>
 		<entity name="MotherClucker" prob="0.05"/>
+		<entity name="zombieNurse2" prob="0.05"/>
+		<entity name="zombieNurseFeral2" prob="0.05"/>
+		<entity name="zombieWightFeralPuker" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
+	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesForestDowntown']">
 		<entity name="zombieTinySpider" prob="0.25" />
 		<entity name="animalBearSmall" prob="0.05" />
@@ -23,6 +29,11 @@
 		<entity name="zombieWightCrawler" prob="0.01"/>
 		<entity name="zombieSpiderScreamer" prob="0.05"/>
 		<entity name="MotherClucker" prob="0.05"/>
+		<entity name="zombieNurse2" prob="0.05"/>
+		<entity name="zombieNurseFeral2" prob="0.05"/>
+		<entity name="zombieWightFeralPuker" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 
 
@@ -43,6 +54,11 @@
 		<entity name="EliteSkater" prob="0.05"/>
 		<entity name="EliteFeral" prob="0.05"/>
 		<entity name="EliteBoomer" prob="0.05"/>
+		<entity name="zombieNurse2" prob="0.05"/>
+		<entity name="zombieNurseFeral2" prob="0.05"/>
+		<entity name="zombieWightFeralPuker" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesDowntown']">
@@ -61,6 +77,11 @@
 		<entity name="EliteSkater" prob="0.05"/>
 		<entity name="EliteFeral" prob="0.05"/>
 		<entity name="EliteBoomer" prob="0.05"/>
+		<entity name="zombieNurse2" prob="0.05"/>
+		<entity name="zombieNurseFeral2" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieWightFeralPuker" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesForestDowntownNight']">
@@ -78,10 +99,12 @@
 		<entity name="animalGiantZombieVultureRadiated" prob="0.01"/>
 		<entity name="zombieTinySteveCrawler" prob="0.1" />
 		<entity name="zombieWightCrawler" prob="0.01"/>
-		<entity name="EliteCop" prob="0.005"/>
-		<entity name="EliteSkater" prob="0.005"/>
-		<entity name="EliteFeral" prob="0.005"/>
-		<entity name="EliteBoomer" prob="0.005"/>
+		<entity name="EliteCop" prob="0.05"/>
+		<entity name="EliteSkater" prob="0.05"/>
+		<entity name="EliteFeral" prob="0.05"/>
+		<entity name="EliteBoomer" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesHoard']">
@@ -99,10 +122,12 @@
 		<entity name="animalGiantZombieVultureRadiated" prob="0.01"/>
 		<entity name="zombieTinySteveCrawler" prob="0.1" />
 		<entity name="zombieWightCrawler" prob="0.01"/>
-		<entity name="EliteCop" prob="0.005"/>
-		<entity name="EliteSkater" prob="0.005"/>
-		<entity name="EliteFeral" prob="0.005"/>
-		<entity name="EliteBoomer" prob="0.005"/>
+		<entity name="EliteCop" prob="0.05"/>
+		<entity name="EliteSkater" prob="0.05"/>
+		<entity name="EliteFeral" prob="0.05"/>
+		<entity name="EliteBoomer" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesWasteland']">
@@ -120,10 +145,12 @@
 		<entity name="animalGiantZombieVultureRadiated" prob="0.01"/>
 		<entity name="zombieTinySteveCrawler" prob="0.1" />
 		<entity name="zombieWightCrawler" prob="0.01"/>
-		<entity name="EliteCop" prob="0.005"/>
-		<entity name="EliteSkater" prob="0.005"/>
-		<entity name="EliteFeral" prob="0.005"/>
-		<entity name="EliteBoomer" prob="0.005"/>
+		<entity name="EliteCop" prob="0.05"/>
+		<entity name="EliteSkater" prob="0.05"/>
+		<entity name="EliteFeral" prob="0.05"/>
+		<entity name="EliteBoomer" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesWastelandNight']">
@@ -145,10 +172,16 @@
 		<entity name="EliteSkater" prob="0.15"/>
 		<entity name="EliteFeral" prob="0.15"/>
 		<entity name="EliteBoomer" prob="0.15"/>
+		<entity name="zombieWightFeralPuker" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesWastelandNight']">
 		<entity name="zombieSpiderScreamer" prob="0.1" />
+		<entity name="zombieWightFeralPuker" prob="0.05"/>
+		<entity name="zombieScreamerSteveCrawler" prob="0.05"/>
+		<entity name="zombieSpiderWalker" prob="0.03"/>
 	</append>
 	
 	<append xpath="/entitygroups/entitygroup[@name='BearGroup']">
@@ -167,6 +200,7 @@
 		<entity name="animalBabyBear" prob="0.1" />
 		<entity name="animalBabyWolf" prob="0.1" />
 		<entity name="animalBabySnake" prob="0.2" />
+		<entity name="animalGiantSnake" prob="0.5"/>
 		<entity name="MotherClucker" prob="0.05"/>
 	</append>
 
@@ -182,6 +216,7 @@
 		<entity name="zombieSpiderTomClarkFeral" prob="0.3" />
 		<entity name="zombieSpiderTomClarkRadiated" prob="0.3" />
 		<entity name="animalGiantZombieVultureRadiated" prob="0.02"/>
+		<entity name="animalGiantSnake" prob="0.05"/>
 	</append>
 
 
@@ -190,6 +225,7 @@
 		<entity name="animalBabyMountainLion" prob="0.2" />
 		<entity name="animalBabyDireWolf" prob="0.1" />
 		<entity name="animalBearHuge" prob="0.1" />
+		<entity name="animalGiantSnake" prob="0.05"/>
 	</append>
 
 	<!-- Spawn in burnt forest and wasteland -->
@@ -201,6 +237,7 @@
 		<entity name="zombieSpiderWightFeral" prob="0.002" />
 		<entity name="zombieWightCrawler" prob="0.01"/>
 		<entity name="animalGiantZombieVultureRadiated" prob="0.02"/>
+		<entity name="animalGiantSnake" prob="0.15"/>
 	</append>
 
 

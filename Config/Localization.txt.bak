@@ -1,11 +1,69 @@
 Key,Source,Context,UsedInMainMenu,NoTranslate,english
 
+buffnightforestTipJournal Tip,buffs,Item stat,,From 2000 to 0600 the temperature drops 18% when in the Forest.,,,,
+buffnightsnowTip,buffs,Journal Tip,Item stat,,From 1800 to 0700 the temperature drops 30% when in the snow!,,,,
+buffdaynoondesertTip,buffs,Journal Tip,Item stat,,From 1130 to 1430 the sun puts out 30% more heat when in the desert!,,,,
+buffdaynoonhotburntforestTip,buffs,Journal Tip,Item stat,,From 1100 to 1530 the burnt ambers puts out 40% more heat when in the burnt forest!,,,,
+
+
+buffnightforestTip_title,buffs,Journal Tip,Item stat,,Forest Nights,,,,
+buffnightsnowTip_title,buffs,Journal Tip,Item stat,,Snowy Nights,,,,
+buffdaynoondesertTip_title,buffs,Journal Tip,Item stat,,Desert Noons,,,,
+buffdaynoonhotburntforestTip_title,buffs,Journal Tip,Item stat,,Burnt Forest,,,,
+
+
+buffcoldstage1,buffs,UI,Item stat,,Cold,,,,
+buffcoldstage1Name,buffs,UI,Item stat,,Cold,,,,
+buffcoldstage1Desc,buffs,UI,Item stat,,Its getting cold out. Should find some better clothes.,,,,
+buffcoldstage1Tooltip,buffs,UI,Item stat,,Its getting cold out. Should find some better clothes.,,,,
+
+buffcoldstage2,buffs,UI,Item stat,,Freezing,,,,
+buffcoldstage2Name,buffs,UI,Item stat,,Freezing,,,,
+buffcoldstage2Desc,buffs,UI,Item stat,,Your freezing! Consuming even more food then before! And now your starting to feel weak. You now walk slower!,,,,
+buffcoldstage2Tooltip,buffs,UI,Item stat,,It's freezing out! you need to find better clothes to stay warm.,,,,
+
+buffcoldstage3,buffs,UI,Item stat,,Frostbite,,,,
+buffcoldstage3Name,buffs,UI,Item stat,,Frostbite,,,,
+buffcoldstage3Desc,buffs,UI,Item stat,,You cant feel your fingers. Your body consumes more food as a attempt to stay warm! Your feeling really weak at this point. Walking becomes a struggle.,,,,
+buffcoldstage3Tooltip,buffs,UI,Item stat,,Frostbite! you NEED better clothes or a campfire to warm up. Death is around the corner!,,,,
+
+buffcoldstage4,buffs,UI,Item stat,,Hypothermia,,,,
+buffcoldstage4Name,buffs,UI,Item stat,,Hypothermia,,,,
+buffcoldstage4Desc,buffs,UI,Item stat,,You cant feel anything anymore. Death is near. You want to give up. Walking was a thing of the past. Your ready to seal your faith.,,,,
+buffcoldstage4Tooltip,buffs,UI,Item stat,,You made it! Ignore all the signs and death is finally upon you.,,,,
+
+
+
+buffhotstage1,buffs,UI,Item stat,,Very Warm,,,,
+buffhotstage1Name,buffs,UI,Item stat,,Very Warm,,,,
+buffhotstage1Desc,buffs,UI,Item stat,,Its kinda hot out better find some shade or some better clothes. Consume more water.,,,,
+buffhotstage1Tooltip,buffs,UI,Item stat,,Its very warm out better find some shade or some better clothes.,,,,
+
+buffhotstage2,buffs,UI,Item stat,,Hot,,,,
+buffhotstage2Name,buffs,UI,Item stat,,Hot,,,,
+buffhotstage2Desc,buffs,UI,Item stat,,Its hot out better find some shade or some better clothes. Best to have some water near by!,,,,
+buffhotstage2Tooltip,buffs,UI,Item stat,,Its hot out better find some shade or some better clothes. Consume a lot more water.,,,,
+
+buffhotstage3,buffs,UI,Item stat,,Sweltering,,,,
+buffhotstage3Name,buffs,UI,Item stat,,Sweltering,,,,
+buffhotstage3Desc,buffs,UI,Item stat,,Its sweltering out! you can feel your head spinning! Water will only get you soo far. Find a river to cool down or better clothes! Death is near!,,,,
+buffhotstage3Tooltip,buffs,UI,Item stat,,Its sweltering! You need shade and better clothes or even a river! Consume A LOT more water.,,,,
+
+buffhotstage4,buffs,UI,Item stat,,Heatstroke,,,,
+buffhotstage4Name,buffs,UI,Item stat,,Heatstroke,,,,
+buffhotstage4Desc,buffs,UI,Item stat,,Is that a river near by? Or am i just imagining that? You cant walk that fast and dont know where your going. Death is upon you.,,,,
+buffhotstage4Tooltip,buffs,UI,Item stat,,YOUR HAVING A HEATSTROKE! FIND A RIVER YOU MUST COOL DOWN TO SURVIVE.,,,,
+
 gunMGT2TacticalARAdvanced,items,,,High end Tactical Assault Rifle
 gunMGT2TacticalARAdvancedDesc,items,,,High end Tactical Assault rifle that allows for specialized ammo types.
 
+zombieNurse2,entityclasses,Entity,,,Zombie Nurse
+zombieNurseFeral2,entityclasses,Entity,,,Zombie Nurse Feral
 zombieSpiderWightFeral,entityclasses,Entity,,,Spider Wight
-zombieSpiderScreamer,entityclasses,Entity,,,Spider Screamer. The stuff of nightmares.
+zombieSpiderScreamer,entityclasses,Entity,,,Spider Screamer
 zombieGiantPartyGirl,entityclasses,Entity,,,Giant Party Girl
+animalGiantSnake,entityclasses,Entity,,,Giant Snake
+zombieTinySpider,entityclasses,Entity,,,Tiny Spider Zombie
 
 zombieSpiderTomClark,entityclasses,Entity,,,Spider Tom Clark
 zombieSpiderTomClarkFeral,entityclasses,Entity,,,Feral Spider Tom Clark
@@ -33,6 +91,9 @@ drinkBlueberryBlissDesc,items,,,,"The flavor of pure energy!"
 
 drinkJarBlueBeer,items,,,,[DECEA3]Drink:[FFFFFF] Beer  [4f86f7]\n Blue Beer
 drinkJarBlueBeerDesc,items,,,,"The flavor of pure energy!"
+
+drinkFruitSmoothie,items,,,,[DECEA3]Drink:[FFFFFF] Smoothie  [4f86f7]\n Fruit Smoothie
+drinkFruitSmoothieDesc,items,,,,"The flavor of pure energy!"
 
 drinkBangPeach,items,,,,[DECEA3]Drink:[FFFFFF] Energy Drink  [FFDAB9]\n Peach Mango
 drinkBangPeachDesc,items,,,,"The flavor of pure energy!"
@@ -116,6 +177,29 @@ perkBringItOnRank4Desc,progression,perk,,,"Challenger"
 perkBringItOnRank4LongDesc,progression,perk,,,"You are a real challenger, only drawing in the hardiest of enemies. Raise gamestage by 75."
 perkBringItOnRank5Desc,progression,perk,,,"Show-Off"
 perkBringItOnRank5LongDesc,progression,perk,,,"Now you are just showing off. Raise gamestage by 100."
+
+perkMasterCrafting,progression,perk,,,"Master Crafting"
+perkMasterCraftingDesc,progression,perk,,,"You are mastering crafting, allowing you to craft even faster than before."
+perkMasterCraftingRank1Desc,progression,perk,,,"Master Crafting I"
+perkMasterCraftingRank1LongDesc,progression,perk,,,"Increase your crafting speed by 5%."/>
+perkMasterCraftingRank2Desc,progression,perk,,,"Master Crafting II."
+perkMasterCraftingRank2LongDesc,progression,perk,,,"Increase your crafting speed by 10%."/>
+perkMasterCraftingRank3Desc,progression,perk,,,"Master Crafting III."
+perkMasterCraftingRank3LongDesc,progression,perk,,,"Increase your crafting speed by 15%."/>
+perkMasterCraftingRank4Desc,progression,perk,,,"Master Crafting IV."
+perkMasterCraftingRank4LongDesc,progression,perk,,,"Increase your crafting speed by 20%."/>
+perkMasterCraftingRank5Desc,progression,perk,,,"Master Crafting V"
+perkMasterCraftingRank5LongDesc,progression,perk,,,"Increase your crafting speed by 25%."/>
+perkMasterCraftingRank6Desc,progression,perk,,,"Master Crafting VI"
+perkMasterCraftingRank6LongDesc,progression,perk,,,"Increase your crafting speed by 30%."/>
+perkMasterCraftingRank7Desc,progression,perk,,,"Master Crafting VII."
+perkMasterCraftingRank7LongDesc,progression,perk,,,"Increase your crafting speed by 35%."/>
+perkMasterCraftingRank8Desc,progression,perk,,,"Master Crafting	VIII."
+perkMasterCraftingRank8LongDesc,progression,perk,,,"Increase your crafting speed by 40%."/>
+perkMasterCraftingRank9Desc,progression,perk,,,"Master Crafting IX."
+perkMasterCraftingRank9LongDesc,progression,perk,,,"Increase your crafting speed by 45%."/>
+perkMasterCraftingRank10Desc,progression,perk,,,"Master Craftsman"
+perkMasterCraftingRank10LongDesc,progression,perk,,,"Increase your crafting speed by 60% and add an additional crafting tier."/>
 
 perkFastLearner,progression,perk,,,"NERD!"
 perkFastLearnerDesc,progression,perk,,,"You are a quick study and easily pick up on new skills."

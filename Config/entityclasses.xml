@@ -271,7 +271,7 @@
 		<property name="CorpseBlockChance" value="1" />
 		<!-- Gameplay -->
 		<!-- <property name="Buffs" value="zombieRadiatedBuff80"/> -->
-		<property name="SizeScale" value="1.18"/>
+		<property name="SizeScale" value="1.25"/> <!-- from 1.18 -->
 		<property name="ExperienceGain" value="3000"/> <!-- XP strong radiated -->
 		<property name="MoveSpeedAggro" value="1, 1.5"/>
 	
@@ -510,22 +510,307 @@
 			<property name="DanceType" value="0" />
 		
 			<property name="DeadBodyHitPoints" value="100"/>
-			<drop event="Harvest" name="foodRawMeat" count="5" tool_category="Butcher"/>
-			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="6"/> <!-- animalZombieVultureRadiated -->
-			<drop event="Harvest" name="resourceFeather" tag="butcherHarvest" count="35"/>
-			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="8"/>
-			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
-
-			<!-- Gameplay zombieSteveCrawler -->
+			<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher" />
+			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5" />
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2" />
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2" />
+			<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5" />
+			<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2" />
+			<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1" />
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5" />
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+			<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest" />
+			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
+			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
+			<property name="LootListOnDeath" value="zombieWightFeral" />
+			
+				<!-- Gameplay zombieSteveCrawler -->
 			<property name="CanClimbLadders" value="false"/>
 			<property name="HandItem" value="meleeHandZombie02"/>
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="40"/>
 			</effect_group>
 		</entity_class>
+		
+		<!-- Feral Wight Puker -->
+					
+					
+			<entity_class name="zombieWightFeralPuker" extends="zombieTemplateMale">
+				<property name="SizeScale" value="1.2"/>
+				<property name="Tags" value="entity,zombie,walker,feral"/>
+				<property name="Mesh" value="#Entities/Zombies?Prefabs/ZWightFeral.prefab"/>
+				<property name="Class" value="EntityZombieCop"/>
+				<property name="WalkType" value="1"/>
+				<property name="RightHandJointName" value="Jaw"/>
+				<property name="AvatarController" value="AvatarZombie01Controller"/>
+				<property name="ModelType" value="Standard"/>
+				<property name="Mass" value="210"/>
+				<property name="Weight" value="70"/>
+				<property name="PhysicsBody" value="zombieFat"/>
+				<property name="RootMotion" value="true"/>
+				<property name="HasDeathAnim" value="true"/>
+				<property name="PushFactor" value="20"/>
+
+				<property name="AITask-1" value="BreakBlock"/>
+				<property name="AITask-2" value="RangedAttackTarget" data="itemType=1;cooldown=4;duration=5"/>
+				<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityEnemyAnimal,0,EntityPlayer"/>
+				<property name="AITask-4" value="ApproachSpot"/>
+				<property name="AITask-5" value="Look"/>
+				<property name="AITask-6" value="Wander"/>
+				<property name="AITask-7" value=""/><!-- Marks end, so we don't inheirit -->
+
+				<property name="SoundRandom" value="Enemies/Feral_Zombie/zombieferalroam"/>
+				<property name="SoundAlert" value="Enemies/Feral_Zombie/zombieferalalert"/>
+				<property name="SoundAttack" value="Enemies/Feral_Zombie/zombieferalattack"/>
+				<property name="SoundHurt" value="Enemies/Feral_Zombie/zombieferalpain"/>
+				<property name="SoundDeath" value="Enemies/Feral_Zombie/zombieferaldeath"/>
+				<property name="SoundSense" value="Enemies/Feral_Zombie/zombieferalsense"/>
+				<property name="SoundFootstepModifier" value="Enemies/Feral_Zombie/zombieferalfootstep"/>
+				<property name="SoundExplodeWarn" value="hulkexplodewarning"/>
+
+				<property name="DismemberMultiplierLegs" value="0"/>
+				<property name="LegCrawlerThreshold" value="0"/>
+				<property name="LegCrippleThreshold" value="0"/>
+				<property name="KnockdownProneDamageThreshold" value="0"/>
+				<property name="KnockdownKneelDamageThreshold" value="0"/>
+				<property name="LegsExplosionDamageMultiplier" value="2"/> <!-- volatile so vulnerable to land mines/explosives -->
+				<property name="ArmsExplosionDamageMultiplier" value="2"/>
+				<property name="HeadExplosionDamageMultiplier" value="2"/>
+				<property name="ChestExplosionDamageMultiplier" value="2"/>
+				
+				<property name="DeadBodyHitPoints" value="350"/>
+				<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher" />
+				<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1" />
+				<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
+				<property name="LootListOnDeath" value="zombieWightFeral" />
+						
+				<!-- Gameplay zombieWightFeralPuker -->
+				<property name="MoveSpeedAggro" value="0.2, 1.2"/>
+				<property name="JumpMaxDistance" value=".8, 1.1"/>
+				<property name="HandItem" value="meleeHandZombieWightPuker"/>
+				<property name="ExperienceGain" value="750"/><!-- XP strong -->
+				<effect_group name="Base Effects">
+					<passive_effect name="HealthMax" operation="base_set" value="500"/>
+					<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+				</effect_group>
+
+				<property name="Explosion.ParticleIndex" value="8"/>
+				<property name="Explosion.RadiusBlocks" value="5"/>
+				<property name="Explosion.RadiusEntities" value="6"/>
+				<property name="Explosion.BlockDamage" value="500"/>
+				<property name="Explosion.EntityDamage" value="150"/>
+				<property name="Explosion.DamageBonus.earth" value="0"/>
+			</entity_class>
+
+
+
 	
+		<!-- Nurse -->
 		
+					
+			<entity_class name="zombieNurse2" extends="zombieTemplateMale">
+				<property name="Tags" value="entity,zombie,walker"/>
+				<property name="Mesh" value="#Entities/Zombies?Prefabs/ZNurse.prefab"/>
+				<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+				<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+				<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+				<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+				<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+				<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+				<property name="AvatarController" value="AvatarZombie01Controller"/>
+				<property name="ModelType" value="Standard"/>
+				<property name="WalkType" value="3"/> <!-- Default 7 -->
+				<property name="Mass" value="130"/>
+				<property name="RootMotion" value="true"/>
+				<property name="HasDeathAnim" value="true"/>
+				<property name="AIPathCostScale" value=".5, .65"/>
+				<property name="DanceType" value="2" />
+				<property name="TintMaterial2" value="41,25,25"/>
+				<property name="DeadBodyHitPoints" value="350"/>
+				<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher" />
+				<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1" />
+				<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
+				
+				<property name="LootListOnDeath" value="zombieNurse" />
+				<property name="CorpseBlock" value="goreBlockHumanCorpse2" />
+				<property name="CorpseBlockChance" value="1" />
+				
+				<!-- Gameplay zombieNurse -->
+				<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+				<property name="HandItem" value="meleeHandZombie01"/>
+				<effect_group name="Base Effects">
+					<passive_effect name="HealthMax" operation="base_set" value="125"/>
+				</effect_group>
+			</entity_class>
+
+			<entity_class name="zombieNurseFeral2" extends="zombieNurse2">
+				<property name="Tags" value="entity,zombie,walker,feral"/>
+				<property name="Mesh" value="#Entities/Zombies?Prefabs/ZNurseFeral.prefab"/>
+
+				<!-- Gameplay zombieNurseFeral -->
+				<property name="DismemberMultiplierHead" value=".7"/><property name="DismemberMultiplierArms" value=".7"/><property name="DismemberMultiplierLegs" value=".7"/><!-- Feral -->
+				<property name="PainResistPerHit" value=".7"/><!-- Feral -->
+				<property name="MoveSpeedAggro" value="0.6, 1.45"/> <!-- slim, feral -->
+				<property name="JumpMaxDistance" value="4.6, 5"/>
+				<property name="HandItem" value="meleeHandZombieFeral"/>
+				<property name="ExperienceGain" value="750"/><!-- XP grunt feral -->
+
+				<property name="LootListOnDeath" value="zombieNurse" />
+				<property name="CorpseBlock" value="goreBlockHumanCorpse2" />
+				<property name="CorpseBlockChance" value="1" />
+					
+					<effect_group name="Base Effects">
+					<passive_effect name="HealthMax" operation="base_set" value="237"/>
+					<!--<passive_effect name="EntityDamage" operation="perc_add" value="0"/>--> <!-- Feral damage -->
+				</effect_group>
+			</entity_class>
+
+		<!-- Zombie Spider Walker -->
 		
+					
+			<entity_class name="zombieSpiderWalker" extends="zombieTemplateMale">
+				<property name="SizeScale" value=".94"/>
+				<property name="Tags" value="entity,zombie"/>
+				<property name="Prefab" value="ZLong"/>
+				<property name="Mesh" value="#Entities/Zombies?Prefabs/ZSpider.prefab"/>
+				<property name="RootMotion" value="true"/>
+				<property name="HasDeathAnim" value="true"/>
+				<property name="ModelType" value="Standard"/>
+				<property name="WalkType" value="3"/>
+				<property name="Mass" value="150"/>
+				<property name="LookAtAngle" value="0"/>
+
+				<property name="SoundRandom" value="Enemies/Spider_Zombie/spiderroam"/>
+				<property name="SoundAlert" value="Enemies/Spider_Zombie/spideralert"/>
+				<property name="SoundAttack" value="Enemies/Spider_Zombie/spiderattack"/>
+				<property name="SoundDeath" value="Enemies/Spider_Zombie/spiderdeath"/>
+				<property name="SoundHurt" value="Enemies/Spider_Zombie/spiderpain"/>
+				<property name="SoundSense" value="Enemies/Spider_Zombie/spidersense"/>
+
+				<property name="DismemberMultiplierHead" value="0"/>
+				<property name="DismemberMultiplierArms" value="0"/>
+				<property name="DismemberMultiplierLegs" value="0"/>
+				<property name="LegCrawlerThreshold" value="0"/>
+				<property name="LegCrippleThreshold" value="0"/>
+				<property name="KnockdownProneDamageThreshold" value="0"/>
+				<property name="KnockdownKneelDamageThreshold" value="0"/>
+
+				<property name="AINoiseSeekDist" value="3"/>
+				<property name="AIPathCostScale" value=".6, 1"/>
+				<property name="AITask-1" value="Leap"/>
+				<property name="AITask-2" value="BreakBlock"/>
+				<property name="AITask-3" value="DestroyArea"/>
+				<property name="AITask-4" value="Territorial"/>
+				<property name="AITask-5" value="ApproachDistraction"/>
+				<property name="AITask-6" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityEnemyAnimal,0,EntityPlayer,0"/>
+				<property name="AITask-7" value="ApproachSpot"/>
+				<property name="AITask-8" value="Look"/>
+				<property name="AITask-9" value="Wander"/>
+				<property name="AITask-10" value=""/>
+
+				<!-- Gameplay zombieSpider -->
+				<property name="MoveSpeed" value="0.05"/>
+				<property name="MoveSpeedAggro" value="0.25, 1.15"/> <!-- slim, regular -->
+				<property name="MoveSpeedPanic" value="1.0"/>
+				<property name="SwimSpeed" value="1.3"/>
+				<property name="SwimStrokeRate" value="1.5,1.7"/>
+				<property name="CanClimbVertical" value="true"/>
+				<property name="JumpMaxDistance" value="8, 10"/>
+				<property name="DeadBodyHitPoints" value="350"/>
+				<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher" />
+				<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1" />
+				<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
+				
+				<property name="LootListOnDeath" value="zombieSpider" />
+				
+				<property name="CorpseBlock" value="goreBlockHumanCorpse2" />
+				<property name="CorpseBlockChance" value="1" />
+				<effect_group name="Base Effects">
+					<passive_effect name="HealthMax" operation="base_set" value="125"/>
+				</effect_group>
+			</entity_class>		
+
+
+		
+		<!-- Screamer Spider -->
+		
+			<entity_class name="zombieScreamerSteveCrawler" extends="zombieTemplateMale">
+				<property name="Tags" value="entity,zombie"/>
+				<property name="Mesh" value="#Entities/Zombies?Prefabs/ZWightFeral.prefab" />
+				<property name="AvatarController" value="AvatarZombie01Controller"/>
+				<property name="Mass" value="140"/>
+				<property name="Class" value="EntityZombie"/>
+				<property name="SizeScale" value="1.1"/>
+				<property name="WalkType" value="3"/>
+				<property name="RotateToGround" value="true"/>
+				<property name="RootMotion" value="true"/>
+				<property name="TintMaterial2" value="36,38,45"/>
+				<property name="SoundRandomTime" value="16.0"/> <!-- It will play the roam every 30/15 seconds -->
+				<property name="SoundRandom" value="crawler_roam"/>
+				<property name="SoundAlertTime" value="12.0"/> <!-- It will play the alert every 20/10 seconds-->
+				<property name="SoundAlert" value="Enemies/Scout_Zombie/zombiefemalescoutalert"/>
+				<property name="SoundSense" value="crawler_sense"/>
+				<property name="SoundHurt" value="crawler_pain"/>
+				<property name="SoundDeath" value="crawler_death"/>
+				<property name="SoundAttack" value="crawler_attack"/>
+				<property name="SoundSleeperSense" value="sleepersense"/>
+				<property name="SoundSleeperBackToSleep" value="sleeperbacktosleep"/>
+				<property name="DanceType" value="2" />
+			
+				<property name="DeadBodyHitPoints" value="350"/>
+				<drop event="Harvest" name="foodRawMeat" count="3" prob="0.25" tool_category="Butcher" />
+				<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="2" />
+				<drop event="Harvest" name="resourceCloth" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceCloth" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="zombieSkin" tag="allToolsHarvest" count="1" />
+				<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="5" />
+				<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="2" />
+				<drop event="Harvest" name="foodRottingFlesh" count="10" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest" />
+				<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
+				
+				<property name="LootListOnDeath" value="zombieScreamer" />
+				
+				<property name="CorpseBlock" value="goreBlockHumanCorpse2" />
+				<property name="CorpseBlockChance" value="1" />
+				<!-- Gameplay zombieSteveCrawler -->
+				<property name="CanClimbLadders" value="false"/>
+				<property name="HandItem" value="meleeHandZombie02"/>
+				<effect_group name="Base Effects">
+					<passive_effect name="HealthMax" operation="base_set" value="250"/>
+				</effect_group>
+			</entity_class>
+		
+					
 		
 		<!-- tiny Zombie Crawler -->
 				
@@ -1373,6 +1658,32 @@
 				tag="WasteTreasuresCompleteHarvest" />
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest" />
 		</entity_class>
+
+		<!-- Giant Snake -->
+		<entity_class name="animalGiantSnake" extends="animalSnake">
+			<property name="Mass" value="15" />
+			<property name="Weight" value="35" />
+			<property name="SizeScale" value="3.5" />
+			<property name="ExperienceGain" value="165" />
+			<property name="DeadBodyHitPoints" value="375" />
+			<property name="HandItem" value="meleeHandanimalBabySnake" />
+			<property name="HasRagdoll" value="false" />
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="500" />
+				<passive_effect name="HealthMax" operation="perc_add" value="10" />
+			</effect_group>
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher" />
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="50" />
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="10" />
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="10" />
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="10" />
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="10" />
+			<drop event="Harvest" name="foodRawMeat" count="100" tag="WasteTreasuresCompleteHarvest" />
+			<drop event="Harvest" name="resourceLeather" count="10"
+				tag="WasteTreasuresCompleteHarvest" />
+			<drop event="Harvest" name="resourceBone" count="10" tag="WasteTreasuresCompleteHarvest" />
+		</entity_class>
+
 
 		<!-- Baby Snake -->
 		<entity_class name="animalBabySnake" extends="animalSnake">

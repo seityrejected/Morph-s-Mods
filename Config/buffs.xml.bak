@@ -300,8 +300,8 @@
 
 					<passive_effect name="HypothermalResist" operation="perc_add" value="-0.18"/>
 					<passive_effect name="HyperthermalResist" operation="perc_add" value="-0.18"/>
-<!-- 
-					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffnightforestTip"/> -->
+
+					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffnightforestTip"/>
 				</effect_group>
 			</buff>
 
@@ -312,8 +312,8 @@
 
 					<passive_effect name="HypothermalResist" operation="perc_add" value="-0.3"/>
 					<passive_effect name="HyperthermalResist" operation="perc_add" value="-0.3"/>
-<!-- 
-					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffnightsnowTip"/> -->
+
+					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffnightsnowTip"/>
 				</effect_group>
 			</buff>
 			
@@ -324,8 +324,8 @@
 
 					<passive_effect name="HypothermalResist" operation="perc_add" value="-0.3"/>
 					<passive_effect name="HyperthermalResist" operation="perc_add" value="-0.3"/>
-<!-- 
-					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffdaynoondesertTip"/> -->
+
+					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffdaynoondesertTip"/>
 				</effect_group>
 			</buff>
 
@@ -337,7 +337,7 @@
 					<passive_effect name="HypothermalResist" operation="perc_add" value="-0.4"/>
 					<passive_effect name="HyperthermalResist" operation="perc_add" value="-0.4"/>
 
-					<!-- <triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffdaynoonhotburntforestTip"/> -->
+					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="buffdaynoonhotburntforestTip"/>
 				</effect_group>
 			</buff>
 
@@ -363,7 +363,7 @@
 					<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="3" effect_name="Cold"/>
 					<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="3" effect_name="Cold"/>
 					
-					<!-- <triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="coldWeatherTip"/> -->
+					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="coldWeatherTip"/>
 				</effect_group>
 			</buff>
 
@@ -487,6 +487,7 @@
 
 					<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="0.5" fade="3" effect_name="Hot"/>
 					<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="3" effect_name="Hot"/>
+					
 					<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="hotWeatherTip"/>
 				</effect_group>
 			</buff>

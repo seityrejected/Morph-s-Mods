@@ -3,123 +3,8 @@
 	<!-- Template for Items -->
 	
 	<!-- 
-		<item name="foodChickenStew" count="1,5" loot_prob_template="veryLow" />
+		<item name="drinkJarBlueBeer" count="1,5" loot_prob_template="veryLow" />
 	-->	
-	
-	
-	<!-- Foods -->
-	
-	<append xpath="/lootcontainers/lootgroup[@name='groupFoodCommon']">
-		<item name="foodHamSandwich" count="1,3" loot_prob_template="veryLow" />
-		<item name="foodBeefTacos" count="1,3" loot_prob_template="veryLow" />
-		<item name="foodChickenStew" count="1,5" loot_prob_template="veryLow" />
-	</append>
-	
-	<!-- Energy Drink -->
-
-	<append xpath="/lootcontainers/lootgroup[@name='groupDrinksUncommon']">
-		<item name="drinkBangPeach" count="1,2" loot_prob_template="veryLow" />
-		<item name="drinkBlueberryBliss" count="1,2" loot_prob_template="veryLow" />
-		<item name="drinkStrawberryMilk" count="1,2" loot_prob_template="veryLow" />
-		<item name="drinkRagingRaspberry" count="1,2" loot_prob_template="veryLow" />
-	</append>
-
-	<!-- Medical First Aid Bandage -->
-
-	<append xpath="/lootcontainers/lootgroup[@name='groupMedicalRare']">
-		<item name="medicalAdvancedFirstAidKit" loot_prob_template="veryLow" />
-		<item name="drugAdrenaline" prob="0.1" />
-		<item name="drugAntibioticsShot" prob="0.1" />
-	</append>
-
-	<append xpath="/lootcontainers/lootgroup[@name='survivalMedical']">
-		<item name="medicalAdvancedFirstAidBandage" />
-		<item name="drugAdrenaline" />
-		<item name="drugAntibioticsShot" prob="0.1" />
-	</append>
-
-	<append xpath="/lootcontainers/lootgroup[@name='groupMedicalUncommon']">
-		<item name="medicalAdvancedFirstAidBandage" loot_prob_template="low" />
-		<item name="drugAdrenaline" />
-	</append>
-
-	<append xpath="/lootcontainers/lootgroup[@name='schematicsModsAndGeneralT2']">
-		<item name="medicalAdvancedFirstAidBandageSchematic" />
-		<item name="medicalAdvancedFirstAidKitSchematic" />
-		<item name="drugAdrenaline" />
-	</append>
-	
-	<append xpath="/lootcontainers/lootgroup[@name='schematicsWeaponsArmorT2']">
-	
-	</append>
-	<!-- NightVision Mod -->
-
-	<!-- Whisperer Stuff -->
-
-	<append xpath="/lootcontainers/lootgroup[@name='rottenFood']">
-		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
-	</append>
-	<append xpath="/lootcontainers/lootgroup[@name='groupZpackReg']">
-		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
-	</append>
-	<append xpath="/lootcontainers/lootgroup[@name='groupZpackStrong']">
-		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
-	</append>
-	<append xpath="/lootcontainers/lootgroup[@name='groupZpackBoss']">
-		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
-	</append>
-
-
-	<!-- Ultimate Tool -->
-
-	<append xpath="/lootcontainers/lootgroup[@name='schematicsToolsRare']">
-		<item name="ultimateToolSchematic" />
-	</append>
-	<append xpath="lootcontainers/lootgroup[@name='groupQuestTools']">
-		<item name="UltimateTool" loot_prob_template="GradeCLoot" />
-	</append>
-	<append xpath="lootcontainers/lootgroup[@name='groupWorkingStiffs03']">
-		<item name="UltimateTool" />
-	</append>
-
-
-	<!-- Bicycle Parts -->
-
-	<append xpath="/lootcontainers/lootcontainer[@name='dumpster']">
-		<item group="bicycleParts" loot_prob_template="Low" />
-		<item group="schematicsVehiclesT0" loot_prob_template="veryLow" />
-	</append>
-
-	<append xpath="/lootcontainers/lootcontainer[@name='dumpster']">
-		<item name="vehicleBicyclePlaceable" loot_prob_template="veryLow" />
-	</append>
-
-	<!-- Vehicle parts in air drops, Better Air Drops -->
-
-	<append xpath="/lootcontainers/lootcontainer[@name='airDrop']">
-		<item group="vehiclePartsTiered" count="4" />
-		<item group="vehicleModSchematics01" prob="0.25" count="1" />
-		<item group="vehicleModSchematics02" prob="0.15" count="1" />
-		<item group="vehicleModSchematics03" prob="0.05" count="1" />
-		<item group="schematicsVehiclesT1" prob="0.1" count="1" />
-		<item group="groupAmmoRegularT2" prob="0.1" count="50" />
-		<item group="groupAmmoAdvanced" prob="0.05" count="4" />
-		<item group="groupWeaponsMeleeScaledNoStone" prob="0.05" count="2" />
-		<item group="groupWeaponsRangedScaledNoStone" prob="0.05" count="2" />
-	</append>
-
-	<!-- Added mods to T3 loot-->
-
-	<append xpath="/lootcontainers/lootgroup[@name='modGunT3']">
-		<item name="modGunShotgunBoomstick" />
-		<item name="modGunMeleeFeelTheHeat" />
-		<item name="modGunHeadShot" />
-		<item name="modArmorHelmetNightvision" />
-	</append>
-
-	<append xpath="/lootcontainers/lootgroup[@name='modArmorT3']">
-		<item name="modJumpBoots" />
-	</append>
 	<!-- 
 	<append xpath="/lootcontainers/lootgroup[@name='groupWeaponsT2_Melee']">
 	<item name="meleeWpnBatonT3StunBaton"/>
@@ -233,8 +118,8 @@
 		
 		<!-- Soldier corpse loot -->
 		<lootgroup name="lootBagSoldier">
-			<item name="apparelArmyShirt" prob=".099"/>
-			<item name="apparelArmyPants" prob=".099"/>
+			<item name="apparelArmyShirt" prob=".05"/>
+			<item name="apparelArmyPants" prob=".05"/>
 			
 			<item name="gunShotgunT2PumpShotgun" count=".05"/>
 			<item name="gunHandgunT1Pistol"  prob=".05"/>
@@ -2366,5 +2251,123 @@
 		</lootcontainer>
 	</append>
 
+
+	<!-- Foods -->
+	
+	<append xpath="/lootcontainers/lootgroup[@name='groupFoodCommon']">
+		<item name="foodHamSandwich" count="1,3" loot_prob_template="veryLow" />
+		<item name="foodBeefTacos" count="1,3" loot_prob_template="veryLow" />
+		<item name="foodChickenStew" count="1,5" loot_prob_template="veryLow" />
+		<item name="drinkFruitSmoothie" count="1,5" loot_prob_template="veryLow" />
+		<item name="drinkJarBlueBeer" count="1,5" loot_prob_template="veryLow" />
+	</append>
+	
+	<!-- Energy Drink -->
+
+	<append xpath="/lootcontainers/lootgroup[@name='groupDrinksUncommon']">
+		<item name="drinkBangPeach" count="1,2" loot_prob_template="veryLow" />
+		<item name="drinkBlueberryBliss" count="1,2" loot_prob_template="veryLow" />
+		<item name="drinkStrawberryMilk" count="1,2" loot_prob_template="veryLow" />
+		<item name="drinkRagingRaspberry" count="1,2" loot_prob_template="veryLow" />
+	</append>
+
+	<!-- Medical First Aid Bandage -->
+
+	<append xpath="/lootcontainers/lootgroup[@name='groupMedicalRare']">
+		<item name="medicalAdvancedFirstAidKit" loot_prob_template="veryLow" />
+		<item name="drugAdrenaline" prob="0.1" />
+		<item name="drugAntibioticsShot" prob="0.1" />
+	</append>
+
+	<append xpath="/lootcontainers/lootgroup[@name='survivalMedical']">
+		<item name="medicalAdvancedFirstAidBandage" />
+		<item name="drugAdrenaline" />
+		<item name="drugAntibioticsShot" prob="0.1" />
+	</append>
+
+	<append xpath="/lootcontainers/lootgroup[@name='groupMedicalUncommon']">
+		<item name="medicalAdvancedFirstAidBandage" loot_prob_template="low" />
+		<item name="drugAdrenaline" />
+	</append>
+
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsModsAndGeneralT2']">
+		<item name="medicalAdvancedFirstAidBandageSchematic" />
+		<item name="medicalAdvancedFirstAidKitSchematic" />
+		<item name="drugAdrenaline" />
+	</append>
+	
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsWeaponsArmorT2']">
+	
+	</append>
+	<!-- NightVision Mod -->
+
+	<!-- Whisperer Stuff -->
+
+	<append xpath="/lootcontainers/lootgroup[@name='rottenFood']">
+		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
+	</append>
+	<append xpath="/lootcontainers/lootgroup[@name='groupZpackReg']">
+		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
+	</append>
+	<append xpath="/lootcontainers/lootgroup[@name='groupZpackStrong']">
+		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
+	</append>
+	<append xpath="/lootcontainers/lootgroup[@name='groupZpackBoss']">
+		<item name="zombieSkin" count="0,2" loot_prob_template="veryLow" />
+	</append>
+
+
+	<!-- Ultimate Tool -->
+
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsToolsRare']">
+		<item name="ultimateToolSchematic" />
+	</append>
+	<append xpath="lootcontainers/lootgroup[@name='groupQuestTools']">
+		<item name="UltimateTool" loot_prob_template="GradeCLoot" />
+	</append>
+	<append xpath="lootcontainers/lootgroup[@name='groupWorkingStiffs03']">
+		<item name="UltimateTool" />
+	</append>
+
+
+	<!-- Bicycle Parts -->
+
+	<append xpath="/lootcontainers/lootcontainer[@name='dumpster']">
+		<item group="bicycleParts" loot_prob_template="Low" />
+		<item group="schematicsVehiclesT0" loot_prob_template="veryLow" />
+	</append>
+
+	<append xpath="/lootcontainers/lootcontainer[@name='dumpster']">
+		<item name="vehicleBicyclePlaceable" loot_prob_template="veryLow" />
+	</append>
+
+	<!-- Vehicle parts in air drops, Better Air Drops -->
+
+	<append xpath="/lootcontainers/lootcontainer[@name='airDrop']">
+		<item group="vehiclePartsTiered" count="4" />
+		<item group="vehicleModSchematics01" prob="0.25" count="1" />
+		<item group="vehicleModSchematics02" prob="0.15" count="1" />
+		<item group="vehicleModSchematics03" prob="0.05" count="1" />
+		<item group="schematicsVehiclesT1" prob="0.1" count="1" />
+		<item group="groupAmmoRegularT2" prob="0.1" count="50" />
+		<item group="groupAmmoAdvanced" prob="0.05" count="4" />
+		<item group="groupWeaponsMeleeScaledNoStone" prob="0.05" count="2" />
+		<item group="groupWeaponsRangedScaledNoStone" prob="0.05" count="2" />
+		<item group="groupFoodCommon" prob="0.05" count="5" />
+		<item group="foodGoodCan" prob="0.05" count="5" />
+	</append>
+
+	<!-- Added mods to T3 loot-->
+
+	<append xpath="/lootcontainers/lootgroup[@name='modGunT3']">
+		<item name="modGunShotgunBoomstick" />
+		<item name="modGunMeleeFeelTheHeat" />
+		<item name="modGunHeadShot" />
+		<item name="modArmorHelmetNightvision" />
+	</append>
+
+	<append xpath="/lootcontainers/lootgroup[@name='modArmorT3']">
+		<item name="modJumpBoots" />
+	</append>
 
 </configs>
