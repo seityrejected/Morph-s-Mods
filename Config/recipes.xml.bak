@@ -1,6 +1,65 @@
 <configs>
 
-	<append xpath="/recipes">
+	<append xpath="/recipes">+
+		
+		<!-- recessed light mine -->
+		
+		<recipe name="rRecessedLightMine" count="1" > 
+			<ingredient name="resourceScrapIron" count="4"/>
+			<ingredient name="resourceGunPowder" count="4"/>
+			<ingredient name="resourceNail" count="1"/>
+			<ingredient name="resourceDuctTape" count="1"/>
+		</recipe>
+		
+		<!-- Paintings -->
+		<recipe name="paintingBen" count="1" craft_area="workbench">
+		<ingredient name="meleeToolPaintTool" />
+		<ingredient name="resourcePaint" />
+		<ingredient name="resourceWood" count="10" />
+		<ingredient name="resourceCloth" count="5" />
+		<ingredient name="resourceGlue" count="2" />
+		</recipe>
+		<recipe name="paintingDerek" count="1" craft_area="workbench">
+		<ingredient name="meleeToolPaintTool" />
+		<ingredient name="resourcePaint" />
+		<ingredient name="resourceWood" count="10" />
+		<ingredient name="resourceCloth" count="5" />
+		<ingredient name="resourceGlue" count="2" />
+		</recipe>
+		<recipe name="paintingDuke" count="1" craft_area="workbench">
+		<ingredient name="meleeToolPaintTool" />
+		<ingredient name="resourcePaint" />
+		<ingredient name="resourceWood" count="10" />
+		<ingredient name="resourceCloth" count="5" />
+		<ingredient name="resourceGlue" count="2" />
+		</recipe>
+		<recipe name="paintingKen" count="1" craft_area="workbench">
+		<ingredient name="meleeToolPaintTool" />
+		<ingredient name="resourcePaint" />
+		<ingredient name="resourceWood" count="10" />
+		<ingredient name="resourceCloth" count="5" />
+		<ingredient name="resourceGlue" count="2" />
+		</recipe>
+		<recipe name="paintingLorien" count="1" craft_area="workbench">
+		<ingredient name="meleeToolPaintTool" />
+		<ingredient name="resourcePaint" />
+		<ingredient name="resourceWood" count="10" />
+		<ingredient name="resourceCloth" count="5" />
+		<ingredient name="resourceGlue" count="2" />
+		</recipe>
+		<recipe name="paintingNoah" count="1" craft_area="workbench">
+		<ingredient name="meleeToolPaintTool" />
+		<ingredient name="resourcePaint" />
+		<ingredient name="resourceWood" count="10" />
+		<ingredient name="resourceCloth" count="5" />
+		<ingredient name="resourceGlue" count="2" />
+		</recipe>
+		<!-- Burning Barrel -->
+		<recipe name="burningBarrel" count="1" craft_area="workbench">
+		<ingredient name="resourceScrapIron" count="5" />
+		<ingredient name="resourceOil" count="3" />
+		</recipe>
+	
 		<!-- Hazmat gear -->
 		<recipe name="apparelHazmatBoots" count="1" craft_area="workbench" tags="learnable">
 			<ingredient name="resourceMilitaryFiber" count="5"/>
@@ -135,14 +194,14 @@
 		<!-- Medical First Aid Kit -->
 
 		<recipe name="medicalAdvancedFirstAidBandage" count="1" craft_time="5"
-			tags="perkPhysician,learnable">
+			tags="perkPhysician,learnable" craft_area="chemistryStation">
 			<ingredient name="medicalAloeCream" count="2" />
 			<ingredient name="resource13erserkCleanCloth" count="1" />
 			<ingredient name="resourceSewingKit" count="1" />
 		</recipe>
 
 		<recipe name="medicalAdvancedFirstAidKit" count="1" craft_time="5"
-			tags="perkPhysician,learnable">
+			tags="perkPhysician,learnable" craft_area="chemistryStation">
 			<ingredient name="medicalBloodBag" count="2" />
 			<ingredient name="drinkJarBeer" count="2" />
 			<ingredient name="medicalBandage" count="10" />

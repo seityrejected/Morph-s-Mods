@@ -16,7 +16,7 @@
 		<removeattribute xpath="/traders/trader_info[@id='8']/@close_time" />
 		
 		<append xpath="/traders/trader_item_groups/trader_item_group[@name='generalResources']">
-			<item name="ammoGasCan" count="100" prob=".25"/>
+			<item name="ammoGasCan" count="100" prob=".5"/>
 		</append>
 		
 		<set xpath="/traders/trader_item_groups/trader_item_group[@name='rareMedicine']">

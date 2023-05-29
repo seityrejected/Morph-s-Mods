@@ -1585,6 +1585,29 @@
 			</effect_group>
 		</item>
 
+		<!-- Giant Snake Damage -->
+		<item name="meleeHandanimalGiantSnake">
+			<property name="Extends" value="meleeHandMaster" />
+			<property name="CreativeMode" value="None" />
+			<property name="HoldType" value="55" />
+			<property class="Action0">
+				<property name="Delay" value="1.25" />
+				<property name="Range" value="1" />
+				<property name="DamageEntity" value="15" />
+				<property name="DamageBlock" value="10" />
+			</property>
+			<effect_group name="meleeHandanimalBabySnake" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0" />
+				<!--<passive_effect
+				name="AttacksPerMinute" operation="base_set" value="75"/>  A16 .8 -->
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other"
+					fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11" />
+			</effect_group>
+		</item>
+
+
 		<!-- Baby Snake Damage -->
 		<item name="meleeHandanimalBabySnake">
 			<property name="Extends" value="meleeHandMaster" />
@@ -2353,6 +2376,20 @@
 		<!-- Grenades & Molotovs -->
 		<set xpath="/items/item[starts-with(@name, 'tool')]/property[@name='Stacknumber']/@value">25</set>
 
+		<!-- rocket turret schematic -->
+		
+		<item name="autoRocketTurretSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="autoTurret"/>
+			<property name="CustomIconTint" value="0,255,0"/>
+			<property name="Unlocks" value="autoHeavyTurret"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="autoRocketTurret" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		
 
 	</append>
 

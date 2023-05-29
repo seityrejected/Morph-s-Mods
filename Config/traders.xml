@@ -63,6 +63,13 @@
 				<item group="ammo" count="14,50" prob="4" />
 		</insertAfter>
 
+	<set xpath="/traders/trader_info[@id='1']/@reset_interval">2</set>
+    <set xpath="/traders/trader_info[@id='6']/@reset_interval">2</set>
+    <set xpath="/traders/trader_info[@id='2']/@reset_interval">2</set>
+    <set xpath="/traders/trader_info[@id='7']/@reset_interval">2</set>
+    <set xpath="/traders/trader_info[@id='8']/@reset_interval">2</set>
+
+
 			
 			
 </configs>

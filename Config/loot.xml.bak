@@ -2277,17 +2277,20 @@
 		<item name="medicalAdvancedFirstAidKit" loot_prob_template="veryLow" />
 		<item name="drugAdrenaline" prob="0.1" />
 		<item name="drugAntibioticsShot" prob="0.1" />
+		<item name="resource13erserkCleanCloth" />
 	</append>
 
 	<append xpath="/lootcontainers/lootgroup[@name='survivalMedical']">
 		<item name="medicalAdvancedFirstAidBandage" />
 		<item name="drugAdrenaline" />
 		<item name="drugAntibioticsShot" prob="0.1" />
+		<item name="resource13erserkCleanCloth" loot_prob_template="low" />
 	</append>
 
 	<append xpath="/lootcontainers/lootgroup[@name='groupMedicalUncommon']">
 		<item name="medicalAdvancedFirstAidBandage" loot_prob_template="low" />
 		<item name="drugAdrenaline" />
+		<item name="resource13erserkCleanCloth" />
 	</append>
 
 	<append xpath="/lootcontainers/lootgroup[@name='schematicsModsAndGeneralT2']">
@@ -2354,7 +2357,6 @@
 		<item group="groupWeaponsMeleeScaledNoStone" prob="0.05" count="2" />
 		<item group="groupWeaponsRangedScaledNoStone" prob="0.05" count="2" />
 		<item group="groupFoodCommon" prob="0.05" count="5" />
-		<item group="foodGoodCan" prob="0.05" count="5" />
 	</append>
 
 	<!-- Added mods to T3 loot-->

@@ -107,9 +107,9 @@
 				<property name="EntityDamage" value="200"/>
 				<property name="BlockDamage" value="150"/>
 				<property name="RaySpread" value="2.6"/> <!-- Spread 2.6deg: 1m cone (55% hit) @ 22m -->
-				<property name="BurstRoundCount" value="1"/>
+				<property name="BurstRoundCount" value="2"/>
 				<property name="BurstFireRate" value="0.91"/>
-				<property name="CooldownTime" value="5"/>
+				<property name="CooldownTime" value="4"/>
 				<property name="OvershootTime" value="0.4"/>
 				<property name="FallAsleepTime" value="10"/>
 				<property name="WakeUpTime" value="0.5"/>
@@ -118,16 +118,16 @@
 				<property name="ParticlesMuzzleFire" value="nozzleflash_shotgun"/>
 				<property name="ParticlesMuzzleSmoke" value="nozzlesmokeuzi"/>
 				<property name="DamageBonus.head" value="3"/>
-				<property name="DamageBonus.glass" value="10"/>
-				<property name="DamageBonus.wood" value="3"/>
-				<property name="DamageBonus.earth" value="0.5"/>
-				<property name="DamageBonus.stone" value="0.5"/>
+				<property name="DamageBonus.glass" value="1"/>
+				<property name="DamageBonus.wood" value="2"/>
+				<property name="DamageBonus.earth" value="0.2"/>
+				<property name="DamageBonus.stone" value="0.2"/>
 				<property name="DamageBonus.metal" value="0.2"/>
 				<property name="TargetingSound" value="turret_retarget_lp"/>
 				<property name="OverheatSound" value="turret_overheat_lp"/>
 				<property name="WakeUpSound" value="turret_windup"/>
 				<property name="FireSound" value="turret_fire"/>
-				<property name="RequiredPower" value="30"/>
+				<property name="RequiredPower" value="15"/>
 				<property name="UnlockedBy" value="perkAdvancedEngineering,autoTurretSchematic"/>
 				<property name="IgnoreKeystoneOverlay" value="true"/>
 				<property class="RepairItems">

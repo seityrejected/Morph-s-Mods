@@ -64,10 +64,19 @@ zombieSpiderScreamer,entityclasses,Entity,,,Spider Screamer
 zombieGiantPartyGirl,entityclasses,Entity,,,Giant Party Girl
 animalGiantSnake,entityclasses,Entity,,,Giant Snake
 zombieTinySpider,entityclasses,Entity,,,Tiny Spider Zombie
-
+zombieWightFeralPuker,entityclasses,Entity,,,Zombie Wight Puker
+zombieWeasley,entityclasses,Entity,,,Zombie Weasley
+zombieWeasleyFeral,entityclasses,Entity,,,Zombie Weasley Feral
+zombieWeasleyRadiated,entityclasses,Entity,,,Zombie Weasley Radiated
 zombieSpiderTomClark,entityclasses,Entity,,,Spider Tom Clark
 zombieSpiderTomClarkFeral,entityclasses,Entity,,,Feral Spider Tom Clark
 zombieSpiderTomClarkRadiated,entityclasses,Entity,,,Radiated Spider Tom Clark
+zombiePrecious,entityclasses,Entity,,,Zombie Precious
+zombiePreciousFeral,entityclasses,Entity,,,Zombie Precious Feral
+zombiePreciousRadiated,entityclasses,Entity,,,Zombie Precious Radiated
+zombieMutatedPotatoHead,entityclasses,Entity,,,Mr. Potato Head
+zombieMutatedPotatoHeadFeral,entityclasses,Entity,,,Mr. Potato Head
+zombieMutatedPotatoHeadRadiated,entityclasses,Entity,,,Mr. Potato Head
 
 ammo762Incendiary,items,7.62 Incendiary,,,7.62 Incendiary
 ammo762IncendiaryDesc,items,7.62 Incendiary,,,Incendiary 7.62 Ammo

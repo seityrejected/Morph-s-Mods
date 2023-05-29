@@ -163,6 +163,51 @@
 			</effect_group>
 		</buff>
 	</append>
+	
+	<!-- The scent of prey -->
+	
+	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+		<effect_group name="Get Stalked">
+			<!-- the values on the random roll are intentionally low because the check will be made frequently so the odds of having it not hit when carrying the offending item for more than 10 seconds are quite low. More likely a hunt for meat will result in being chased by wolves or worse all the way home. -->
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffScentofPrey">
+				<requirement name="PlayerItemCount" item_name="foodRawMeat" operation="GTE" value="1"/><requirement name="NotHasBuff" buff="buffScentofPrey"/><requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="8"/></triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffScentofPrey">
+				<requirement name="PlayerItemCount" item_name="resourceAnimalFat" operation="GTE" value="1"/><requirement name="NotHasBuff" buff="buffScentofPrey"/><requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffScentofPrey">
+				<requirement name="PlayerItemCount" item_name="foodRottingFlesh" operation="GTE" value="1"/><requirement name="NotHasBuff" buff="buffScentofPrey"/><requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/></triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" target="self" buff="buffScentofPrey">
+				<requirement name="PlayerItemCount" item_name="medicalBloodBag" operation="GTE" value="1"/><requirement name="NotHasBuff" buff="buffScentofPrey"/><requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/></triggered_effect>
+		</effect_group>
+		
+		
+		<buff name="buffScentofPrey" hidden="false" name_key="buffScentofPreyName" description_key="buffScentofPreyDesc" icon="ui_game_symbol_smell" icon_color="219,124,29" showonhud="true" >
+			<stack_type value="replace"/>
+			<duration value="30"/>
+			<effect_group name="Get Noticed">
+				<requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="LTE" value="1"/>
+					<passive_effect name="LightMultiplier" operation="perc_add" value=".67">
+						<requirement name="CVarCompare" cvar="_lightlevel" operation="LTE" value="65"/>
+					</passive_effect>
+					<passive_effect name="NoiseMultiplier" operation="perc_add" value="3"/>
+					<passive_effect name="EnemySearchDuration" operation="perc_add" value="3"/>
+			</effect_group>
+			<effect_group name="Get Seen Low">
+				<requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="GTE" value="2"/>
+					<passive_effect name="LightMultiplier" operation="perc_add" value=".33">
+						<requirement name="CVarCompare" cvar="_lightlevel" operation="LTE" value="65"/>
+					</passive_effect>
+					<passive_effect name="NoiseMultiplier" operation="perc_add" value="1"/>
+					<passive_effect name="EnemySearchDuration" operation="perc_add" value="1"/>
+			</effect_group>
+			<effect_group name="Get Spawns">
+				<requirement name="ProgressionLevel" progression_name="perkFromTheShadows" operation="LTE" value="4"/>
+					<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="mj_predators_horde1">
+						<requirement name="RandomRoll" seed_type="Random" min_max="0,200" operation="LTE" value="3"/>
+					</triggered_effect>				
+			</effect_group>
+		</buff>
+	</append>
+	
 
 	<!-- stun Baton -->
 
